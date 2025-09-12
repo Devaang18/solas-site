@@ -43,15 +43,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#how-it-works" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/#how-it-works" className="text-slate-300 hover:text-white transition-colors">
                   How it Works
                 </Link>
               </li>
-              <li>
-                <Link href="#pricing" className="text-slate-300 hover:text-white transition-colors">
-                  Pricing
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/demo" className="text-slate-300 hover:text-white transition-colors">
                   Request Demo
@@ -69,11 +65,7 @@ export default function Footer() {
                   About
                 </Link>
               </li>
-              <li>
-                <Link href="#contact" className="text-slate-300 hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
+              
               <li>
                 <Link href="#privacy" className="text-slate-300 hover:text-white transition-colors">
                   Privacy Policy

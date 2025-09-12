@@ -24,23 +24,17 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="#features" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link href="/#features" className="text-slate-600 hover:text-slate-900 transition-colors">
               Features
             </Link>
-            <Link href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link href="/#how-it-works" className="text-slate-600 hover:text-slate-900 transition-colors">
               How it Works
             </Link>
-            <Link href="#industries" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link href="/#industries" className="text-slate-600 hover:text-slate-900 transition-colors">
               Industries
             </Link>
-            <Link href="#why-solas" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link href="/#why-solas" className="text-slate-600 hover:text-slate-900 transition-colors">
               Why Solas
-            </Link>
-            <Link href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors">
-              Pricing
-            </Link>
-            <Link href="#contact" className="text-slate-600 hover:text-slate-900 transition-colors">
-              Contact
             </Link>
           </nav>
 
@@ -85,46 +79,32 @@ export default function Header() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-slate-200">
               <Link
-                href="#features"
+                href="/#features"
                 className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Features
               </Link>
               <Link
-                href="#how-it-works"
+                href="/#how-it-works"
                 className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 How it Works
               </Link>
               <Link
-                href="#industries"
+                href="/#industries"
                 className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Industries
               </Link>
               <Link
-                href="#why-solas"
+                href="/#why-solas"
                 className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Why Solas
-              </Link>
-              <Link
-                href="#pricing"
-                className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="#contact"
-                className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
               </Link>
               <div className="pt-4 space-y-2">
                 <Link
