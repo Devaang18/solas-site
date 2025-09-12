@@ -50,12 +50,12 @@ export default function HowItWorks() {
                 <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-slate-300 transform translate-x-4 z-0"></div>
               )}
               
-              <div className="relative z-10 bg-white rounded-lg p-6 shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className="flex items-center justify-center w-12 h-12 bg-slate-800 text-white rounded-full text-lg font-bold mb-4 mx-auto">
+              <div className="relative z-10 bg-white rounded-lg p-6 shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 hover-lift">
+                <div className="flex items-center justify-center w-12 h-12 bg-slate-800 text-white rounded-full text-lg font-bold mb-4 mx-auto animate-pulse-glow">
                   {step.step}
                 </div>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4 border border-slate-200">
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4 border border-slate-200 hover-glow animate-bounce-subtle">
                     <span className="text-2xl">{step.icon}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-slate-900 mb-3">

@@ -38,27 +38,27 @@ export default function Hero() {
         {/* Hero Image/Visual */}
         <div className="mt-16 relative">
           <Reveal>
-          <div className="card card-hover p-8">
+          <div className="card card-hover p-8 hover-lift animate-scale-in">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">
                   Content Review Dashboard
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
+                  <div className="flex items-center space-x-3 animate-slide-in-left">
+                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center hover-glow">
                       <span className="text-slate-600 text-lg">✅</span>
                     </div>
                     <span className="text-slate-700">Compliance check passed</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
+                  <div className="flex items-center space-x-3 animate-slide-in-left" style={{animationDelay: '0.1s'}}>
+                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center hover-glow">
                       <span className="text-slate-600 text-lg">⚠️</span>
                     </div>
                     <span className="text-slate-700">Review required: promotional terms</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
+                  <div className="flex items-center space-x-3 animate-slide-in-left" style={{animationDelay: '0.2s'}}>
+                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center hover-glow">
                       <span className="text-slate-600 text-lg">🚫</span>
                     </div>
                     <span className="text-slate-700">Regulatory violation detected</span>

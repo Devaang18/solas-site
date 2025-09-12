@@ -37,8 +37,8 @@ export default function Benefits() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <Reveal key={index} delay={index * 0.1}>
-            <div className="card card-hover text-center p-8 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mx-auto mb-6 border border-slate-200">
+            <div className="card card-hover text-center p-8 transition-all duration-300 hover-lift">
+              <div className="w-16 h-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mx-auto mb-6 border border-slate-200 hover-glow animate-float">
                 <span className="text-3xl">{benefit.icon}</span>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-4">

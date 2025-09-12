@@ -35,8 +35,8 @@ export default function USP() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item, idx) => (
             <Reveal key={idx} delay={idx * 0.08}>
-              <div className="card card-hover p-6 h-full flex flex-col">
-                <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mb-4">
+              <div className="card card-hover p-6 h-full flex flex-col hover-lift">
+                <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mb-4 hover-glow animate-float">
                   <span className="text-2xl">{item.icon}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
