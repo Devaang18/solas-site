@@ -103,9 +103,10 @@ body {
   background: var(--solas-gray-400);
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling with offset for fixed header */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 64px; /* Account for fixed header height (h-16 = 64px) */
 }
 
 /* Scroll snapping setup */
@@ -156,6 +157,7 @@ html {
 /* Design utilities */
 .section {
   position: relative;
+  scroll-margin-top: 64px; /* Account for fixed header height (h-16 = 64px) */
 }
 
 .section-accent::before {

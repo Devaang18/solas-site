@@ -28,7 +28,7 @@ export default function USP() {
     <section id="why-solas" className="py-16 bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why teams choose Solas</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Features</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">Accuracy, transparency and trust—without exposing how we do it.</p>
         </div>
 

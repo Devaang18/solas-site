@@ -101,11 +101,11 @@ export default function Oracle() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Interactive Chat Interface */}
           <Reveal>
-            <div className="relative">
-              <div className="card p-0 overflow-hidden shadow-2xl border-0 bg-white hover-lift animate-scale-in">
+            <div className="relative h-full flex flex-col">
+              <div className="card p-0 overflow-hidden shadow-2xl border-0 bg-white hover-lift animate-scale-in h-full flex flex-col">
                 {/* Chat Header */}
                 <div className="bg-gradient-to-r from-teal-500 to-blue-600 p-6 text-white">
                   <div className="flex items-center justify-between">
@@ -128,7 +128,7 @@ export default function Oracle() {
                 </div>
 
                 {/* Chat Messages */}
-                <div className="p-6 space-y-4 min-h-[400px] bg-slate-50">
+                <div className="p-6 space-y-4 flex-grow bg-slate-50 flex flex-col justify-between">
                   {/* User Message */}
                   <div className="flex justify-end animate-slide-in-right">
                     <div className="max-w-[80%] bg-white rounded-2xl rounded-br-md p-4 shadow-sm border">
@@ -194,7 +194,7 @@ export default function Oracle() {
 
           {/* Stats and Process Steps */}
           <Reveal delay={0.2}>
-            <div className="space-y-8">
+            <div className="space-y-8 h-full flex flex-col">
               {/* Live Stats - Integrated into chat interface */}
               <div className="bg-white rounded-lg p-4 border border-slate-200">
                 <div className="flex items-center justify-between">
@@ -235,7 +235,7 @@ export default function Oracle() {
               </div>
 
               {/* Process Steps */}
-              <div className="space-y-6">
+              <div className="space-y-6 flex-grow">
                 {steps.map((step, index) => (
                   <div key={index} className="flex items-start space-x-4 p-4 rounded-xl bg-white/60 border border-slate-200 hover:shadow-md transition-all duration-300">
                     <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center flex-shrink-0">
