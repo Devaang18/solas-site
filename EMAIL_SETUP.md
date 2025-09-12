@@ -1,7 +1,7 @@
 # Email Setup for Demo Form
 
 ## Overview
-The demo form now sends emails to `devaang@solascompliance.com` when users submit their information. The form requires users to consent to being contacted before submission.
+The demo form now sends emails to `neil@solascompliance.com` when users submit their information. The form requires users to consent to being contacted before submission.
 
 ## Features Implemented
 
@@ -12,7 +12,7 @@ The demo form now sends emails to `devaang@solascompliance.com` when users submi
 - Visual indicator (red asterisk) showing the field is required
 
 ### ✅ Email Sending
-- Emails sent to: `devaang@solascompliance.com`
+- Emails sent to: `neil@solascompliance.com`
 - Includes all form data in a formatted email
 - Subject line includes user name and company
 - Both HTML and plain text versions

@@ -18,13 +18,17 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "Consent to be contacted is required" }, { status: 400 });
     }
 
-    // Create email transporter (using Gmail SMTP as example)
-    // You'll need to set up environment variables for production
+    // Create email transporter using custom SMTP settings
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL_USER || 'your-email@gmail.com',
-        pass: process.env.EMAIL_PASS || 'your-app-password'
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
+      },
+      tls: {
+        rejectUnauthorized: false // Allow self-signed certificates if needed
       }
     });
 
@@ -52,8 +56,8 @@ This request was submitted from the Solas website demo form.
     // Send email
     try {
       await transporter.sendMail({
-        from: process.env.EMAIL_USER || 'your-email@gmail.com',
-        to: 'devaang@solascompliance.com',
+        from: process.env.SMTP_USER,
+        to: 'neil@solascompliance.com',
         subject: `New Demo Request - ${body.firstName} ${body.lastName} from ${body.company}`,
         text: emailContent,
         html: emailContent.replace(/\n/g, '<br>')
