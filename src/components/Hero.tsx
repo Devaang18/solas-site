@@ -7,13 +7,14 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <Reveal>
-            <h1 className="heading-gradient text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Real‑time compliance for high‑velocity marketing teams
+            <h1 className="heading-gradient text-4xl md:text-6xl font-bold mb-3 tracking-tight">
+              Real-time marketing compliance
             </h1>
+            <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-6">without the friction</h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-              Catch potential breaches before content goes live. Keep your brand safe and your campaigns moving—backed by explainable, audit‑ready checks.
+              Solas flags potential regulatory breaches in content before publication, helping compliance and marketing teams move fast without risking fines or brand damage.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -45,26 +46,20 @@ export default function Hero() {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center">
-                      <svg className="w-3.5 h-3.5 text-emerald-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                        <path d="M10 15l-3.5-3.5 1.41-1.41L10 12.17l6.09-6.09L17.5 7.5z" />
-                      </svg>
+                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
+                      <span className="text-slate-600 text-lg">✅</span>
                     </div>
                     <span className="text-slate-700">Compliance check passed</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center">
-                      <svg className="w-3.5 h-3.5 text-amber-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                        <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm1 14h-2v-2h2zm0-4h-2V7h2z" />
-                      </svg>
+                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
+                      <span className="text-slate-600 text-lg">⚠️</span>
                     </div>
                     <span className="text-slate-700">Review required: promotional terms</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-5 h-5 rounded-full bg-rose-100 border border-rose-300 flex items-center justify-center">
-                      <svg className="w-3.5 h-3.5 text-rose-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                        <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"/>
-                      </svg>
+                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
+                      <span className="text-slate-600 text-lg">🚫</span>
                     </div>
                     <span className="text-slate-700">Regulatory violation detected</span>
                   </div>

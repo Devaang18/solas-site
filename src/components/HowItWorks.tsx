@@ -5,44 +5,28 @@ export default function HowItWorks() {
       title: "Upload Content",
       description: "Submit ads, landing pages, emails or scripts. Connect via web, plugins or API.",
       colorClasses: "bg-cyan-50 text-cyan-600 border-cyan-200",
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-          <path d="M4 4h11a2 2 0 012 2v3h1a2 2 0 012 2v7a2 2 0 01-2 2H9l-5 0a2 2 0 01-2-2V6a2 2 0 012-2zm13 5V6H4v12h5v-5a1 1 0 011-1h7z"/>
-        </svg>
-      )
+      icon: "📤"
     },
     {
       step: "2",
       title: "Smart Checks",
       description: "Your policies and UK guidance are referenced to flag what matters most for that content.",
       colorClasses: "bg-emerald-50 text-emerald-600 border-emerald-200",
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-          <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm-1 14l-3-3 1.414-1.414L11 12.172l4.586-4.586L17 9z"/>
-        </svg>
-      )
+      icon: "🔍"
     },
     {
       step: "3",
       title: "Clear Feedback",
       description: "Pass/fail with why, references to your policies, and suggestions to fix.",
       colorClasses: "bg-indigo-50 text-indigo-600 border-indigo-200",
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-          <path d="M4 4h16v2H4zm0 4h16v10a2 2 0 01-2 2H6a2 2 0 01-2-2zM7 12h10v2H7zm0 4h7v2H7z" />
-        </svg>
-      )
+      icon: "💬"
     },
     {
       step: "4",
       title: "Publish with Confidence",
       description: "Launch with an audit trail your team can stand behind—fast and safe.",
       colorClasses: "bg-amber-50 text-amber-600 border-amber-200",
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.56 5.82 22 7 14.15l-5-4.88 6.91-1.01z"/>
-        </svg>
-      )
+      icon: "🚀"
     }
   ];
 
@@ -71,8 +55,8 @@ export default function HowItWorks() {
                   {step.step}
                 </div>
                 <div className="text-center">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 border ${step.colorClasses ?? "bg-slate-100 text-slate-600 border-slate-200"}`}>
-                    {step.icon}
+                  <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4 border border-slate-200">
+                    <span className="text-2xl">{step.icon}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-slate-900 mb-3">
                     {step.title}

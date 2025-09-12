@@ -11,7 +11,9 @@ export default function Industries() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-8 rounded-2xl border border-slate-200 hover:shadow-xl transition-all">
-            
+            <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center mb-4">
+              <span className="text-2xl">🎯</span>
+            </div>
             <h3 className="text-xl font-semibold text-slate-900 mb-2">Consumer Promotions</h3>
             <p className="text-slate-600 mb-4">Help ensure ads and offers are clear, fair and not misleading—surface significant terms and avoid risky wording.</p>
             <ul className="text-sm text-slate-600 space-y-2">
@@ -22,6 +24,9 @@ export default function Industries() {
           </div>
 
           <div className="card card-hover p-8">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mb-4">
+              <span className="text-2xl">📈</span>
+            </div>
             <h3 className="text-xl font-semibold text-slate-900 mb-2">Performance Marketing</h3>
             <p className="text-slate-600 mb-4">Standardise checks across landing pages, ads, and emails—keep speed and protect conversion.</p>
             <ul className="text-sm text-slate-600 space-y-2">
@@ -32,6 +37,9 @@ export default function Industries() {
           </div>
 
           <div className="card card-hover p-8">
+            <div className="w-12 h-12 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl flex items-center justify-center mb-4">
+              <span className="text-2xl">🏛️</span>
+            </div>
             <h3 className="text-xl font-semibold text-slate-900 mb-2">Regulated Brands</h3>
             <p className="text-slate-600 mb-4">From finance to health—supporting teams that move fast while meeting sector rules and internal policies.</p>
             <ul className="text-sm text-slate-600 space-y-2">
