@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-16 bg-gradient-to-br from-white to-amber-50">
+    <section id="industries" className="py-16 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Built for your industry</h2>

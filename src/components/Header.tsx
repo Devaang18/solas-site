@@ -24,7 +24,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/#why-solas" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link href="/#features" className="text-slate-600 hover:text-slate-900 transition-colors">
               Why Solas
             </Link>
             <Link href="/#how-it-works" className="text-slate-600 hover:text-slate-900 transition-colors">
@@ -33,7 +33,7 @@ export default function Header() {
             <Link href="/#industries" className="text-slate-600 hover:text-slate-900 transition-colors">
               Industries
             </Link>
-            <Link href="/#features" className="text-slate-600 hover:text-slate-900 transition-colors">
+            <Link href="/#why-solas" className="text-slate-600 hover:text-slate-900 transition-colors">
               Features
             </Link>
           </nav>
@@ -79,7 +79,7 @@ export default function Header() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-slate-200">
               <Link
-                href="/#why-solas"
+                href="/#features"
                 className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -100,7 +100,7 @@ export default function Header() {
                 Industries
               </Link>
               <Link
-                href="/#features"
+                href="/#why-solas"
                 className="block px-3 py-2 text-slate-600 hover:text-slate-900 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >

@@ -1,46 +1,55 @@
 import Reveal from '@/components/Reveal';
 
 export default function USP() {
-  const items = [
+  const features = [
     {
-      title: 'Purpose‑built for compliance',
-      description: 'Not a generic chatbot. A system designed to reflect your policies and sector guidance.',
+      title: 'Compliance Engine Aligned with Your Policy',
+      description: 'Solas is purpose-built for compliance, not just a generic chatbot. It is designed to deeply reflect industry regulations, company policies, and sector-specific guidance, giving teams assurance that every recommendation is aligned with the rules that apply.',
       icon: '🎯'
     },
     {
-      title: 'Transparent, explainable results',
-      description: 'Every decision comes with clear reasoning and pointers back to your policy sources.',
+      title: 'Transparent and Explainable Decisions',
+      description: 'Every compliance decision is explained with clear, traceable reasoning, including references back to original policy documents and regulatory sources. Teams get source-linked explanations so they know exactly why and how each outcome was determined, supporting review and audit.',
       icon: '🔍'
     },
     {
-      title: 'Secure and auditable by design',
-      description: 'Privacy‑first handling with an audit trail your team can trust and verify.',
+      title: 'Privacy, Security, and Full Audit Trail',
+      description: 'Solas is secure and auditable by design, handling sensitive data according to best-in-class privacy practices with detailed audit logs for every action. This ensures every step is recorded and verifiable, making Solas suitable for regulated industries and internal governance needs.',
       icon: '🔒'
     },
     {
-      title: 'Built for speed and scale',
-      description: 'From a single campaign to enterprise roll‑outs—keeps quality high without slowing teams.',
+      title: 'Fast, Scalable Content Review',
+      description: 'Solas delivers high-speed, automated compliance checks for marketing campaigns, from single pieces to enterprise-scale campaign rollouts, without sacrificing accuracy or quality. Automated workflows, real-time monitoring, and centralised content review ensure fast feedback and scalable operations.',
       icon: '⚡'
+    },
+    {
+      title: 'Centralised Collaboration and Integration',
+      description: 'The platform provides a centralised system for cross-team collaboration, approvals, and communication between compliance, legal, and marketing teams. Solas integrates with your existing tools and processes, streamlining reviews and helping teams work faster together.',
+      icon: '🤝'
     }
   ];
 
   return (
-    <section id="why-solas" className="py-16 bg-gradient-to-br from-slate-50 to-slate-100">
+    <section id="why-solas" className="py-16 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Features</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">Accuracy, transparency and trust—without exposing how we do it.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item, idx) => (
-            <Reveal key={idx} delay={idx * 0.08}>
-              <div className="card card-hover p-6 h-full flex flex-col hover-lift">
-                <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center mb-4 hover-glow animate-float">
-                  <span className="text-2xl">{item.icon}</span>
+        <div className="max-w-4xl mx-auto space-y-8">
+          {features.map((feature, idx) => (
+            <Reveal key={idx} delay={idx * 0.1}>
+              <div className="card card-hover p-8 hover-lift">
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center flex-shrink-0 border border-slate-200 hover-glow animate-float">
+                    <span className="text-3xl">{feature.icon}</span>
+                  </div>
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-semibold text-slate-900 mb-3">{feature.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed flex-grow">{item.description}</p>
               </div>
             </Reveal>
           ))}

@@ -15,17 +15,28 @@ export default function DemoPage() {
     const formData = new FormData(event.currentTarget);
     const payload = Object.fromEntries(formData.entries());
 
+    // Client-side validation for consent
+    if (!payload.consent) {
+      setStatus("error");
+      setError("You must agree to be contacted to submit this form.");
+      return;
+    }
+
     try {
       const res = await fetch("/api/demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Request failed");
+      
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Request failed");
+      }
       setStatus("success");
     } catch (e) {
       setStatus("error");
-      setError("Something went wrong. Please try again.");
+      setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
     }
   }
 
@@ -47,27 +58,27 @@ export default function DemoPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="firstName">First name</label>
-                <input required name="firstName" id="firstName" className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                <input required name="firstName" id="firstName" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="lastName">Last name</label>
-                <input required name="lastName" id="lastName" className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                <input required name="lastName" id="lastName" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="email">Work email</label>
-                <input required type="email" name="email" id="email" className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                <input required type="email" name="email" id="email" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="jobTitle">Job title</label>
-                <input name="jobTitle" id="jobTitle" className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                <input name="jobTitle" id="jobTitle" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="company">Company</label>
-                <input required name="company" id="company" className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                <input required name="company" id="company" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="industry">Industry</label>
-                <select name="industry" id="industry" className="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
+                <select name="industry" id="industry" className="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
                   <option value="">Select…</option>
                   <option>Marketing & Advertising</option>
                   <option>Consumer Promotions</option>
@@ -79,7 +90,7 @@ export default function DemoPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="teamSize">Team size</label>
-                <select name="teamSize" id="teamSize" className="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
+                <select name="teamSize" id="teamSize" className="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
                   <option value="">Select…</option>
                   <option>1-10</option>
                   <option>11-50</option>
@@ -90,16 +101,18 @@ export default function DemoPage() {
               </div>
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="useCase">What would you like to achieve?</label>
-                <textarea name="useCase" id="useCase" rows={4} className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                <textarea name="useCase" id="useCase" rows={4} className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
               </div>
               <div className="md:col-span-2 space-y-3">
                 <label className="flex items-start space-x-3">
                   <input type="checkbox" name="consent" className="mt-1 h-4 w-4 rounded border-slate-300 text-[var(--solas-primary)] focus:ring-[var(--solas-primary)]" required />
-                  <span className="text-sm text-slate-600">I agree to be contacted about my demo request and related product information.</span>
+                  <span className="text-sm text-slate-700 font-medium">
+                    I agree to be contacted about my demo request and related product information. <span className="text-red-500">*</span>
+                  </span>
                 </label>
                 <label className="flex items-start space-x-3">
                   <input type="checkbox" name="marketing" className="mt-1 h-4 w-4 rounded border-slate-300 text-[var(--solas-primary)] focus:ring-[var(--solas-primary)]" />
-                  <span className="text-sm text-slate-600">I’d like to receive occasional product updates and insights.</span>
+                  <span className="text-sm text-slate-600">I&apos;d like to receive occasional product updates and insights.</span>
                 </label>
               </div>
             </div>
