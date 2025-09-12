@@ -2,8 +2,10 @@ import Link from 'next/link';
 
 export default function CTA() {
   return (
-    <section id="get-started" className="py-20 bg-slate-900 text-white bg-[radial-gradient(800px_400px_at_50%_-80px,rgba(20,184,166,0.2),transparent)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="get-started" className="py-20 bg-gradient-to-br from-slate-800 to-slate-900 text-white relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-80px,rgba(20,184,166,0.15),transparent)]"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Ready to protect your brand?
         </h2>

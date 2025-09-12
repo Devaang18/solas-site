@@ -81,7 +81,7 @@ export default function Oracle() {
   ];
 
   return (
-    <section ref={sectionRef} id="oracle" className="py-20 bg-gradient-to-br from-slate-50 via-white to-teal-50 relative overflow-hidden">
+    <section ref={sectionRef} id="oracle" className="py-20 bg-gradient-to-br from-white to-emerald-50 relative overflow-hidden">
       {/* Background Graphics */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-teal-400 rounded-full blur-3xl"></div>

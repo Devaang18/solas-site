@@ -3,7 +3,7 @@ import Reveal from '@/components/Reveal';
 
 export default function Hero() {
   return (
-    <section className="section section-accent pt-24 pb-20 bg-[linear-gradient(to_bottom,white,white)]">
+    <section className="section pt-24 pb-20 bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <Reveal>
