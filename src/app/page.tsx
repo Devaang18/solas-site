@@ -7,6 +7,7 @@ import Industries from '@/components/Industries';
 import USP from '@/components/USP';
 import Oracle from '@/components/Oracle';
 import IntelligentReview from '@/components/IntelligentReview';
+import ThreePillars from '@/components/ThreePillars';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Benefits />
       <HowItWorks />
       <Oracle />
+      <ThreePillars />
       <IntelligentReview />
       <Industries />
       <USP />
