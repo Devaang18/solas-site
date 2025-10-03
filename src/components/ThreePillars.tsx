@@ -60,12 +60,12 @@ export default function ThreePillars() {
   ];
 
   const integrations = [
-    { name: 'Slack', logo: '/Slack.png', status: 'active' },
-    { name: 'Jira', logo: '/Jira.png', status: 'active' },
-    { name: 'Teams', logo: '/Microsoft_Office_Teams_(2018–present).svg', status: 'inactive' },
-    { name: 'Salesforce', logo: '/Salesforce.com_logo.svg', status: 'active' },
-    { name: 'ServiceNow', logo: '/ServiceNow.png', status: 'active' },
-    { name: 'Confluence', logo: '/Atlassian_Confluence_2017_logo.svg', status: 'inactive' }
+    { name: 'Slack', logo: '/slack.png', status: 'active' },
+    { name: 'Jira', logo: '/jira.png', status: 'active' },
+    { name: 'Teams', logo: '/microsoft-teams.svg', status: 'inactive' },
+    { name: 'Salesforce', logo: '/salesforce.svg', status: 'active' },
+    { name: 'ServiceNow', logo: '/servicenow.png', status: 'active' },
+    { name: 'Confluence', logo: '/confluence.svg', status: 'inactive' }
   ];
 
 

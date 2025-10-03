@@ -48,7 +48,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
         }`}>
           <div className="relative h-16 w-64 sm:h-20 sm:w-72 md:h-24 md:w-80 mx-auto">
             <Image
-              src="/Solas Logo.png"
+              src="/solas-logo.png"
               alt="Solas logo"
               fill
               priority

@@ -19,22 +19,21 @@ export default function Header() {
   if (!isVisible) return null;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-white/90 via-slate-50/90 to-white/90 backdrop-blur-md border-b border-blue-200/30 shadow-lg shadow-blue-500/10 animate-slide-down">
-      {/* Animated background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-cyan-500/5 animate-pulse"></div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm animate-slide-down">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="relative h-12 w-44">{/* Larger container to fit full logo without cropping */}
+              <div className="relative h-10 w-40">
                 <Image
                   src="/solas-logo.png"
                   alt="Solas logo"
                   fill
                   priority
-                  sizes="176px"
+                  sizes="160px"
                   className="object-contain"
+                  quality={90}
                 />
               </div>
             </Link>
@@ -42,17 +41,14 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/#features" className="text-slate-700 hover:text-blue-600 transition-all duration-300 relative group">
-              <span className="relative z-10">Why Solas</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            <Link href="/#features" className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+              Why Solas
             </Link>
-            <Link href="/#how-it-works" className="text-slate-700 hover:text-blue-600 transition-all duration-300 relative group">
-              <span className="relative z-10">How It Works</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            <Link href="/#how-it-works" className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+              How It Works
             </Link>
-            <Link href="/#industries" className="text-slate-700 hover:text-blue-600 transition-all duration-300 relative group">
-              <span className="relative z-10">Industries</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            <Link href="/#industries" className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+              Industries
             </Link>
           </nav>
 
@@ -60,10 +56,9 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/demo"
-              className="relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 transform hover:scale-105"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-sm"
             >
-              <span className="relative z-10 font-medium">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+              Get Started
             </Link>
           </div>
 
