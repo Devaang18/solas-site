@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { FileText, Users, Zap, XCircle, BookOpen, BarChart3, AlertTriangle, CheckCircle, Clock, Eye, Upload, X, Check, AlertCircle, Settings, Shield } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 export default function Oracle() {
@@ -10,6 +11,7 @@ export default function Oracle() {
   const [contentCount, setContentCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const [selectedIssue, setSelectedIssue] = useState<any>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   // Intersection Observer to trigger animations when section comes into view
@@ -74,184 +76,195 @@ export default function Oracle() {
     }, 16);
   };
 
+  const complianceIssues = [
+    {
+      id: '#101',
+      title: 'Brand Guidelines Compliance Rule',
+      description: 'Brand logo placement violates minimum clearance space requirements.',
+      policy: 'Brand Guidelines',
+      severity: 'High',
+      status: 'active'
+    },
+    {
+      id: '#102',
+      title: 'Copyright & Trademark Check',
+      description: 'Potential trademark usage without proper licensing.',
+      policy: 'Brand Guidelines',
+      severity: 'High',
+      status: 'active'
+    },
+    {
+      id: '#103',
+      title: 'Legal & Regulatory Review',
+      description: 'Promotional content requires disclaimer text.',
+      policy: 'Brand Guidelines',
+      severity: 'Medium',
+      status: 'active'
+    },
+    {
+      id: '#104',
+      title: 'Accessibility Requirements',
+      description: 'Insufficient color contrast for text elements.',
+      policy: 'Brand Guidelines',
+      severity: 'Low',
+      status: 'resolved'
+    }
+  ];
+
   const steps = [
-    { icon: '📝', title: 'Train Your Oracle', desc: 'Upload your compliance policies, brand guidelines, and regulatory requirements. Solas learns your specific rules and becomes your personalized compliance expert.' },
-    { icon: '👥', title: 'Team Ownership', desc: 'Your compliance team maintains control. Update policies, refine guidelines, and ensure Solas stays current with changing regulations.' },
-    { icon: '⚡', title: 'Instant Guidance', desc: 'Marketing teams get immediate, actionable feedback. No more waiting for compliance reviews or guessing about regulatory requirements.' }
+    { icon: FileText, title: 'Train Your Oracle', desc: 'Upload your compliance policies, brand guidelines, and regulatory requirements. Solas learns your specific rules and becomes your personalised compliance expert.' },
+    { icon: Users, title: 'Team Ownership', desc: 'Your compliance team maintains control. Update policies, refine guidelines, and ensure Solas stays current with changing regulations.' },
+    { icon: Zap, title: 'Instant Guidance', desc: 'Marketing teams get immediate, actionable feedback. No more waiting for compliance reviews or guessing about regulatory requirements.' }
   ];
 
   return (
-    <section ref={sectionRef} id="oracle" className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
-      {/* Background Graphics */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-teal-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-emerald-400 rounded-full blur-3xl"></div>
+    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden matrix-bg">
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {[...Array(12)].map((_, i) => {
+          const positions = [
+            { left: 6, top: 16, delay: 0.7, duration: 5.3 },
+            { left: 26, top: 62, delay: 2.3, duration: 6.7 },
+            { left: 66, top: 26, delay: 3.9, duration: 5.0 },
+            { left: 86, top: 72, delay: 1.5, duration: 7.6 },
+            { left: 16, top: 82, delay: 2.8, duration: 5.7 },
+            { left: 56, top: 9, delay: 1.9, duration: 6.9 },
+            { left: 36, top: 79, delay: 2.7, duration: 5.8 },
+            { left: 76, top: 39, delay: 4.7, duration: 4.6 },
+            { left: 11, top: 49, delay: 1.3, duration: 6.4 },
+            { left: 71, top: 22, delay: 3.4, duration: 5.1 },
+            { left: 31, top: 69, delay: 4.2, duration: 4.9 },
+            { left: 81, top: 59, delay: 2.1, duration: 6.6 }
+          ];
+          const pos = positions[i] || { left: 50, top: 50, delay: 2, duration: 6 };
+          
+          return (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-blue-400/20 rounded-full floating-element"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                animationDelay: `${pos.delay}s`,
+                animationDuration: `${pos.duration}s`
+              }}
+            />
+          );
+        })}
       </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      
+      <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full py-16">
         <div className="text-center mb-16">
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-              Meet your compliance oracle
+              Meet your Compliance Oracle
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Train Solas with your policies and guidelines. Your team gets instant, personalized compliance guidance for every piece of content.
+              Train Solas with your policies and guidelines. Your team gets instant, personalised compliance guidance for every piece of content.
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-          {/* Interactive Chat Interface */}
-          <Reveal>
-            <div className="relative h-full flex flex-col">
-              <div className="card p-0 overflow-hidden shadow-2xl border-0 bg-white hover-lift animate-scale-in h-full flex flex-col">
-                {/* Chat Header */}
-                <div className="bg-gradient-to-r from-teal-500 to-blue-600 p-6 text-white">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                        <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                          <div className="w-3 h-3 bg-teal-500 rounded-full animate-pulse animate-pulse-glow"></div>
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold">Solas Oracle</h3>
-                        <p className="text-sm text-white/80">Always learning, always compliant</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-sm font-medium">Live</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Chat Messages */}
-                <div className="p-6 space-y-4 flex-grow bg-slate-50 flex flex-col justify-between">
-                  {/* User Message */}
-                  <div className="flex justify-end animate-slide-in-right">
-                    <div className="max-w-[80%] bg-white rounded-2xl rounded-br-md p-4 shadow-sm border">
-                      <div className="text-sm text-slate-500 mb-1">now · Content Creator</div>
-                      <div className="text-slate-800">
-                        Review this email: &lsquo;Get rich quick with our trading platform! 90% win rate guaranteed!&rsquo;
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Typing Indicator */}
-                  {isTyping && !showResponse && (
-                    <div className="flex justify-start animate-slide-in-left">
-                      <div className="bg-white rounded-2xl rounded-bl-md p-4 shadow-sm border">
-                        <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Oracle Response */}
-                  {showResponse && (
-                    <div className="flex justify-start animate-slide-in-left">
-                      <div className="max-w-[85%] bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl rounded-bl-md p-4 shadow-sm border border-rose-200">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <div className="w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center animate-pulse-glow">
-                            <span className="text-rose-600 text-sm">🚫</span>
-                          </div>
-                          <div className="text-sm text-rose-600 font-semibold">HIGH RISK: Multiple violations detected</div>
-                        </div>
-                        
-                        <div className="space-y-2 text-sm">
-                          <div className="flex items-start space-x-2 animate-slide-in-left" style={{animationDelay: '0.1s'}}>
-                            <div className="w-1.5 h-1.5 bg-rose-400 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-slate-700">&lsquo;Get rich quick&rsquo; - prohibited language</span>
-                          </div>
-                          <div className="flex items-start space-x-2 animate-slide-in-left" style={{animationDelay: '0.2s'}}>
-                            <div className="w-1.5 h-1.5 bg-rose-400 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-slate-700">&lsquo;90% guaranteed&rsquo; - unsubstantiated claims</span>
-                          </div>
-                          <div className="flex items-start space-x-2 animate-slide-in-left" style={{animationDelay: '0.3s'}}>
-                            <div className="w-1.5 h-1.5 bg-rose-400 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-slate-700">Missing risk warnings</span>
-                          </div>
-                        </div>
-
-                        <div className="mt-4 p-3 bg-white/60 rounded-lg border border-emerald-200 animate-scale-in" style={{animationDelay: '0.4s'}}>
-                          <div className="text-xs text-emerald-600 font-semibold mb-1">SUGGESTED REVISION:</div>
-                          <div className="text-slate-700 text-sm">
-                            &lsquo;Start trading with our platform. Risk warning: 76% of retail accounts lose money.&rsquo;
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
+        {/* Asset Details Screen */}
+        <Reveal delay={0.1}>
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            {/* Navigation Header */}
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex items-center space-x-2 text-sm text-slate-600">
+                <span>Home</span>
+                <span>&gt;</span>
+                <span>Campaign</span>
+                <span>&gt;</span>
+                <span className="text-slate-900 font-medium">Asset</span>
               </div>
             </div>
-          </Reveal>
 
-          {/* Stats and Process Steps */}
-          <Reveal delay={0.2}>
-            <div className="space-y-8 h-full flex flex-col">
-              {/* Live Stats - Integrated into chat interface */}
-              <div className="bg-white rounded-lg p-4 border border-slate-200">
+            <div className="p-6">
+              {/* Asset Details */}
+              <div className="space-y-6">
+                {/* Asset Header */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
-                        <span className="text-slate-600 text-lg">📚</span>
-                      </div>
-                      <div>
-                        <div className="text-sm text-slate-500">Policies Learned</div>
-                        <div className="text-lg font-bold text-slate-900">
-                          {policiesCount.toLocaleString()}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center">
-                        <span className="text-slate-600 text-lg">📊</span>
-                      </div>
-                      <div>
-                        <div className="text-sm text-slate-500">Content Reviewed</div>
-                        <div className="text-lg font-bold text-slate-900">
-                          {contentCount >= 1000 ? `${(contentCount / 1000).toFixed(1)}K` : contentCount.toLocaleString()}
-                        </div>
-                      </div>
-                    </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Marketing Banner Campaign Compliance V1</h3>
+                  <div className="flex space-x-3">
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                      Edit Policies and re-run
+                    </button>
+                    <button className="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors">
+                      Timeline
+                    </button>
+                    <button className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+                      Pass to Compliance
+                    </button>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="text-xs text-slate-400">Live metrics</div>
-                    {isActive && (
-                      <div className="flex items-center space-x-1">
-                        <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                        <div className="text-xs text-green-600 font-medium">Processing</div>
+                </div>
+
+                {/* Summary Cards */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+                    <div className="text-3xl font-bold text-red-600 mb-1">3</div>
+                    <div className="text-lg font-semibold text-red-600 mb-1">High</div>
+                    <div className="text-xs text-red-500">Critical Issues</div>
+                  </div>
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
+                    <div className="text-3xl font-bold text-yellow-600 mb-1">1</div>
+                    <div className="text-lg font-semibold text-yellow-600 mb-1">Medium</div>
+                    <div className="text-xs text-yellow-500">Moderate Issues</div>
+                  </div>
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+                    <div className="text-3xl font-bold text-green-600 mb-1">0</div>
+                    <div className="text-lg font-semibold text-green-600 mb-1">Low</div>
+                    <div className="text-xs text-green-500">Minor Suggestions</div>
+                  </div>
+                </div>
+
+                {/* Risk Summary */}
+                <div className="bg-slate-50 rounded-lg p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-semibold text-slate-900">Risk Summary</h4>
+                    <span className="text-sm text-slate-500">4 items</span>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    {complianceIssues.map((issue, index) => (
+                      <div key={index} className="bg-white rounded-lg p-4 border border-slate-200 hover:shadow-md transition-all cursor-pointer"
+                           onClick={() => setSelectedIssue(issue)}>
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-1">
+                              <span className="text-sm font-medium text-slate-900">{issue.title}</span>
+                              <span className="text-xs text-slate-500">{issue.id}</span>
+                            </div>
+                            <p className="text-sm text-slate-600 mb-2">{issue.description}</p>
+                            <div className="flex items-center space-x-4 text-xs text-slate-500">
+                              <span>Policy Triggered: {issue.policy}</span>
+                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                issue.severity === 'High' ? 'bg-red-100 text-red-700' :
+                                issue.severity === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
+                                'bg-green-100 text-green-700'
+                              }`}>
+                                {issue.severity}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="ml-4">
+                            {issue.status === 'active' ? (
+                              <AlertTriangle className="w-5 h-5 text-red-500" />
+                            ) : (
+                              <CheckCircle className="w-5 h-5 text-green-500" />
+                            )}
+                          </div>
+                        </div>
                       </div>
-                    )}
+                    ))}
                   </div>
                 </div>
               </div>
-
-              {/* Process Steps */}
-              <div className="space-y-6 flex-grow">
-                {steps.map((step, index) => (
-                  <div key={index} className="flex items-start space-x-4 p-4 rounded-xl bg-white/60 border border-slate-200 hover:shadow-md transition-all duration-300">
-                    <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-2xl">{step.icon}</span>
-                    </div>
-                    <div className="flex-grow">
-                      <h4 className="font-semibold text-slate-900 mb-2">{step.title}</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
-          </Reveal>
+          </div>
+        </Reveal>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

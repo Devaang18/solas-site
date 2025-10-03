@@ -125,3 +125,4 @@ After adding environment variables:
 5. **Regular backups** of your code
 
 Your Solas website will be live and professional! 🎉
+

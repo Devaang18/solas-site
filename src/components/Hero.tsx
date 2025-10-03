@@ -1,86 +1,86 @@
 import Link from 'next/link';
+import { CheckCircle, AlertTriangle, XCircle, AlertCircle } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 export default function Hero() {
   return (
-    <section className="section pt-24 pb-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <Reveal>
-            <h1 className="heading-gradient text-4xl md:text-6xl font-bold mb-3 tracking-tight">
-              Real-time marketing compliance
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-6">without the friction</h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-              Solas flags potential regulatory breaches in content before publication, helping compliance and marketing teams move fast without risking fines or brand damage.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/demo"
-                className="btn-primary text-lg shadow-md"
-              >
-                Request Demo
-              </Link>
-              <Link
-                href="#how-it-works"
-                className="btn-outline text-lg"
-              >
-                See How It Works
-              </Link>
-            </div>
-          </Reveal>
-        </div>
+    <div className="h-full w-full flex items-center justify-center relative overflow-hidden matrix-bg py-16">
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {[...Array(15)].map((_, i) => {
+          // Use fixed positions to avoid hydration mismatch
+          const positions = [
+            { left: 15, top: 25, delay: 0.5, duration: 5.2 },
+            { left: 35, top: 45, delay: 1.8, duration: 6.8 },
+            { left: 55, top: 15, delay: 3.2, duration: 4.5 },
+            { left: 75, top: 65, delay: 2.1, duration: 7.2 },
+            { left: 25, top: 85, delay: 4.5, duration: 5.8 },
+            { left: 85, top: 35, delay: 1.2, duration: 6.3 },
+            { left: 45, top: 75, delay: 3.8, duration: 4.9 },
+            { left: 65, top: 25, delay: 2.7, duration: 7.1 },
+            { left: 95, top: 55, delay: 0.9, duration: 5.6 },
+            { left: 5, top: 65, delay: 4.2, duration: 6.4 },
+            { left: 15, top: 45, delay: 1.5, duration: 4.8 },
+            { left: 85, top: 15, delay: 3.6, duration: 5.9 },
+            { left: 35, top: 85, delay: 2.8, duration: 6.7 },
+            { left: 75, top: 45, delay: 4.1, duration: 5.3 },
+            { left: 55, top: 75, delay: 1.9, duration: 6.1 }
+          ];
+          const pos = positions[i] || { left: 50, top: 50, delay: 2, duration: 6 };
+          
+          return (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-blue-400/20 rounded-full floating-element"
+              style={{
+                left: `${pos.left}%`,
+                top: `${pos.top}%`,
+                animationDelay: `${pos.delay}s`,
+                animationDuration: `${pos.duration}s`
+              }}
+            />
+          );
+        })}
+      </div>
 
-        {/* Hero Image/Visual */}
-        <div className="mt-16 relative">
-          <Reveal>
-          <div className="card card-hover p-8 hover-lift animate-scale-in">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                  Content Review Dashboard
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3 animate-slide-in-left">
-                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center hover-glow">
-                      <span className="text-slate-600 text-lg">✅</span>
-                    </div>
-                    <span className="text-slate-700">Compliance check passed</span>
-                  </div>
-                  <div className="flex items-center space-x-3 animate-slide-in-left" style={{animationDelay: '0.1s'}}>
-                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center hover-glow">
-                      <span className="text-slate-600 text-lg">⚠️</span>
-                    </div>
-                    <span className="text-slate-700">Review required: promotional terms</span>
-                  </div>
-                  <div className="flex items-center space-x-3 animate-slide-in-left" style={{animationDelay: '0.2s'}}>
-                    <div className="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg border border-slate-200 flex items-center justify-center hover-glow">
-                      <span className="text-slate-600 text-lg">🚫</span>
-                    </div>
-                    <span className="text-slate-700">Regulatory violation detected</span>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-6">
-                <div className="text-sm text-slate-500 mb-2">Sample Creative</div>
-                <div className="bg-white p-4 rounded border-l-4 border-yellow-400">
-                  <p className="text-slate-700">
-                    &ldquo;Risk‑free bet for everyone! Guaranteed winnings. No terms apply.&rdquo;
-                  </p>
-                  <div className="mt-2 text-xs text-yellow-600">
-                    ⚠ Review: Promos must include significant terms; avoid misleading guarantees (ASA/CAP)
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <Reveal>
+          <h1 className="text-5xl md:text-8xl font-bold mb-6 tracking-tight text-slate-900 drop-shadow-lg">
+            Real-time Marketing Compliance
+          </h1>
+          <h2 className="text-3xl md:text-5xl font-semibold text-slate-700 mb-8 animate-slide-down">
+            Without the Friction
+          </h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto animate-slide-up">
+            Solas flags potential regulatory breaches in content before publication, helping compliance and marketing teams move fast without risking fines or brand damage.
+          </p>
+        </Reveal>
+        <Reveal delay={0.4}>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-zoom-in">
+            <Link
+              href="/demo"
+              className="btn-primary text-xl px-8 py-4 shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+            >
+              Request Demo
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="btn-outline text-xl px-8 py-4 hover:bg-slate-100 transition-all duration-300 transform hover:scale-105"
+            >
+              See How It Works
+            </Link>
           </div>
-          </Reveal>
+        </Reveal>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

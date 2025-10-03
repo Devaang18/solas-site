@@ -49,12 +49,49 @@ export default function DemoPage() {
 
         {status === "success" ? (
           <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-6">
-            <h2 className="text-xl font-semibold mb-2">Thanks—request received.</h2>
+            <h2 className="text-xl font-semibold mb-2">Thanks! Request received.</h2>
             <p className="mb-4">We’ll reach out soon to schedule a session tailored to your workflows.</p>
-            <Link href="/" className="text-[var(--solas-primary)] font-medium">Back to home</Link>
+            <button 
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Back to home button clicked');
+                // Force a hard navigation to ensure clean state
+                window.location.href = '/';
+              }}
+              className="inline-flex items-center gap-2 bg-[var(--solas-primary)] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[var(--solas-primary-dark)] transition-colors shadow-md cursor-pointer"
+              style={{ pointerEvents: 'auto', zIndex: 10 }}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to home
+            </button>
           </div>
         ) : (
           <form onSubmit={onSubmit} className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+            {/* Back to home button */}
+            <div className="mb-6">
+              <button 
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Form back to home button clicked');
+                  // Force a hard navigation to ensure clean state
+                  window.location.href = '/';
+                }}
+                className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium"
+                style={{ pointerEvents: 'auto', zIndex: 10 }}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to home
+              </button>
+            </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="firstName">First name</label>
@@ -125,7 +162,7 @@ export default function DemoPage() {
               <button disabled={status === "submitting"} className="bg-[var(--solas-primary)] disabled:opacity-60 text-white px-6 py-3 rounded-xl font-semibold hover:bg-[var(--solas-primary-dark)]">
                 {status === "submitting" ? "Submitting…" : "Request demo"}
               </button>
-              <span className="text-slate-500 text-sm">We’ll respond within 1–2 business days.</span>
+              <span className="text-slate-500 text-sm">We'll respond within 1-2 business days.</span>
             </div>
           </form>
         )}

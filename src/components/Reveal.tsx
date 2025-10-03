@@ -45,3 +45,4 @@ export default function Reveal({ children, delay = 0, y = 24 }: RevealProps) {
     </motion.div>
   );
 }
+

@@ -67,3 +67,4 @@ After setup, test by:
 2. Filling out the form
 3. Checking if email arrives at `devaang@solascompliance.com`
 4. Checking console for any error messages
+

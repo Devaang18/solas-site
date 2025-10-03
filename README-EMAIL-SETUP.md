@@ -32,3 +32,4 @@ After configuration:
 ## Support
 
 If you encounter issues, check the console logs for specific error messages and refer to `SMTP_SETUP.md` for troubleshooting steps.
+

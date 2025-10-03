@@ -66,3 +66,4 @@ The email includes:
 - Use environment variables for all sensitive data
 - Consider rate limiting for production use
 - Validate all inputs on both client and server side
+
