@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Check, Package, X, MessageCircle, FileText, Clipboard, Settings, Shield, Rocket, Users, MessageSquare, Cloud, Brain, Search, Scale, Send } from 'lucide-react';
+import { Check, Package, X, MessageCircle, FileText, Clipboard, Settings, Shield, Rocket, MessageSquare, Brain, Search, Scale, Send } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 export default function ThreePillars() {
@@ -68,64 +68,6 @@ export default function ThreePillars() {
     { name: 'Confluence', logo: '/Atlassian_Confluence_2017_logo.svg', status: 'inactive' }
   ];
 
-  const auditRecords = [
-    {
-      id: '001',
-      code: 'MKT-2024-001',
-      priority: 'High',
-      type: 'Social Media Ad Review',
-      confidence: 98,
-      description: 'Instagram campaign for new slot game - compliance verified',
-      reviewer: 'Sarah Chen',
-      timestamp: '2024-01-15 14:32:15',
-      status: 'Approved',
-      assets: ['IG_Campaign_Assets.zip', 'Compliance_Report.pdf'],
-      channel: 'Social Media',
-      hash: '0x7f3b...9e21'
-    },
-    {
-      id: '002',
-      code: 'MKT-2024-002',
-      priority: 'Medium',
-      type: 'Email Campaign Review',
-      confidence: 85,
-      description: 'Weekly newsletter with bonus promotions - minor adjustments required',
-      reviewer: 'Michael Brown',
-      timestamp: '2024-01-15 13:45:22',
-      status: 'Under Review',
-      assets: [],
-      channel: 'Email',
-      hash: '0x8a4c...7f32'
-    },
-    {
-      id: '003',
-      code: 'MKT-2024-003',
-      priority: 'High',
-      type: 'TV Advertisement Review',
-      confidence: 96,
-      description: '30-second TV spot for responsible gambling message compliance',
-      reviewer: 'Emma Wilson',
-      timestamp: '2024-01-15 11:28:07',
-      status: 'Approved',
-      assets: ['TV_Spot_Assets.zip'],
-      channel: 'Television',
-      hash: '0x9b5d...8e43'
-    },
-    {
-      id: '004',
-      code: 'MKT-2024-004',
-      priority: 'Medium',
-      type: 'Website Banner Review',
-      confidence: 92,
-      description: 'Homepage banner for new customer welcome offer',
-      reviewer: 'David Kim',
-      timestamp: '2024-01-15 09:15:33',
-      status: 'Approved',
-      assets: ['Banner_Assets.zip'],
-      channel: 'Website',
-      hash: '0xac6e...9f54'
-    }
-  ];
 
   const renderSmartIngestion = () => (
     <div className="space-y-8">
@@ -290,7 +232,7 @@ export default function ThreePillars() {
           <div className="grid grid-cols-2 gap-4">
             {teamMembers.map((member, index) => (
               <div key={index} className="flex items-center space-x-3 p-3 bg-slate-50 rounded-lg">
-                <img src={member.avatar} alt={member.name} className="w-10 h-10 rounded-full" />
+                <Image src={member.avatar} alt={member.name} width={40} height={40} className="w-10 h-10 rounded-full" />
                 <div>
                   <p className="font-medium text-slate-900 text-sm">{member.name}</p>
                   <p className="text-xs text-slate-600">{member.role}</p>
@@ -491,9 +433,11 @@ export default function ThreePillars() {
                     </div>
 
                     <div className="flex items-center space-x-3">
-                      <img 
+                      <Image 
                         src={event.user.avatar} 
                         alt={event.user.name}
+                        width={32}
+                        height={32}
                         className="w-8 h-8 rounded-full"
                       />
                       <div className="text-sm">

@@ -110,3 +110,4 @@ export const getResponsiveTextSize = (deviceInfo: DeviceInfo, baseSize: string):
   if (deviceInfo.isTablet) return `text-${baseSize} sm:text-${baseSize === 'sm' ? 'base' : baseSize === 'base' ? 'lg' : baseSize}`;
   return `text-${baseSize} sm:text-${baseSize === 'sm' ? 'base' : baseSize === 'base' ? 'lg' : baseSize} lg:text-${baseSize === 'sm' ? 'lg' : baseSize === 'base' ? 'xl' : baseSize}`;
 };
+

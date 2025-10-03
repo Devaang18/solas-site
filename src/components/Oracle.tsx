@@ -1,17 +1,12 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { FileText, Users, Zap, XCircle, BookOpen, BarChart3, AlertTriangle, CheckCircle, Clock, Eye, Upload, X, Check, AlertCircle, Settings, Shield } from 'lucide-react';
+import { AlertTriangle, CheckCircle } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 export default function Oracle() {
-  const [isTyping, setIsTyping] = useState(false);
-  const [showResponse, setShowResponse] = useState(false);
-  const [policiesCount, setPoliciesCount] = useState(0);
-  const [contentCount, setContentCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const [selectedIssue, setSelectedIssue] = useState<any>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   // Intersection Observer to trigger animations when section comes into view
@@ -20,17 +15,11 @@ export default function Oracle() {
       ([entry]) => {
         if (entry.isIntersecting && !isVisible) {
           setIsVisible(true);
-          // Start the chat animation sequence
+          // Start the animation sequence
           setTimeout(() => {
-            setIsTyping(true);
-            setTimeout(() => {
-              setShowResponse(true);
-            }, 2000);
+            // Animation logic can be added here if needed
           }, 1000);
           
-          // Animate counters
-          animateCounter(setPoliciesCount, 247, 2000);
-          animateCounter(setContentCount, 12400, 2500);
           
           // Start continuous activity simulation
           setIsActive(true);
@@ -51,30 +40,11 @@ export default function Oracle() {
     if (!isActive) return;
 
     const interval = setInterval(() => {
-      // Simulate occasional content review updates
-      if (Math.random() > 0.7) {
-        setContentCount(prev => prev + Math.floor(Math.random() * 3) + 1);
-      }
     }, 3000);
 
     return () => clearInterval(interval);
   }, [isActive]);
 
-  const animateCounter = (setter: (value: number) => void, target: number, duration: number) => {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setter(target);
-        clearInterval(timer);
-      } else {
-        setter(Math.floor(current));
-      }
-    }, 16);
-  };
 
   const complianceIssues = [
     {
@@ -111,11 +81,6 @@ export default function Oracle() {
     }
   ];
 
-  const steps = [
-    { icon: FileText, title: 'Train Your Oracle', desc: 'Upload your compliance policies, brand guidelines, and regulatory requirements. Solas learns your specific rules and becomes your personalised compliance expert.' },
-    { icon: Users, title: 'Team Ownership', desc: 'Your compliance team maintains control. Update policies, refine guidelines, and ensure Solas stays current with changing regulations.' },
-    { icon: Zap, title: 'Instant Guidance', desc: 'Marketing teams get immediate, actionable feedback. No more waiting for compliance reviews or guessing about regulatory requirements.' }
-  ];
 
   return (
     <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden matrix-bg">
@@ -228,7 +193,7 @@ export default function Oracle() {
                   <div className="space-y-3">
                     {complianceIssues.map((issue, index) => (
                       <div key={index} className="bg-white rounded-lg p-4 border border-slate-200 hover:shadow-md transition-all cursor-pointer"
-                           onClick={() => setSelectedIssue(issue)}>
+                           onClick={() => {}}>
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center space-x-2 mb-1">

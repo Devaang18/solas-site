@@ -15,13 +15,10 @@ export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [isScrollingInternally, setIsScrollingInternally] = useState(false);
-  const [lastScrollTime, setLastScrollTime] = useState(0);
 
   // Debug function to reset scrolling state
   const resetScrollingState = () => {
     setIsScrolling(false);
-    setIsScrollingInternally(false);
   };
 
   const sections = [
@@ -69,14 +66,12 @@ export default function Home() {
 
   useEffect(() => {
     if (!showIntro) {
-      let scrollTimeout: NodeJS.Timeout;
+      let scrollTimeout: NodeJS.Timeout | undefined;
 
       // Mouse wheel handling with internal scroll support
       const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
         
-        const currentTime = Date.now();
-        setLastScrollTime(currentTime);
         
         // Check if current section has scrollable content
         const currentSectionData = sections[currentSection];
@@ -187,10 +182,12 @@ export default function Home() {
         window.removeEventListener('keydown', handleKeyDown);
         window.removeEventListener('touchstart', handleTouchStart);
         window.removeEventListener('touchend', handleTouchEnd);
-        clearTimeout(scrollTimeout);
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
       };
     }
-  }, [showIntro, currentSection, sections.length, isScrolling]);
+  }, [showIntro, currentSection, sections, isScrolling, goToPage]);
 
   // Reset scrolling state when section changes
   useEffect(() => {
@@ -201,7 +198,7 @@ export default function Home() {
     }, 800);
     
     return () => clearTimeout(timer);
-  }, [currentSection]);
+  }, [currentSection, isScrolling]);
 
   // Global escape key to reset scrolling state
   useEffect(() => {
@@ -258,7 +255,7 @@ export default function Home() {
             <section
               key={section.id}
               id={section.id}
-              ref={(el) => (sectionRefs.current[index] = el)}
+              ref={(el) => { sectionRefs.current[index] = el; }}
               className={`h-screen w-full ${section.bg} relative overflow-hidden ${
                 isLastSection ? 'border-t-0' : ''
               }`}

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CheckCircle, AlertTriangle, XCircle, AlertCircle } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 export default function Hero() {

@@ -190,3 +190,4 @@ export default function MyComponent() {
 - **Google Analytics**: Device and browser data
 - **Core Web Vitals**: Performance metrics
 - **Real User Monitoring**: Actual user experience data
+
