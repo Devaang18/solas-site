@@ -42,12 +42,12 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm animate-slide-down">
-      <div className="relative max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
-        <div className="flex justify-between items-center h-12 sm:h-14 md:h-16 lg:h-18">
+      <div className="relative container-fluid-2xl mx-auto p-fluid-sm">
+        <div className="flex justify-between items-center" style={{ height: 'clamp(3rem, 8vh, 5rem)' }}>
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="relative h-6 w-24 sm:h-8 sm:w-32 md:h-10 md:w-40">
+              <div className="relative" style={{ height: 'clamp(1.5rem, 4vw, 2.5rem)', width: 'clamp(6rem, 15vw, 10rem)' }}>
                 <Image
                   src="/solas-logo.png"
                   alt="Solas logo"
@@ -62,29 +62,29 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-2 xl:space-x-4 2xl:space-x-6">
-            <button onClick={() => handleNavigation('benefits')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
+          <nav className="hidden lg:flex" style={{ gap: 'clamp(0.5rem, 2vw, 1.5rem)' }}>
+            <button onClick={() => handleNavigation('benefits')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
               Why Solas
             </button>
-            <button onClick={() => handleNavigation('how-it-works')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('how-it-works')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
               How It Works
             </button>
-            <button onClick={() => handleNavigation('oracle')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('oracle')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
               Oracle
             </button>
-            <button onClick={() => handleNavigation('three-pillars')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('three-pillars')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
               Four Pillars
             </button>
-            <button onClick={() => handleNavigation('industries')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('industries')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
               Industries
             </button>
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <div className="hidden md:flex items-center" style={{ gap: 'clamp(0.5rem, 2vw, 1rem)' }}>
             <button
               onClick={onOpenDemo}
-              className="text-white px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-lg transition-colors duration-200 font-medium shadow-sm text-xs sm:text-sm md:text-base"
+              className="text-white p-fluid-sm rounded-lg transition-colors duration-200 font-medium shadow-sm text-fluid-sm"
               style={{ backgroundColor: '#0f2440' }}
               onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#06bcc1'}
               onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f2440'}
