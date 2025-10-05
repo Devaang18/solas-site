@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import Hero from '@/components/Hero';
 import Benefits from '@/components/Benefits';
 import HowItWorks from '@/components/HowItWorks';
@@ -21,7 +21,7 @@ export default function Home() {
     setIsScrolling(false);
   };
 
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'hero', component: Hero, bg: 'section-alt-1', title: 'Home' },
     { id: 'benefits', component: Benefits, bg: 'section-alt-2', title: 'Why Solas' },
     { id: 'how-it-works', component: HowItWorks, bg: 'section-alt-1', title: 'How It Works' },
@@ -29,7 +29,7 @@ export default function Home() {
     { id: 'three-pillars', component: ThreePillars, bg: 'section-alt-1', title: 'Four Pillars', hasScrollableContent: true },
     { id: 'industries', component: Industries, bg: 'section-alt-2', title: 'Industries' },
     { id: 'footer', component: Footer, bg: 'section-alt-1', title: 'Footer' }
-  ];
+  ], []);
 
   const getScrollOffset = (sectionIndex: number) => {
     return sectionIndex * 100;
@@ -61,7 +61,7 @@ export default function Home() {
     }, 200);
   };
 
-  const goToPage = (direction: 'next' | 'prev' | number) => {
+  const goToPage = useCallback((direction: 'next' | 'prev' | number) => {
     if (isScrolling) return;
     
     setIsScrolling(true);
@@ -91,7 +91,7 @@ export default function Home() {
     setTimeout(() => {
       setIsScrolling(false);
     }, 600);
-  };
+  }, [isScrolling, currentSection, sections]);
 
   useEffect(() => {
     if (!showIntro) {
@@ -112,9 +112,6 @@ export default function Home() {
             
             if ((e.deltaY < -25 && isAtTop) || (e.deltaY > 25 && isAtBottom)) {
               if (!isScrolling) {
-                const targetSection = e.deltaY > 25 ? currentSection + 1 : currentSection - 1;
-                const targetSectionData = sections[targetSection];
-                
                 if (e.deltaY > 25) {
                   goToPage('next');
                 } else if (e.deltaY < -25) {
@@ -287,7 +284,6 @@ export default function Home() {
         {sections.map((section, index) => {
           const Component = section.component;
           const isLastSection = index === sections.length - 1;
-          const isLongSection = section.id === 'oracle' || section.id === 'three-pillars';
           
           return (
             <section

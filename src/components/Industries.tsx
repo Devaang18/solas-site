@@ -20,7 +20,7 @@ export default function Industries() {
   ];
 
   return (
-    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden matrix-bg py-16 pt-50">
+    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden matrix-bg py-16 pt-45">
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (
           <div
@@ -37,7 +37,7 @@ export default function Industries() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 pt-0">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Built For Your Industry</h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Configured to your brand policies and workflows across regulated and high-growth sectors.</p>
         </div>
