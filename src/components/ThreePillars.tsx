@@ -484,7 +484,7 @@ export default function ThreePillars() {
   };
 
   return (
-    <div className={`h-full w-full flex flex-col justify-center transition-all duration-500 ${getPillarBackground(activePillar)} relative overflow-hidden matrix-bg`}>
+    <div className={`h-full w-full flex flex-col justify-start transition-all duration-500 ${getPillarBackground(activePillar)} relative overflow-hidden matrix-bg py-16 pt-20`}>
       {/* Floating particles */}
       <div className="absolute inset-0">
         {[...Array(14)].map((_, i) => {
@@ -523,7 +523,7 @@ export default function ThreePillars() {
       
       <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full py-16">
-        <div className="text-center mb-12 pt-24">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Four Pillars of Solas Intelligence
           </h2>

@@ -83,7 +83,7 @@ export default function Oracle() {
 
 
   return (
-    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden matrix-bg">
+    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden matrix-bg py-16 pt-20">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {[...Array(12)].map((_, i) => {
@@ -120,7 +120,7 @@ export default function Oracle() {
       
       <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full py-16">
-        <div className="text-center mb-16 pt-24">
+        <div className="text-center mb-16">
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
               Meet your Compliance Oracle

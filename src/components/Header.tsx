@@ -17,10 +17,9 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
   // Map section names to their indices
   const sectionMap = {
     'benefits': 1,      // Why Solas
-    'how-it-works': 2,  // How It Works
-    'oracle': 3,        // Compliance Oracle
-    'three-pillars': 4, // Four Pillars
-    'industries': 5     // Industries
+    'oracle': 2,        // Compliance Oracle
+    'three-pillars': 3, // Four Pillars
+    'industries': 4     // Industries
   };
 
   const handleNavigation = (sectionName: keyof typeof sectionMap) => {
@@ -32,8 +31,8 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
   };
 
   useEffect(() => {
-    // Show header after intro animation
-    const timer = setTimeout(() => setIsVisible(true), 4000);
+    // Show header quickly
+    const timer = setTimeout(() => setIsVisible(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -65,9 +64,6 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
             <button onClick={() => handleNavigation('benefits')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
               Why Solas
             </button>
-            <button onClick={() => handleNavigation('how-it-works')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
-              How It Works
-            </button>
             <button onClick={() => handleNavigation('oracle')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
               Oracle
             </button>
@@ -83,7 +79,10 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/demo"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-sm"
+              className="text-white px-6 py-2 rounded-lg transition-colors duration-200 font-medium shadow-sm"
+              style={{ backgroundColor: '#0f2440' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#06bcc1'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#0f2440'}
             >
               Get Started
             </Link>
@@ -126,12 +125,6 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
                 Why Solas
               </button>
               <button
-                onClick={() => handleNavigation('how-it-works')}
-                className="block w-full text-left px-3 py-2 text-black/70 hover:text-black transition-colors"
-              >
-                How It Works
-              </button>
-              <button
                 onClick={() => handleNavigation('oracle')}
                 className="block w-full text-left px-3 py-2 text-black/70 hover:text-black transition-colors"
               >
@@ -152,7 +145,10 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
               <div className="pt-4 space-y-2">
                 <Link
                   href="/demo"
-                  className="block mx-3 bg-[var(--solas-primary)] text-white px-4 py-2 rounded-lg hover:bg-[var(--solas-primary-dark)] transition-colors text-center"
+                  className="block mx-3 text-white px-4 py-2 rounded-lg transition-colors text-center"
+                  style={{ backgroundColor: '#0f2440' }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = '#06bcc1'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = '#0f2440'}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started

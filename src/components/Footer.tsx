@@ -9,10 +9,9 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
   // Map section names to their indices
   const sectionMap = {
     'benefits': 1,      // Why Solas
-    'how-it-works': 2,  // How It Works
-    'oracle': 3,        // Compliance Oracle
-    'three-pillars': 4, // Four Pillars
-    'industries': 5     // Industries
+    'oracle': 2,        // Compliance Oracle
+    'three-pillars': 3, // Four Pillars
+    'industries': 4     // Industries
   };
 
   const handleNavigation = (sectionName: keyof typeof sectionMap) => {
@@ -94,11 +93,6 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
               <li>
                 <button onClick={() => handleNavigation('benefits')} className="text-slate-300 hover:text-white transition-colors text-left">
                   Why Solas
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNavigation('how-it-works')} className="text-slate-300 hover:text-white transition-colors text-left">
-                  How it Works
                 </button>
               </li>
               <li>

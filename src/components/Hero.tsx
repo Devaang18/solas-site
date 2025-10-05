@@ -3,7 +3,7 @@ import Reveal from '@/components/Reveal';
 
 export default function Hero() {
   return (
-    <div className="h-full w-full flex items-center justify-center relative overflow-hidden matrix-bg py-16 pt-24">
+    <div className="h-full w-full flex items-start justify-center relative overflow-hidden matrix-bg py-16 pt-40">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => {
@@ -44,7 +44,7 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <Reveal>
-          <h1 className="text-5xl md:text-8xl font-bold mb-6 tracking-tight text-slate-900 drop-shadow-lg">
+          <h1 className="text-5xl md:text-8xl font-bold mb-6 tracking-tight text-slate-900 drop-shadow-lg" style={{ marginTop: '1.5cm' }}>
             Real-time Marketing Compliance
           </h1>
           <h2 className="text-3xl md:text-5xl font-semibold text-slate-700 mb-8 animate-slide-down">

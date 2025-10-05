@@ -42,7 +42,7 @@ export default function Benefits() {
   ];
 
   return (
-    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 relative overflow-hidden matrix-bg py-16 pt-50">
+    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 relative overflow-hidden matrix-bg py-16 pt-40">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (

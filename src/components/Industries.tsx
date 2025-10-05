@@ -20,7 +20,7 @@ export default function Industries() {
   ];
 
   return (
-    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden matrix-bg py-16 pt-45">
+    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden matrix-bg py-16 pt-40">
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (
           <div
@@ -37,22 +37,22 @@ export default function Industries() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full z-10">
-        <div className="text-center mb-8 pt-0">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Built For Your Industry</h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Configured to your brand policies and workflows across regulated and high-growth sectors.</p>
         </div>
 
         <div className="relative mb-12">
-          <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 rounded-3xl p-8 md:p-10 shadow-2xl border border-slate-700/50 relative overflow-hidden">
+          <div className="rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden" style={{ backgroundColor: '#0f2440' }}>
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-indigo-400/20"></div>
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full translate-y-24 -translate-x-24"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-transparent to-teal-400/20"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-teal-500/10 to-transparent rounded-full translate-y-24 -translate-x-24"></div>
             </div>
             
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-6">
-                <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-3 rounded-2xl shadow-lg">
+                <div className="p-3 rounded-2xl shadow-lg" style={{ backgroundColor: '#06bcc1' }}>
                   <Shield className="w-8 h-8 text-white" />
                 </div>
               </div>
@@ -79,12 +79,12 @@ export default function Industries() {
               </div>
             </div>
             
-            <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-6 left-6 w-1 h-1 bg-indigo-400 rounded-full animate-ping"></div>
+            <div className="absolute top-4 right-4 w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#06bcc1' }}></div>
+            <div className="absolute bottom-6 left-6 w-1 h-1 rounded-full animate-ping" style={{ backgroundColor: '#c5d8d1' }}></div>
             <div className="absolute top-1/2 right-8 w-1.5 h-1.5 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
           
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-3xl blur-xl -z-10 scale-105"></div>
+          <div className="absolute inset-0 rounded-3xl blur-xl -z-10 scale-105" style={{ backgroundColor: '#06bcc1', opacity: 0.2 }}></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
