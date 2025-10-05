@@ -81,8 +81,8 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
               href="/demo"
               className="text-white px-6 py-2 rounded-lg transition-colors duration-200 font-medium shadow-sm"
               style={{ backgroundColor: '#0f2440' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#06bcc1'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = '#0f2440'}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#06bcc1'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f2440'}
             >
               Get Started
             </Link>
@@ -147,8 +147,8 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
                   href="/demo"
                   className="block mx-3 text-white px-4 py-2 rounded-lg transition-colors text-center"
                   style={{ backgroundColor: '#0f2440' }}
-                  onMouseEnter={(e) => e.target.style.backgroundColor = '#06bcc1'}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = '#0f2440'}
+                  onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#06bcc1'}
+                  onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f2440'}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started
