@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Basic validation (server-side)
     const required = ["firstName", "lastName", "email", "company"]; 
     for (const key of required) {
       if (!body[key]) {
@@ -13,26 +12,24 @@ export async function POST(request: Request) {
       }
     }
 
-    // Validate consent checkbox
     if (!body.consent) {
       return NextResponse.json({ ok: false, error: "Consent to be contacted is required" }, { status: 400 });
     }
 
-    // Create email transporter using custom SMTP settings
+    const smtpPort = parseInt(process.env.SMTP_PORT || '587');
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
+      port: smtpPort,
+      secure: smtpPort === 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS
       },
       tls: {
-        rejectUnauthorized: false // Allow self-signed certificates if needed
+        rejectUnauthorized: false
       }
     });
 
-    // Email content
     const emailContent = `
 New Demo Request from Solas Website
 
@@ -48,26 +45,25 @@ Use Case:
 ${body.useCase || 'Not provided'}
 
 Marketing Consent: ${body.marketing ? 'Yes' : 'No'}
-
----
-This request was submitted from the Solas website demo form.
     `;
 
-    // Send email
     try {
-      await transporter.sendMail({
-        from: process.env.SMTP_USER,
-        to: 'neil@solascompliance.com',
+      const emailResult = await transporter.sendMail({
+        from: `"Solas Site Bot" <${process.env.SMTP_USER}>`,
+        to: 'devaang@solascompliance.com',
+        replyTo: body.email,
         subject: `New Demo Request - ${body.firstName} ${body.lastName} from ${body.company}`,
         text: emailContent,
         html: emailContent.replace(/\n/g, '<br>')
       });
 
-      console.log("Demo request email sent successfully:", body);
+      console.log("Demo request email sent successfully:", emailResult.messageId);
     } catch (emailError) {
       console.error("Failed to send email:", emailError);
-      // Still return success to user, but log the error
-      // In production, you might want to handle this differently
+      return NextResponse.json({ 
+        ok: false, 
+        error: "Failed to send email notification. Please try again or contact us directly." 
+      }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });

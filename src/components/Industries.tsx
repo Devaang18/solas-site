@@ -1,7 +1,6 @@
-import { Target, TrendingUp, Building } from 'lucide-react';
+import { Target, TrendingUp, Building, Shield, CheckCircle } from 'lucide-react';
 
 export default function Industries() {
-  // Floating particles positions for animated background - Industries section
   const particlePositions = [
     { left: 3, top: 12, delay: 0.4, duration: 5.6 },
     { left: 23, top: 52, delay: 2.1, duration: 6.9 },
@@ -21,8 +20,7 @@ export default function Industries() {
   ];
 
   return (
-    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden matrix-bg py-16">
-      {/* Floating particles */}
+    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden matrix-bg py-16 pt-50">
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (
           <div
@@ -42,6 +40,51 @@ export default function Industries() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Built For Your Industry</h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Configured to your brand policies and workflows across regulated and high-growth sectors.</p>
+        </div>
+
+        <div className="relative mb-12">
+          <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 rounded-3xl p-8 md:p-10 shadow-2xl border border-slate-700/50 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-indigo-400/20"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full translate-y-24 -translate-x-24"></div>
+            </div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center mb-6">
+                <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-3 rounded-2xl shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+              </div>
+              
+              <div className="text-center mb-6">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+                  Comprehensive Industry Coverage
+                </h3>
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-3">
+                {['Financial Services', 'Gambling', 'Pharmaceuticals', 'Healthcare', 'Insurance', 'Energy', 'Food & Beverage'].map((industry, index) => (
+                  <div 
+                    key={industry}
+                    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      {industry}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-6 left-6 w-1 h-1 bg-indigo-400 rounded-full animate-ping"></div>
+            <div className="absolute top-1/2 right-8 w-1.5 h-1.5 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          </div>
+          
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-3xl blur-xl -z-10 scale-105"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -3,7 +3,7 @@ import Reveal from '@/components/Reveal';
 
 export default function Hero() {
   return (
-    <div className="h-full w-full flex items-center justify-center relative overflow-hidden matrix-bg py-16">
+    <div className="h-full w-full flex items-center justify-center relative overflow-hidden matrix-bg py-16 pt-24">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => {

@@ -8,6 +8,7 @@ import Industries from '@/components/Industries';
 import Oracle from '@/components/Oracle';
 import ThreePillars from '@/components/ThreePillars';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import IntroAnimation from '@/components/IntroAnimation';
 
 export default function Home() {
@@ -16,7 +17,6 @@ export default function Home() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [isScrolling, setIsScrolling] = useState(false);
 
-  // Debug function to reset scrolling state
   const resetScrollingState = () => {
     setIsScrolling(false);
   };
@@ -31,34 +31,63 @@ export default function Home() {
     { id: 'footer', component: Footer, bg: 'section-alt-1', title: 'Footer' }
   ];
 
-  // Helper function to calculate scroll offset - simple 100vh per section
   const getScrollOffset = (sectionIndex: number) => {
     return sectionIndex * 100;
   };
 
-  // Helper function to calculate total height
   const getTotalHeight = () => {
     return sections.length * 100;
   };
 
-  // Handle page-like scrolling - accessible to page tracker
+  const centerSectionTitle = (sectionIndex: number) => {
+    setTimeout(() => {
+      const sectionElement = sectionRefs.current[sectionIndex];
+      const scrollableContainer = sectionElement?.querySelector('.scrollable-content') as HTMLElement;
+      if (scrollableContainer) {
+        const titleElement = scrollableContainer.querySelector('h2');
+        if (titleElement) {
+          const viewportHeight = window.innerHeight;
+          const titleHeight = titleElement.offsetHeight;
+          const titleOffsetTop = titleElement.offsetTop;
+          
+          const targetScrollTop = Math.max(0, titleOffsetTop - (viewportHeight / 2) + (titleHeight / 2));
+          
+          scrollableContainer.scrollTo({
+            top: targetScrollTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 200);
+  };
+
   const goToPage = (direction: 'next' | 'prev' | number) => {
     if (isScrolling) return;
     
     setIsScrolling(true);
     
+    let targetSection: number = currentSection;
+    
     if (typeof direction === 'number') {
-      // Direct navigation to specific section with bounds checking
       if (direction >= 0 && direction < sections.length && direction !== currentSection) {
+        targetSection = direction;
         setCurrentSection(direction);
       }
     } else if (direction === 'next' && currentSection < sections.length - 1) {
+      targetSection = currentSection + 1;
       setCurrentSection(prev => prev + 1);
     } else if (direction === 'prev' && currentSection > 0) {
+      targetSection = currentSection - 1;
       setCurrentSection(prev => prev - 1);
     }
     
-    // Reset scrolling flag after animation
+    if (targetSection >= 0 && targetSection < sections.length) {
+      const targetSectionData = sections[targetSection];
+      if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars')) {
+        setTimeout(() => centerSectionTitle(targetSection), 300);
+      }
+    }
+    
     setTimeout(() => {
       setIsScrolling(false);
     }, 600);
@@ -68,12 +97,9 @@ export default function Home() {
     if (!showIntro) {
       let scrollTimeout: NodeJS.Timeout | undefined;
 
-      // Mouse wheel handling with internal scroll support
       const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
         
-        
-        // Check if current section has scrollable content
         const currentSectionData = sections[currentSection];
         if (currentSectionData?.hasScrollableContent) {
           const sectionElement = sectionRefs.current[currentSection];
@@ -84,11 +110,11 @@ export default function Home() {
             const isAtTop = scrollTop === 0;
             const isAtBottom = scrollTop + clientHeight >= scrollHeight - 10;
             
-            // If scrolling up and at top, or scrolling down and at bottom, allow section change
-            // Use more reasonable thresholds for better navigation
             if ((e.deltaY < -25 && isAtTop) || (e.deltaY > 25 && isAtBottom)) {
-              // Allow section change immediately for better responsiveness
               if (!isScrolling) {
+                const targetSection = e.deltaY > 25 ? currentSection + 1 : currentSection - 1;
+                const targetSectionData = sections[targetSection];
+                
                 if (e.deltaY > 25) {
                   goToPage('next');
                 } else if (e.deltaY < -25) {
@@ -96,25 +122,33 @@ export default function Home() {
                 }
               }
             } else {
-              // Scroll within the section - make it more responsive
               scrollableContainer.scrollTop += e.deltaY * 0.8;
               return;
             }
           }
         } else {
-          // Normal section scrolling - require larger scroll movement
           if (isScrolling) return;
           
-          // Additional bounds checking for normal sections
           if (e.deltaY > 20 && currentSection < sections.length - 1) {
+            const targetSection = currentSection + 1;
+            const targetSectionData = sections[targetSection];
             goToPage('next');
+            
+            if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars')) {
+              setTimeout(() => centerSectionTitle(targetSection), 250);
+            }
           } else if (e.deltaY < -20 && currentSection > 0) {
+            const targetSection = currentSection - 1;
+            const targetSectionData = sections[targetSection];
             goToPage('prev');
+            
+            if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars')) {
+              setTimeout(() => centerSectionTitle(targetSection), 250);
+            }
           }
         }
       };
 
-      // Keyboard navigation with internal scroll support
       const handleKeyDown = (e: KeyboardEvent) => {
         const currentSectionData = sections[currentSection];
         if (currentSectionData?.hasScrollableContent) {
@@ -138,7 +172,6 @@ export default function Home() {
           }
         }
         
-        // Section navigation with bounds checking
         if ((e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') && currentSection < sections.length - 1) {
           e.preventDefault();
           goToPage('next');
@@ -148,7 +181,6 @@ export default function Home() {
         }
       };
 
-      // Touch handling
       let touchStartY = 0;
       let touchStartTime = 0;
       
@@ -162,7 +194,6 @@ export default function Home() {
         const deltaY = touchStartY - touchEndY;
         const deltaTime = Date.now() - touchStartTime;
         
-        // Only trigger if it's a quick swipe (not a long scroll) - less sensitive
         if (deltaTime < 300 && Math.abs(deltaY) > 80) {
           if (deltaY > 0 && currentSection < sections.length - 1) {
             goToPage('next');
@@ -189,7 +220,6 @@ export default function Home() {
     }
   }, [showIntro, currentSection, sections, isScrolling, goToPage]);
 
-  // Reset scrolling state when section changes
   useEffect(() => {
     if (!isScrolling) return;
     
@@ -200,7 +230,6 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [currentSection, isScrolling]);
 
-  // Global escape key to reset scrolling state
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -218,9 +247,10 @@ export default function Home() {
 
   return (
     <main className="relative">
-      {/* Page Tracker - Responsive */}
+      <Header onNavigateToSection={goToPage} />
+      
       <div className="fixed right-4 sm:right-6 top-1/2 transform -translate-y-1/2 z-50 page-tracker">
-        <div className="flex flex-col space-y-0.5">
+        <div className="flex flex-col space-y-2">
           {sections.map((section, index) => (
             <button
               key={section.id}
@@ -229,9 +259,17 @@ export default function Home() {
               }}
               className={`page-tracker-dot rounded-full transition-all duration-300 ${
                 index === currentSection
-                  ? 'bg-blue-600/30 active scale-110'
-                  : 'bg-slate-400/20 hover:bg-slate-400/30 hover:scale-105'
+                  ? 'bg-blue-600'
+                  : 'bg-slate-400/40 hover:bg-slate-400/60'
               }`}
+              style={{
+                width: index === currentSection ? '8px' : '6px',
+                height: index === currentSection ? '8px' : '6px',
+                minWidth: '6px',
+                minHeight: '6px',
+                maxWidth: '8px',
+                maxHeight: '8px'
+              }}
               title={`Go to ${section.title}`}
             />
           ))}
@@ -239,7 +277,6 @@ export default function Home() {
       </div>
 
 
-      {/* Fullscreen Sections with Page-like Scrolling */}
       <div 
         className="page-transition"
         style={{ 
@@ -250,6 +287,7 @@ export default function Home() {
         {sections.map((section, index) => {
           const Component = section.component;
           const isLastSection = index === sections.length - 1;
+          const isLongSection = section.id === 'oracle' || section.id === 'three-pillars';
           
           return (
             <section
@@ -260,7 +298,11 @@ export default function Home() {
                 isLastSection ? 'border-t-0' : ''
               }`}
             >
-              <Component />
+              {section.id === 'footer' ? (
+                <Footer onNavigateToSection={goToPage} />
+              ) : (
+                <Component />
+              )}
             </section>
           );
         })}

@@ -2,7 +2,6 @@ import { Shield, Zap, Clipboard } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 
 export default function Benefits() {
-  // Floating particles positions for animated background - Benefits section
   const particlePositions = [
     { left: 5, top: 15, delay: 0.2, duration: 5.2 },
     { left: 25, top: 55, delay: 1.8, duration: 6.8 },
@@ -43,7 +42,7 @@ export default function Benefits() {
   ];
 
   return (
-    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 relative overflow-hidden matrix-bg py-16">
+    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 relative overflow-hidden matrix-bg py-16 pt-50">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (

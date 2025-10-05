@@ -5,10 +5,31 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-export default function Header() {
+interface HeaderProps {
+  onNavigateToSection: (sectionIndex: number) => void;
+}
+
+export default function Header({ onNavigateToSection }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
+
+  // Map section names to their indices
+  const sectionMap = {
+    'benefits': 1,      // Why Solas
+    'how-it-works': 2,  // How It Works
+    'oracle': 3,        // Compliance Oracle
+    'three-pillars': 4, // Four Pillars
+    'industries': 5     // Industries
+  };
+
+  const handleNavigation = (sectionName: keyof typeof sectionMap) => {
+    const sectionIndex = sectionMap[sectionName];
+    if (sectionIndex !== undefined) {
+      onNavigateToSection(sectionIndex);
+      setIsMenuOpen(false); // Close mobile menu
+    }
+  };
 
   useEffect(() => {
     // Show header after intro animation
@@ -40,16 +61,22 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/#features" className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+          <nav className="hidden md:flex space-x-6">
+            <button onClick={() => handleNavigation('benefits')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
               Why Solas
-            </Link>
-            <Link href="/#how-it-works" className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+            </button>
+            <button onClick={() => handleNavigation('how-it-works')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
               How It Works
-            </Link>
-            <Link href="/#industries" className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+            </button>
+            <button onClick={() => handleNavigation('oracle')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+              Oracle
+            </button>
+            <button onClick={() => handleNavigation('three-pillars')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
+              Four Pillars
+            </button>
+            <button onClick={() => handleNavigation('industries')} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50">
               Industries
-            </Link>
+            </button>
           </nav>
 
           {/* CTA Buttons */}
@@ -92,27 +119,36 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t" style={{ borderColor: 'var(--solas-primary-light)' }}>
-              <Link
-                href="/#features"
-                className="block px-3 py-2 text-black/70 hover:text-black transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                onClick={() => handleNavigation('benefits')}
+                className="block w-full text-left px-3 py-2 text-black/70 hover:text-black transition-colors"
               >
                 Why Solas
-              </Link>
-              <Link
-                href="/#how-it-works"
-                className="block px-3 py-2 text-black/70 hover:text-black transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button
+                onClick={() => handleNavigation('how-it-works')}
+                className="block w-full text-left px-3 py-2 text-black/70 hover:text-black transition-colors"
               >
                 How It Works
-              </Link>
-              <Link
-                href="/#industries"
-                className="block px-3 py-2 text-black/70 hover:text-black transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              </button>
+              <button
+                onClick={() => handleNavigation('oracle')}
+                className="block w-full text-left px-3 py-2 text-black/70 hover:text-black transition-colors"
+              >
+                Oracle
+              </button>
+              <button
+                onClick={() => handleNavigation('three-pillars')}
+                className="block w-full text-left px-3 py-2 text-black/70 hover:text-black transition-colors"
+              >
+                Four Pillars
+              </button>
+              <button
+                onClick={() => handleNavigation('industries')}
+                className="block w-full text-left px-3 py-2 text-black/70 hover:text-black transition-colors"
               >
                 Industries
-              </Link>
+              </button>
               <div className="pt-4 space-y-2">
                 <Link
                   href="/demo"

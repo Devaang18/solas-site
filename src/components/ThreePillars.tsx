@@ -60,12 +60,12 @@ export default function ThreePillars() {
   ];
 
   const integrations = [
-    { name: 'Slack', logo: '/slack.png', status: 'active' },
-    { name: 'Jira', logo: '/jira.png', status: 'active' },
+    { name: 'Slack', logo: '/Slack.png', status: 'active' },
+    { name: 'Jira', logo: '/Jira.png', status: 'active' },
     { name: 'Teams', logo: '/microsoft-teams.svg', status: 'inactive' },
     { name: 'Salesforce', logo: '/salesforce.svg', status: 'active' },
-    { name: 'ServiceNow', logo: '/servicenow.png', status: 'active' },
-    { name: 'Confluence', logo: '/confluence.svg', status: 'inactive' }
+    { name: 'ServiceNow', logo: '/ServiceNow_logo.svg', status: 'active' },
+    { name: 'Confluence', logo: '/Confluence.png', status: 'inactive' }
   ];
 
 
@@ -232,7 +232,7 @@ export default function ThreePillars() {
           <div className="grid grid-cols-2 gap-4">
             {teamMembers.map((member, index) => (
               <div key={index} className="flex items-center space-x-3 p-3 bg-slate-50 rounded-lg">
-                <Image src={member.avatar} alt={member.name} width={40} height={40} className="w-10 h-10 rounded-full" />
+                <Image src={member.avatar} alt={member.name} width={40} height={40} className="w-10 h-10 rounded-full" unoptimized />
                 <div>
                   <p className="font-medium text-slate-900 text-sm">{member.name}</p>
                   <p className="text-xs text-slate-600">{member.role}</p>
@@ -439,6 +439,7 @@ export default function ThreePillars() {
                         width={32}
                         height={32}
                         className="w-8 h-8 rounded-full"
+                        unoptimized
                       />
                       <div className="text-sm">
                         <div className="font-medium text-slate-900">{event.user.name}</div>
@@ -522,7 +523,7 @@ export default function ThreePillars() {
       
       <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full py-16">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 pt-24">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Four Pillars of Solas Intelligence
           </h2>

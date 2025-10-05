@@ -1,7 +1,26 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Footer() {
+interface FooterProps {
+  onNavigateToSection: (sectionIndex: number) => void;
+}
+
+export default function Footer({ onNavigateToSection }: FooterProps) {
+  // Map section names to their indices
+  const sectionMap = {
+    'benefits': 1,      // Why Solas
+    'how-it-works': 2,  // How It Works
+    'oracle': 3,        // Compliance Oracle
+    'three-pillars': 4, // Four Pillars
+    'industries': 5     // Industries
+  };
+
+  const handleNavigation = (sectionName: keyof typeof sectionMap) => {
+    const sectionIndex = sectionMap[sectionName];
+    if (sectionIndex !== undefined) {
+      onNavigateToSection(sectionIndex);
+    }
+  };
   return (
     <div className="h-full w-full flex flex-col text-white" style={{ backgroundColor: 'var(--solas-primary)' }}>
       {/* CTA Section */}
@@ -24,20 +43,20 @@ export default function Footer() {
             >
               Request Demo
             </Link>
-            <Link
-              href="/demo"
+            <a
+              href="mailto:neil@solascompliance.com?subject=Talk to Sales - Interested in Solas Compliance&body=Hi Neil,%0D%0A%0D%0AI'm interested in learning more about Solas Compliance and would like to schedule a sales call.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThanks!"
               className="border border-white/80 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors"
             >
               Talk to Sales
-            </Link>
+            </a>
           </div>
         </div>
       </div>
 
       {/* Footer Content */}
       <div className="bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative w-full">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24 relative w-full">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
@@ -73,16 +92,30 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#features" className="text-slate-300 hover:text-white transition-colors">
-                  Features
-                </Link>
+                <button onClick={() => handleNavigation('benefits')} className="text-slate-300 hover:text-white transition-colors text-left">
+                  Why Solas
+                </button>
               </li>
               <li>
-                <Link href="/#how-it-works" className="text-slate-300 hover:text-white transition-colors">
+                <button onClick={() => handleNavigation('how-it-works')} className="text-slate-300 hover:text-white transition-colors text-left">
                   How it Works
-                </Link>
+                </button>
               </li>
-              
+              <li>
+                <button onClick={() => handleNavigation('oracle')} className="text-slate-300 hover:text-white transition-colors text-left">
+                  Oracle
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavigation('three-pillars')} className="text-slate-300 hover:text-white transition-colors text-left">
+                  Four Pillars
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavigation('industries')} className="text-slate-300 hover:text-white transition-colors text-left">
+                  Industries
+                </button>
+              </li>
               <li>
                 <Link href="/demo" className="text-slate-300 hover:text-white transition-colors">
                   Request Demo
@@ -91,28 +124,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#about" className="text-slate-300 hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              
-              <li>
-                <Link href="#privacy" className="text-slate-300 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="#terms" className="text-slate-300 hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-          </div>
 
           {/* Contact Information */}
           <div>

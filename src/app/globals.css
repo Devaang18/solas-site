@@ -127,20 +127,29 @@
 }
 
 .page-tracker-dot {
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  width: 1px;
-  height: 1px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  width: 6px !important;
+  height: 6px !important;
+  min-width: 6px !important;
+  min-height: 6px !important;
+  max-width: 8px !important;
+  max-height: 8px !important;
+  transform: none !important;
 }
 
 @media (max-width: 768px) {
   .page-tracker-dot {
-    width: 1px;
-    height: 1px;
+    width: 5px !important;
+    height: 5px !important;
+    min-width: 5px !important;
+    min-height: 5px !important;
+    max-width: 6px !important;
+    max-height: 6px !important;
   }
 }
 
 .page-tracker-dot:hover {
-  transform: scale(1.1);
+  transform: none !important;
 }
 
 /* No active shadow for minimal appearance */

@@ -52,7 +52,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden matrix-bg py-16">
+    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 relative overflow-hidden matrix-bg py-16 pt-24">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (

@@ -120,7 +120,7 @@ export default function Oracle() {
       
       <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full py-16">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 pt-24">
           <Reveal>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
               Meet your Compliance Oracle
