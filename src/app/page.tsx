@@ -27,7 +27,7 @@ export default function Home() {
     { id: 'benefits', component: Benefits, bg: 'section-alt-2', title: 'Why Solas' },
     { id: 'oracle', component: Oracle, bg: 'section-alt-1', title: 'Oracle', hasScrollableContent: true },
     { id: 'three-pillars', component: ThreePillars, bg: 'section-alt-2', title: 'Four Pillars', hasScrollableContent: true },
-    { id: 'industries', component: Industries, bg: 'section-alt-1', title: 'Industries' },
+    { id: 'industries', component: Industries, bg: 'section-alt-1', title: 'Industries', hasScrollableContent: true },
     { id: 'footer', component: Footer, bg: 'section-alt-2', title: 'Footer' }
   ], []);
 
@@ -83,7 +83,7 @@ export default function Home() {
     
     if (targetSection >= 0 && targetSection < sections.length) {
       const targetSectionData = sections[targetSection];
-      if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars')) {
+      if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars' || targetSectionData.id === 'industries')) {
         setTimeout(() => centerSectionTitle(targetSection), 300);
       }
     }
@@ -131,7 +131,7 @@ export default function Home() {
             const targetSectionData = sections[targetSection];
             goToPage('next');
             
-            if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars')) {
+            if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars' || targetSectionData.id === 'industries')) {
               setTimeout(() => centerSectionTitle(targetSection), 250);
             }
           } else if (e.deltaY < -20 && currentSection > 0) {
@@ -139,7 +139,7 @@ export default function Home() {
             const targetSectionData = sections[targetSection];
             goToPage('prev');
             
-            if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars')) {
+            if (targetSectionData?.hasScrollableContent && (targetSectionData.id === 'oracle' || targetSectionData.id === 'three-pillars' || targetSectionData.id === 'industries')) {
               setTimeout(() => centerSectionTitle(targetSection), 250);
             }
           }

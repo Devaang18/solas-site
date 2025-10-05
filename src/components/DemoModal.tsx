@@ -47,7 +47,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4">
       {/* Backdrop with blur effect */}
       <div 
         className="absolute inset-0 bg-black/20 backdrop-blur-sm"
@@ -55,21 +55,21 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
       />
       
       {/* Modal content */}
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl">
+      <div className="relative w-full max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-white rounded-xl sm:rounded-2xl shadow-2xl">
         {/* Header with close button */}
-        <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 rounded-t-2xl flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-slate-900">Request a Demo</h1>
+        <div className="sticky top-0 bg-white border-b border-slate-200 px-3 sm:px-4 md:px-6 py-3 sm:py-4 rounded-t-xl sm:rounded-t-2xl flex items-center justify-between">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900">Request a Demo</h1>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+            className="p-1 sm:p-2 hover:bg-slate-100 rounded-lg transition-colors"
             aria-label="Close modal"
           >
-            <X className="w-6 h-6 text-slate-600" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
           </button>
         </div>
 
         {/* Form content */}
-        <div className="p-6">
+        <div className="p-3 sm:p-4 md:p-6">
           {status === "success" ? (
             <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-6 text-center">
               <h2 className="text-xl font-semibold mb-2">Thanks! Request received.</h2>
@@ -82,31 +82,31 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
               </button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={onSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="firstName">First name</label>
-                  <input required name="firstName" id="firstName" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="firstName">First name</label>
+                  <input required name="firstName" id="firstName" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="lastName">Last name</label>
-                  <input required name="lastName" id="lastName" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="lastName">Last name</label>
+                  <input required name="lastName" id="lastName" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="email">Work email</label>
-                  <input required type="email" name="email" id="email" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="email">Work email</label>
+                  <input required type="email" name="email" id="email" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="jobTitle">Job title</label>
-                  <input name="jobTitle" id="jobTitle" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="jobTitle">Job title</label>
+                  <input name="jobTitle" id="jobTitle" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="company">Company</label>
-                  <input required name="company" id="company" className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="company">Company</label>
+                  <input required name="company" id="company" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="industry">Industry</label>
-                  <select name="industry" id="industry" className="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="industry">Industry</label>
+                  <select name="industry" id="industry" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 bg-white text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
                     <option value="">Select…</option>
                     <option>Marketing & Advertising</option>
                     <option>Consumer Promotions</option>
@@ -117,8 +117,8 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="teamSize">Team size</label>
-                  <select name="teamSize" id="teamSize" className="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="teamSize">Team size</label>
+                  <select name="teamSize" id="teamSize" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 bg-white text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
                     <option value="">Select…</option>
                     <option>1-10</option>
                     <option>11-50</option>
@@ -127,33 +127,33 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     <option>1000+</option>
                   </select>
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-slate-700 mb-2" htmlFor="useCase">What would you like to achieve?</label>
-                  <textarea name="useCase" id="useCase" rows={4} className="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
+                <div className="sm:col-span-2">
+                  <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="useCase">What would you like to achieve?</label>
+                  <textarea name="useCase" id="useCase" rows={3} className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]" />
                 </div>
-                <div className="md:col-span-2 space-y-3">
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" name="consent" className="mt-1 h-4 w-4 rounded border-slate-300 text-[var(--solas-primary)] focus:ring-[var(--solas-primary)]" required />
-                    <span className="text-sm text-slate-700 font-medium">
+                <div className="sm:col-span-2 space-y-2 sm:space-y-3">
+                  <label className="flex items-start space-x-2 sm:space-x-3">
+                    <input type="checkbox" name="consent" className="mt-0.5 sm:mt-1 h-3 w-3 sm:h-4 sm:w-4 rounded border-slate-300 text-[var(--solas-primary)] focus:ring-[var(--solas-primary)]" required />
+                    <span className="text-xs sm:text-sm text-slate-700 font-medium">
                       I agree to be contacted about my demo request and related product information. <span className="text-red-500">*</span>
                     </span>
                   </label>
-                  <label className="flex items-start space-x-3">
-                    <input type="checkbox" name="marketing" className="mt-1 h-4 w-4 rounded border-slate-300 text-[var(--solas-primary)] focus:ring-[var(--solas-primary)]" />
-                    <span className="text-sm text-slate-600">I&apos;d like to receive occasional product updates and insights.</span>
+                  <label className="flex items-start space-x-2 sm:space-x-3">
+                    <input type="checkbox" name="marketing" className="mt-0.5 sm:mt-1 h-3 w-3 sm:h-4 sm:w-4 rounded border-slate-300 text-[var(--solas-primary)] focus:ring-[var(--solas-primary)]" />
+                    <span className="text-xs sm:text-sm text-slate-600">I&apos;d like to receive occasional product updates and insights.</span>
                   </label>
                 </div>
               </div>
 
               {status === "error" && (
-                <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3">{error}</div>
+                <div className="text-xs sm:text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-2 sm:p-3">{error}</div>
               )}
 
-              <div className="flex items-center gap-4 pt-4">
-                <button disabled={status === "submitting"} className="text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-60" style={{ backgroundColor: '#0f2440' }}>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 pt-3 sm:pt-4">
+                <button disabled={status === "submitting"} className="text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold disabled:opacity-60 text-sm sm:text-base" style={{ backgroundColor: '#0f2440' }}>
                   {status === "submitting" ? "Submitting…" : "Request demo"}
                 </button>
-                <span className="text-slate-500 text-sm">We&apos;ll respond within 1-2 business days.</span>
+                <span className="text-slate-500 text-xs sm:text-sm">We&apos;ll respond within 1-2 business days.</span>
               </div>
             </form>
           )}

@@ -83,7 +83,7 @@ export default function Oracle() {
 
 
   return (
-    <div className="h-full w-full flex items-start justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden matrix-bg py-16 pt-20">
+    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden matrix-bg py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {[...Array(12)].map((_, i) => {
@@ -106,7 +106,7 @@ export default function Oracle() {
           return (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-blue-400/20 rounded-full floating-element"
+              className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-blue-400/20 rounded-full floating-element"
               style={{
                 left: `${pos.left}%`,
                 top: `${pos.top}%`,
@@ -119,13 +119,13 @@ export default function Oracle() {
       </div>
       
       <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full py-16">
-        <div className="text-center mb-16">
+        <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative w-full py-8 sm:py-12 md:py-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16" style={{ paddingTop: 'var(--section-title-padding-top)' }}>
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight leading-tight">
               Meet your Compliance Oracle
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-600 max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed">
               Train Solas with your policies and guidelines. Your team gets instant, personalised compliance guidance for every piece of content.
             </p>
           </Reveal>

@@ -522,12 +522,12 @@ export default function ThreePillars() {
       </div>
       
       <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative w-full py-8 sm:py-12 md:py-16">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12" style={{ paddingTop: 'var(--section-title-padding-top)' }}>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight leading-tight">
             Four Pillars of Solas Intelligence
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-600 max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed">
             Experience how Solas transforms compliance through intelligent data processing, seamless collaboration, and bulletproof audit trails.
           </p>
         </div>

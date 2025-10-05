@@ -2,6 +2,15 @@
 
 /* Responsive Design System */
 @layer base {
+  :root {
+    /* Standardized section title padding - minimal for most sections */
+    --section-title-padding-top: 1vh;
+    /* Benefits section needs to move up significantly */
+    --section-title-padding-top-benefits: -2vh;
+    /* Industries section now uses same spacing as others */
+    --section-title-padding-top-industries: 1vh;
+  }
+  
   /* Ensure consistent box-sizing across all elements */
   *, *::before, *::after {
     box-sizing: border-box;
