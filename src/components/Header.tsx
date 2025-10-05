@@ -18,9 +18,10 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
   // Map section names to their indices
   const sectionMap = {
     'benefits': 1,      // Why Solas
-    'oracle': 2,        // Compliance Oracle
-    'three-pillars': 3, // Four Pillars
-    'industries': 4     // Industries
+    'how-it-works': 2,  // How It Works
+    'oracle': 3,        // Compliance Oracle
+    'three-pillars': 4, // Four Pillars
+    'industries': 5     // Industries
   };
 
   const handleNavigation = (sectionName: keyof typeof sectionMap) => {
@@ -64,6 +65,9 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
           <nav className="hidden lg:flex space-x-2 xl:space-x-4 2xl:space-x-6">
             <button onClick={() => handleNavigation('benefits')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
               Why Solas
+            </button>
+            <button onClick={() => handleNavigation('how-it-works')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
+              How It Works
             </button>
             <button onClick={() => handleNavigation('oracle')} className="text-xs xl:text-sm 2xl:text-base text-slate-700 hover:text-blue-600 transition-colors duration-200 px-2 xl:px-3 py-1 xl:py-2 rounded-md hover:bg-blue-50">
               Oracle
@@ -124,6 +128,12 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
                 className="block w-full text-left px-2 sm:px-3 py-2 text-sm sm:text-base text-black/70 hover:text-black transition-colors"
               >
                 Why Solas
+              </button>
+              <button
+                onClick={() => handleNavigation('how-it-works')}
+                className="block w-full text-left px-2 sm:px-3 py-2 text-sm sm:text-base text-black/70 hover:text-black transition-colors"
+              >
+                How It Works
               </button>
               <button
                 onClick={() => handleNavigation('oracle')}
