@@ -27,25 +27,25 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
       <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 relative overflow-hidden">
         {/* Background accent */}
         <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_-80px,rgba(20,184,166,0.15),transparent)]"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <div className="container-fluid-2xl mx-auto p-fluid-lg text-center relative z-10 w-full">
+          <h2 className="text-fluid-5xl font-bold mb-fluid-6">
             Ready to Protect Your Brand?
           </h2>
-          <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-fluid-2xl text-slate-300 mb-fluid-8 container-fluid-lg mx-auto leading-relaxed">
             Join compliance teams at leading companies who trust Solas to keep their 
             marketing content compliant and their brands protected.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-fluid-4 justify-center mb-fluid-12">
             <Link
               href="/demo"
-              className="bg-white text-slate-900 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-slate-100 transition-colors shadow-md"
+              className="bg-white text-slate-900 p-fluid-md rounded-xl text-fluid-lg font-semibold hover:bg-slate-100 transition-colors shadow-md text-center"
             >
               Request Demo
             </Link>
             <a
               href="mailto:neil@solascompliance.com?subject=Talk to Sales - Interested in Solas Compliance&body=Hi Neil,%0D%0A%0D%0AI'm interested in learning more about Solas Compliance and would like to schedule a sales call.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThanks!"
-              className="border border-white/80 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors"
+              className="border border-white/80 text-white p-fluid-md rounded-xl text-fluid-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors text-center"
             >
               Talk to Sales
             </a>
@@ -55,8 +55,8 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
 
       {/* Footer Content */}
       <div className="bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24 relative w-full">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="container-fluid-2xl mx-auto p-fluid-lg py-fluid-lg pt-fluid-24 relative w-full">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-fluid-8">
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
@@ -73,7 +73,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
                 </div>
               </div>
             </div>
-            <p className="text-slate-300 mb-4 max-w-md">
+            <p className="text-fluid-base text-slate-300 mb-fluid-4 container-fluid-md mx-auto leading-relaxed">
               Real-time compliance assistant for compliance and marketing teams in regulated industries. 
               Flag potential regulatory breaches before publication.
             </p>
@@ -89,7 +89,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
 
           {/* Product Links */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h3>
+            <h3 className="text-fluid-sm font-semibold text-white uppercase tracking-wider mb-fluid-4">Product</h3>
             <ul className="space-y-3">
               <li>
                 <button onClick={() => handleNavigation('benefits')} className="text-slate-300 hover:text-white transition-colors text-left">
@@ -127,7 +127,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h3>
+            <h3 className="text-fluid-sm font-semibold text-white uppercase tracking-wider mb-fluid-4">Contact</h3>
             <ul className="space-y-3">
               <li>
                 <a href="tel:+447482585085" className="text-slate-300 hover:text-white transition-colors flex items-center">
