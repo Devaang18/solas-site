@@ -532,33 +532,36 @@ export default function ThreePillars() {
           </p>
         </div>
 
-        {/* Pillar Tabs */}
-        <div className="flex flex-col md:flex-row justify-center mb-12 bg-white rounded-lg p-2 border border-slate-200 shadow-sm">
-          {pillars.map((pillar, index) => (
-            <button
-              key={index}
-              onClick={() => setActivePillar(index)}
-              className={`flex-1 px-6 py-4 rounded-md font-medium transition-all ${
-                activePillar === index
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-              }`}
-            >
-              <div className="text-center">
-                <div className="text-lg font-semibold">{pillar.title}</div>
-                <div className="text-sm opacity-75">{pillar.subtitle}</div>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Active Pillar Content */}
+        {/* Unified Container */}
         <Reveal>
-          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-            {activePillar === 0 && renderSmartIngestion()}
-            {activePillar === 1 && renderMarketingReview()}
-            {activePillar === 2 && renderWorkflowEngine()}
-            {activePillar === 3 && renderAuditTrail()}
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            {/* Pillar Tabs */}
+            <div className="flex flex-col md:flex-row justify-center bg-slate-50 border-b border-slate-200">
+              {pillars.map((pillar, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActivePillar(index)}
+                  className={`flex-1 px-6 py-4 font-medium transition-all ${
+                    activePillar === index
+                      ? 'bg-slate-900 text-white shadow-md'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  }`}
+                >
+                  <div className="text-center">
+                    <div className="text-lg font-semibold">{pillar.title}</div>
+                    <div className="text-sm opacity-75">{pillar.subtitle}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Active Pillar Content */}
+            <div className="p-8">
+              {activePillar === 0 && renderSmartIngestion()}
+              {activePillar === 1 && renderMarketingReview()}
+              {activePillar === 2 && renderWorkflowEngine()}
+              {activePillar === 3 && renderAuditTrail()}
+            </div>
           </div>
         </Reveal>
         </div>
