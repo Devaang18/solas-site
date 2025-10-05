@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface FooterProps {
-  onNavigateToSection: (sectionIndex: number) => void;
+  onNavigateToSection?: (sectionIndex: number) => void;
 }
 
 export default function Footer({ onNavigateToSection }: FooterProps) {
@@ -17,7 +17,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
 
   const handleNavigation = (sectionName: keyof typeof sectionMap) => {
     const sectionIndex = sectionMap[sectionName];
-    if (sectionIndex !== undefined) {
+    if (sectionIndex !== undefined && onNavigateToSection) {
       onNavigateToSection(sectionIndex);
     }
   };
