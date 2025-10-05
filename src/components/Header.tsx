@@ -7,9 +7,10 @@ import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
   onNavigateToSection: (sectionIndex: number) => void;
+  onOpenDemo: () => void;
 }
 
-export default function Header({ onNavigateToSection }: HeaderProps) {
+export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
@@ -77,15 +78,15 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link
-              href="/demo"
+            <button
+              onClick={onOpenDemo}
               className="text-white px-6 py-2 rounded-lg transition-colors duration-200 font-medium shadow-sm"
               style={{ backgroundColor: '#0f2440' }}
               onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#06bcc1'}
               onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f2440'}
             >
               Get Started
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -143,16 +144,18 @@ export default function Header({ onNavigateToSection }: HeaderProps) {
                 Industries
               </button>
               <div className="pt-4 space-y-2">
-                <Link
-                  href="/demo"
+                <button
+                  onClick={() => {
+                    onOpenDemo();
+                    setIsMenuOpen(false);
+                  }}
                   className="block mx-3 text-white px-4 py-2 rounded-lg transition-colors text-center"
                   style={{ backgroundColor: '#0f2440' }}
                   onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#06bcc1'}
                   onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f2440'}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started
-                </Link>
+                </button>
               </div>
             </div>
           </div>

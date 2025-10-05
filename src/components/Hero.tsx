@@ -64,12 +64,6 @@ export default function Hero() {
             >
               Request Demo
             </Link>
-            <Link
-              href="#how-it-works"
-              className="btn-outline text-xl px-8 py-4 hover:bg-slate-100 transition-all duration-300 transform hover:scale-105"
-            >
-              See How It Works
-            </Link>
           </div>
         </Reveal>
       </div>

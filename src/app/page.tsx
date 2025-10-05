@@ -9,12 +9,14 @@ import ThreePillars from '@/components/ThreePillars';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import IntroAnimation from '@/components/IntroAnimation';
+import DemoModal from '@/components/DemoModal';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const [currentSection, setCurrentSection] = useState(0);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [showDemoModal, setShowDemoModal] = useState(false);
 
   const resetScrollingState = () => {
     setIsScrolling(false);
@@ -242,7 +244,7 @@ export default function Home() {
 
   return (
     <main className="relative">
-      <Header onNavigateToSection={goToPage} />
+      <Header onNavigateToSection={goToPage} onOpenDemo={() => setShowDemoModal(true)} />
       
       <div className="fixed right-4 sm:right-6 top-1/2 transform -translate-y-1/2 z-50 page-tracker">
         <div className="flex flex-col space-y-2">
@@ -301,6 +303,8 @@ export default function Home() {
           );
         })}
       </div>
+      
+      <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
     </main>
   );
 }
