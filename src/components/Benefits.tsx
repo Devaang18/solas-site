@@ -59,31 +59,31 @@ export default function Benefits() {
         ))}
       </div>
       
-      <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative w-full z-10">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14" style={{ paddingTop: 'var(--section-title-padding-top-benefits)' }}>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight leading-tight">
+      <div className="container-fluid-2xl mx-auto p-fluid-lg relative w-full z-10">
+        <div className="text-center mb-14" style={{ paddingTop: 'var(--section-title-padding-top-benefits)' }}>
+          <h2 className="text-fluid-5xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
             Why Solas
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-600 max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed">
+          <p className="text-fluid-2xl text-slate-600 container-fluid-lg mx-auto leading-relaxed">
             Built for regulated and high-growth brands to keep quality high without slowing launches.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <Reveal key={index} delay={index * 0.1}>
-            <div className="card card-hover text-center p-4 sm:p-6 md:p-8 transition-all duration-300 hover-lift h-full flex flex-col">
-              <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6 border hover-glow animate-float ${
+            <div className="card card-hover text-center p-fluid-lg transition-all duration-300 hover-lift h-full flex flex-col">
+              <div className={`rounded-xl flex items-center justify-center mx-auto mb-6 border hover-glow animate-float ${
                 index === 0 ? 'bg-gradient-to-br from-green-100 to-green-200 border-green-200' :
                 index === 1 ? 'bg-gradient-to-br from-cyan-100 to-cyan-200 border-cyan-200' :
                 'bg-gradient-to-br from-indigo-100 to-indigo-200 border-indigo-200'
-              }`}>
-                <benefit.icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 ${index === 0 ? 'text-green-600' : index === 1 ? 'text-cyan-600' : 'text-indigo-600'}`} />
+              }`} style={{ width: 'clamp(3rem, 6vw, 4rem)', height: 'clamp(3rem, 6vw, 4rem)' }}>
+                <benefit.icon className={`${index === 0 ? 'text-green-600' : index === 1 ? 'text-cyan-600' : 'text-indigo-600'}`} style={{ width: 'clamp(1.5rem, 3vw, 2rem)', height: 'clamp(1.5rem, 3vw, 2rem)' }} />
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-slate-900 mb-3 sm:mb-4 leading-tight">
+              <h3 className="text-fluid-2xl font-semibold text-slate-900 mb-4 leading-tight">
                 {benefit.title}
               </h3>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed flex-grow">
+              <p className="text-fluid-lg text-slate-600 leading-relaxed flex-grow">
                 {benefit.description}
               </p>
             </div>

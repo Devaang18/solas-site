@@ -3,18 +3,99 @@
 /* Responsive Design System */
 @layer base {
   :root {
-    /* Standardized section title padding - minimal for most sections */
-    --section-title-padding-top: 1vh;
-    /* Benefits section needs to move up significantly */
-    --section-title-padding-top-benefits: -2vh;
-    /* Industries section now uses same spacing as others */
-    --section-title-padding-top-industries: 1vh;
+    /* Viewport-based scaling system */
+    --vw-scale: clamp(0.5, 1vw, 2);
+    --vh-scale: clamp(0.5, 1vh, 2);
+    
+    /* Dynamic font scaling */
+    --text-xs: clamp(0.75rem, 2vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 2.5vw, 1rem);
+    --text-base: clamp(1rem, 3vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 3.5vw, 1.25rem);
+    --text-xl: clamp(1.25rem, 4vw, 1.5rem);
+    --text-2xl: clamp(1.5rem, 5vw, 1.875rem);
+    --text-3xl: clamp(1.875rem, 6vw, 2.25rem);
+    --text-4xl: clamp(2.25rem, 7vw, 3rem);
+    --text-5xl: clamp(3rem, 8vw, 4rem);
+    --text-6xl: clamp(3.75rem, 9vw, 5rem);
+    --text-7xl: clamp(4.5rem, 10vw, 6rem);
+    
+    /* Dynamic spacing */
+    --space-1: clamp(0.25rem, 1vw, 0.5rem);
+    --space-2: clamp(0.5rem, 1.5vw, 1rem);
+    --space-3: clamp(0.75rem, 2vw, 1.5rem);
+    --space-4: clamp(1rem, 2.5vw, 2rem);
+    --space-6: clamp(1.5rem, 3vw, 3rem);
+    --space-8: clamp(2rem, 4vw, 4rem);
+    --space-12: clamp(3rem, 5vw, 6rem);
+    --space-16: clamp(4rem, 6vw, 8rem);
+    --space-20: clamp(5rem, 7vw, 10rem);
+    --space-24: clamp(6rem, 8vw, 12rem);
+    
+    /* Dynamic container sizes */
+    --container-xs: clamp(20rem, 90vw, 24rem);
+    --container-sm: clamp(24rem, 95vw, 32rem);
+    --container-md: clamp(32rem, 98vw, 48rem);
+    --container-lg: clamp(48rem, 100vw, 64rem);
+    --container-xl: clamp(64rem, 100vw, 80rem);
+    --container-2xl: clamp(80rem, 100vw, 96rem);
+    
+    /* Dynamic padding */
+    --padding-xs: clamp(0.5rem, 2vw, 1rem);
+    --padding-sm: clamp(1rem, 3vw, 1.5rem);
+    --padding-md: clamp(1.5rem, 4vw, 2rem);
+    --padding-lg: clamp(2rem, 5vw, 3rem);
+    --padding-xl: clamp(3rem, 6vw, 4rem);
+    
+    /* Section title padding - now fully responsive */
+    --section-title-padding-top: clamp(1vh, 3vh, 6vh);
+    --section-title-padding-top-benefits: clamp(-2vh, 0vh, 2vh);
+    --section-title-padding-top-industries: clamp(1vh, 3vh, 6vh);
   }
   
   /* Ensure consistent box-sizing across all elements */
   *, *::before, *::after {
     box-sizing: border-box;
   }
+  
+  /* Fluid typography utility classes */
+  .text-fluid-xs { font-size: var(--text-xs); }
+  .text-fluid-sm { font-size: var(--text-sm); }
+  .text-fluid-base { font-size: var(--text-base); }
+  .text-fluid-lg { font-size: var(--text-lg); }
+  .text-fluid-xl { font-size: var(--text-xl); }
+  .text-fluid-2xl { font-size: var(--text-2xl); }
+  .text-fluid-3xl { font-size: var(--text-3xl); }
+  .text-fluid-4xl { font-size: var(--text-4xl); }
+  .text-fluid-5xl { font-size: var(--text-5xl); }
+  .text-fluid-6xl { font-size: var(--text-6xl); }
+  .text-fluid-7xl { font-size: var(--text-7xl); }
+  
+  /* Fluid spacing utility classes */
+  .space-fluid-1 { margin: var(--space-1); }
+  .space-fluid-2 { margin: var(--space-2); }
+  .space-fluid-3 { margin: var(--space-3); }
+  .space-fluid-4 { margin: var(--space-4); }
+  .space-fluid-6 { margin: var(--space-6); }
+  .space-fluid-8 { margin: var(--space-8); }
+  .space-fluid-12 { margin: var(--space-12); }
+  .space-fluid-16 { margin: var(--space-16); }
+  .space-fluid-20 { margin: var(--space-20); }
+  .space-fluid-24 { margin: var(--space-24); }
+  
+  .p-fluid-xs { padding: var(--padding-xs); }
+  .p-fluid-sm { padding: var(--padding-sm); }
+  .p-fluid-md { padding: var(--padding-md); }
+  .p-fluid-lg { padding: var(--padding-lg); }
+  .p-fluid-xl { padding: var(--padding-xl); }
+  
+  /* Fluid container utility classes */
+  .container-fluid-xs { max-width: var(--container-xs); }
+  .container-fluid-sm { max-width: var(--container-sm); }
+  .container-fluid-md { max-width: var(--container-md); }
+  .container-fluid-lg { max-width: var(--container-lg); }
+  .container-fluid-xl { max-width: var(--container-xl); }
+  .container-fluid-2xl { max-width: var(--container-2xl); }
   
   /* Prevent horizontal scroll on all devices */
   html, body {

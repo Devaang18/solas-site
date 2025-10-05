@@ -41,26 +41,26 @@ export default function Hero() {
         })}
       </div>
 
-      <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 text-center relative z-10">
+      <div className="container-fluid-2xl mx-auto p-fluid-lg text-center relative z-10">
         <div style={{ paddingTop: 'var(--section-title-padding-top)' }}>
           <Reveal>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 tracking-tight text-slate-900 drop-shadow-lg leading-tight">
+            <h1 className="text-fluid-7xl font-bold mb-6 tracking-tight text-slate-900 drop-shadow-lg leading-tight">
               Real-time Marketing Compliance
             </h1>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-slate-700 mb-4 sm:mb-6 md:mb-8 animate-slide-down leading-tight">
+            <h2 className="text-fluid-5xl font-semibold text-slate-700 mb-8 animate-slide-down leading-tight">
               Without the Friction
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-600 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto animate-slide-up leading-relaxed">
+            <p className="text-fluid-2xl text-slate-600 mb-12 container-fluid-lg mx-auto animate-slide-up leading-relaxed">
               Solas flags potential regulatory breaches in content before publication, helping compliance and marketing teams move fast without risking fines or brand damage.
             </p>
           </Reveal>
           <Reveal delay={0.4}>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center animate-zoom-in">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-zoom-in">
               <Link
                 href="/demo"
-                className="btn-primary text-sm sm:text-base md:text-lg lg:text-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 rounded-lg sm:rounded-xl"
+                className="btn-primary text-fluid-lg p-fluid-md shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 rounded-xl"
               >
                 Request Demo
               </Link>
@@ -70,9 +70,9 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-4 h-6 sm:w-5 sm:h-8 md:w-6 md:h-10 border-2 border-slate-400 rounded-full flex justify-center">
-          <div className="w-0.5 h-1.5 sm:w-1 sm:h-2 md:w-1 md:h-3 bg-slate-400 rounded-full mt-1 sm:mt-1.5 md:mt-2 animate-pulse"></div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center" style={{ width: 'clamp(1.5rem, 4vw, 2rem)', height: 'clamp(2.5rem, 6vw, 3rem)' }}>
+          <div className="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-pulse" style={{ width: 'clamp(0.25rem, 1vw, 0.5rem)', height: 'clamp(0.75rem, 2vw, 1rem)', marginTop: 'clamp(0.5rem, 1vw, 1rem)' }}></div>
         </div>
       </div>
     </div>
