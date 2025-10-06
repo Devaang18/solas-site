@@ -110,13 +110,6 @@
   .btn-mobile { padding: var(--mobile-button-padding); }
   
   /* Section continuity and animations */
-  .section-transition {
-    position: relative;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-    margin: 0;
-    padding: 0;
-  }
   
   /* Remove any default borders or margins */
   section {
@@ -137,26 +130,6 @@
     flex: 1;
   }
   
-  .section-fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-  
-  .section-fade-in:nth-child(even) {
-    animation-delay: 0.2s;
-  }
-  
-  .section-fade-in:nth-child(odd) {
-    animation-delay: 0.1s;
-  }
-  
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
   
   /* Continuous gradient backgrounds with subtle blending */
   .section-alt-1 {
@@ -263,6 +236,11 @@
     justify-content: center;
     /* push content ~30% from the top while still allowing content to grow */
     padding-top: 30vh;
+  }
+
+  /* Ensure section titles are positioned 3% from top */
+  .section-title-offset {
+    padding-top: 3vh !important;
   }
 
   /* Ensure footer is last element and prevents scrolling past it */
@@ -984,10 +962,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Enhanced Scroll Transitions */
-.section-transition {
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* Scroll Effect Animations */
 @keyframes slide-in-from-bottom {

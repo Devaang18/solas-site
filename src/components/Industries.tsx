@@ -38,7 +38,7 @@ export default function Industries() {
       
       <div className="w-full">
         <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative w-full py-8 sm:py-12 md:py-16 z-10">
-        <div className="text-center mb-6 sm:mb-8 md:mb-10" style={{ paddingTop: 'var(--section-title-padding-top-industries)' }}>
+        <div className="text-center mb-6 sm:mb-8 md:mb-10 section-title-offset">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight leading-tight">Built For Your Industry</h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-600 max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed">Configured to your brand policies and workflows across regulated and high-growth sectors.</p>
         </div>

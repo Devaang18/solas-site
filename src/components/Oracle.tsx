@@ -120,7 +120,7 @@ export default function Oracle() {
       
       <div className="w-full">
         <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative w-full py-8 sm:py-12 md:py-16">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16" style={{ paddingTop: 'var(--section-title-padding-top)' }}>
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 section-title-offset">
           <Reveal>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight leading-tight">
               Meet your Compliance Oracle

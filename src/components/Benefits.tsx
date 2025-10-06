@@ -60,7 +60,7 @@ export default function Benefits() {
       </div>
       
       <div className="container-fluid-2xl mx-auto p-fluid-lg relative w-full z-10">
-        <div className="text-center mb-14" style={{ paddingTop: 'var(--section-title-padding-top-benefits)' }}>
+        <div className="text-center mb-14 section-title-offset">
           <h2 className="text-fluid-5xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
             Why Solas
           </h2>

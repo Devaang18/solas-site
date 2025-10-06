@@ -68,7 +68,7 @@ export default function HowItWorks() {
       </div>
       
       <div className="container-fluid-2xl mx-auto p-fluid-lg relative w-full z-10">
-        <div className="text-center mb-16" style={{ paddingTop: 'var(--section-title-padding-top)' }}>
+        <div className="text-center mb-16 section-title-offset">
           <h2 className="text-fluid-5xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
             How Solas Works
           </h2>
