@@ -20,12 +20,12 @@ export default function Industries() {
   ];
 
   return (
-    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden matrix-bg py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-indigo-50 to-slate-100 relative overflow-hidden matrix-bg py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 content-offset-top-30">
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-blue-400/20 rounded-full floating-element"
+            className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-slate-300/30 rounded-full floating-element"
             style={{
               left: `${pos.left}%`,
               top: `${pos.top}%`,
@@ -36,7 +36,7 @@ export default function Industries() {
         ))}
       </div>
       
-      <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
+      <div className="w-full">
         <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative w-full py-8 sm:py-12 md:py-16 z-10">
         <div className="text-center mb-6 sm:mb-8 md:mb-10" style={{ paddingTop: 'var(--section-title-padding-top-industries)' }}>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight leading-tight">Built For Your Industry</h2>
@@ -65,7 +65,7 @@ export default function Industries() {
               </div>
               
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-                {['Financial Services', 'Gambling', 'Pharmaceuticals', 'Healthcare', 'Insurance', 'Energy', 'Food & Beverage'].map((industry, index) => (
+                {['Financial Services', 'Gambling', 'Healthcare', 'Insurance', 'Energy', 'Food & Beverage'].map((industry, index) => (
                   <div 
                     key={industry}
                     className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-2 sm:px-3 md:px-4 py-1 sm:py-2 text-xs sm:text-sm md:text-base font-medium text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"

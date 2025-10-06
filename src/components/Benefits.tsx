@@ -42,13 +42,13 @@ export default function Benefits() {
   ];
 
   return (
-    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 relative overflow-hidden matrix-bg py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 relative overflow-hidden matrix-bg py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 content-offset-top-30">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {particlePositions.map((pos, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-blue-400/20 rounded-full floating-element"
+            className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-slate-300/30 rounded-full floating-element"
             style={{
               left: `${pos.left}%`,
               top: `${pos.top}%`,

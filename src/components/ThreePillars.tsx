@@ -171,28 +171,6 @@ export default function ThreePillars() {
         </div>
       </div>
 
-      {/* Review Statistics */}
-      <div className="bg-white rounded-xl p-6 border border-slate-200">
-        <h4 className="text-lg font-semibold text-slate-900 mb-4 text-center">Review Performance</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-green-600">99.2%</div>
-            <div className="text-sm text-slate-600">Accuracy Rate</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-blue-600">2.1s</div>
-            <div className="text-sm text-slate-600">Avg Review Time</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600">15K+</div>
-            <div className="text-sm text-slate-600">Content Reviewed</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600">0</div>
-            <div className="text-sm text-slate-600">False Positives</div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -484,7 +462,7 @@ export default function ThreePillars() {
   };
 
   return (
-    <div className={`h-full w-full flex flex-col justify-start transition-all duration-500 ${getPillarBackground(activePillar)} relative overflow-hidden matrix-bg py-16 pt-20`}>
+    <div className={`w-full transition-all duration-500 ${getPillarBackground(activePillar)} relative overflow-hidden matrix-bg py-16 pt-20 content-offset-top-30`} style={{ minHeight: '100vh' }}>
       {/* Floating particles */}
       <div className="absolute inset-0">
         {[...Array(14)].map((_, i) => {
@@ -509,7 +487,7 @@ export default function ThreePillars() {
           return (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-blue-400/20 rounded-full floating-element"
+              className="absolute w-2 h-2 bg-slate-300/30 rounded-full floating-element"
               style={{
                 left: `${pos.left}%`,
                 top: `${pos.top}%`,
@@ -521,7 +499,7 @@ export default function ThreePillars() {
         })}
       </div>
       
-      <div className="scrollable-content h-full w-full overflow-y-auto scrollbar-hide">
+      <div className="w-full">
         <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative w-full py-8 sm:py-12 md:py-16">
         <div className="text-center mb-8 sm:mb-10 md:mb-12" style={{ paddingTop: 'var(--section-title-padding-top)' }}>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight leading-tight">
