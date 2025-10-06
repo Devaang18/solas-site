@@ -238,9 +238,9 @@
     padding-top: 30vh;
   }
 
-  /* Ensure section titles are positioned 3% from top */
+  /* Ensure section titles are positioned 1% from top */
   .section-title-offset {
-    padding-top: 3vh !important;
+    padding-top: 1vh !important;
   }
 
   /* Ensure footer is last element and prevents scrolling past it */
