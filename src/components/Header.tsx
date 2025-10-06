@@ -63,19 +63,19 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex" style={{ gap: 'clamp(0.5rem, 2vw, 1.5rem)' }}>
-            <button onClick={() => handleNavigation('benefits')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('benefits')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Why Solas
             </button>
-            <button onClick={() => handleNavigation('how-it-works')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('how-it-works')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               How It Works
             </button>
-            <button onClick={() => handleNavigation('oracle')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('oracle')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Oracle
             </button>
-            <button onClick={() => handleNavigation('three-pillars')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('three-pillars')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Four Pillars
             </button>
-            <button onClick={() => handleNavigation('industries')} className="text-fluid-sm text-slate-700 hover:text-blue-600 transition-colors duration-200 p-fluid-sm rounded-md hover:bg-blue-50">
+            <button onClick={() => handleNavigation('industries')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Industries
             </button>
           </nav>
@@ -84,7 +84,7 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
           <div className="hidden md:flex items-center" style={{ gap: 'clamp(0.5rem, 2vw, 1rem)' }}>
             <button
               onClick={onOpenDemo}
-              className="text-white p-fluid-sm rounded-lg transition-colors duration-200 font-medium shadow-sm text-fluid-sm"
+              className="text-white px-6 py-3 rounded-lg transition-colors duration-200 font-semibold shadow-sm text-base sm:text-lg"
               style={{ backgroundColor: '#0f2440' }}
               onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#06bcc1'}
               onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f2440'}

@@ -229,18 +229,18 @@
     padding: 0 !important;
   }
 
-  /* Utility: place section content about 30% from the top for sparse sections */
+  /* Utility: place section content very close to the top for sparse sections */
   .content-offset-top-30 {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    /* push content ~30% from the top while still allowing content to grow */
-    padding-top: 30vh;
+    /* push content very close to the top while still allowing content to grow */
+    padding-top: 2vh;
   }
 
-  /* Ensure section titles are positioned 1% from top */
+  /* Ensure section titles are positioned very close to top */
   .section-title-offset {
-    padding-top: 1vh !important;
+    padding-top: 0 !important;
   }
 
   /* Ensure footer is last element and prevents scrolling past it */
