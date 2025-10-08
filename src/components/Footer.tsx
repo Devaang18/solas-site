@@ -39,13 +39,13 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-fluid-12">
             <Link
               href="/demo"
-              className="bg-white text-slate-900 px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-100 transition-colors shadow-md text-center"
+              className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-100 transition-colors shadow-md text-center"
             >
               Request Demo
             </Link>
             <a
               href="mailto:neil@solascompliance.com?subject=Talk to Sales - Interested in Solas Compliance&body=Hi Neil,%0D%0A%0D%0AI'm interested in learning more about Solas Compliance and would like to schedule a sales call.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThanks!"
-              className="border border-white/80 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors text-center"
+              className="inline-flex items-center justify-center border border-white/80 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors text-center"
             >
               Talk to Sales
             </a>

@@ -60,7 +60,8 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center animate-zoom-in">
               <Link
                 href="/demo"
-                className="btn-primary text-fluid-lg p-fluid-md shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 rounded-xl"
+                className="btn-primary text-fluid-lg p-fluid-md shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 rounded-xl mx-auto"
+                style={{ width: 'fit-content' }}
               >
                 Request Demo
               </Link>

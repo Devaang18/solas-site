@@ -76,8 +76,33 @@ export default function ThreePillars() {
         <p className="text-slate-600 max-w-2xl mx-auto">{pillars[0].description}</p>
       </div>
       
-      {/* Circular arrangement of data sources */}
-      <div className="relative w-[500px] h-[500px] mx-auto">
+      {/* Mobile-first: show compact grid on small screens, circle on larger screens */}
+      {/* Compact grid for mobile */}
+      <div className="grid grid-cols-2 gap-3 sm:hidden max-w-sm mx-auto px-2">
+        {/* Mobile brain centerpiece */}
+        <div className="col-span-2 flex items-center justify-center py-2">
+          <div className="relative">
+            <div className="w-16 h-16 rounded-full border-4 border-blue-200 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center animate-pulse-glow">
+              <Brain className="w-8 h-8 text-purple-600" />
+              <div className="absolute inset-0 rounded-full border-2 border-blue-300 animate-ping opacity-30"></div>
+            </div>
+            <div className="text-xs text-slate-600 font-medium text-center mt-2">Solas AI</div>
+          </div>
+        </div>
+        {dataSources.map((source, index) => (
+          <div key={index} className="bg-white rounded-xl border border-slate-200 p-3 text-center shadow-sm">
+            <div className="w-7 h-7 rounded-lg mx-auto mb-2 flex items-center justify-center border bg-gradient-to-br from-slate-50 to-slate-100">
+              <source.icon className="w-4 h-4 text-blue-600" />
+            </div>
+            <p className="text-xs font-medium text-slate-700 leading-snug break-words">
+              {source.name}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Circular arrangement for tablet/desktop */}
+      <div className="relative w-[500px] h-[500px] mx-auto hidden sm:block">
         {/* Center AI Brain */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
           <div className="relative">
@@ -127,7 +152,7 @@ export default function ThreePillars() {
                 }`}>
                   <source.icon className={`w-5 h-5 ${index % 6 === 0 ? 'text-blue-600' : index % 6 === 1 ? 'text-green-600' : index % 6 === 2 ? 'text-purple-600' : index % 6 === 3 ? 'text-orange-600' : index % 6 === 4 ? 'text-pink-600' : 'text-indigo-600'}`} />
                 </div>
-                <p className="text-sm font-medium text-slate-700 leading-tight">{source.name}</p>
+                <p className="text-sm font-medium text-slate-700 leading-tight break-words">{source.name}</p>
               </div>
               
             </div>
@@ -209,11 +234,11 @@ export default function ThreePillars() {
           <h4 className="text-lg font-semibold text-slate-900 mb-4">Team Hub</h4>
           <div className="grid grid-cols-2 gap-4">
             {teamMembers.map((member, index) => (
-              <div key={index} className="flex items-center space-x-3 p-3 bg-slate-50 rounded-lg">
+              <div key={index} className="flex items-center space-x-3 p-3 bg-slate-50 rounded-lg overflow-hidden">
                 <Image src={member.avatar} alt={member.name} width={40} height={40} className="w-10 h-10 rounded-full" unoptimized />
-                <div>
-                  <p className="font-medium text-slate-900 text-sm">{member.name}</p>
-                  <p className="text-xs text-slate-600">{member.role}</p>
+                <div className="min-w-0">
+                  <p className="font-medium text-slate-900 text-sm leading-snug clamp-1-mobile">{member.name}</p>
+                  <p className="text-xs text-slate-600 leading-snug clamp-2-mobile">{member.role}</p>
                 </div>
               </div>
             ))}
@@ -225,7 +250,7 @@ export default function ThreePillars() {
           <h4 className="text-lg font-semibold text-slate-900 mb-4">Integrations</h4>
           <div className="grid grid-cols-2 gap-3">
             {integrations.map((integration, index) => (
-              <div key={index} className={`flex items-center space-x-3 p-3 rounded-lg border ${
+              <div key={index} className={`flex items-center space-x-3 p-3 rounded-lg border overflow-hidden ${
                 integration.status === 'active' 
                   ? 'bg-green-50 border-green-200' 
                   : 'bg-gray-50 border-gray-200'
@@ -238,8 +263,8 @@ export default function ThreePillars() {
                     className={`object-contain ${integration.status === 'active' ? 'opacity-100' : 'opacity-50'}`}
                   />
                 </div>
-                <div className="flex-grow">
-                  <p className="font-medium text-slate-900 text-sm">{integration.name}</p>
+                <div className="flex-grow min-w-0">
+                  <p className="font-medium text-slate-900 text-sm truncate">{integration.name}</p>
                   <div className="flex items-center space-x-1">
                     <div className={`w-2 h-2 rounded-full ${
                       integration.status === 'active' ? 'bg-green-400' : 'bg-gray-400'
@@ -361,66 +386,66 @@ export default function ThreePillars() {
     return (
       <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
         {/* Modal Header */}
-        <div className="bg-slate-50 px-8 py-6 border-b border-slate-200">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+        <div className="bg-slate-50 px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 border-b border-slate-200">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Timeline</h3>
-              <p className="text-slate-600">Activity log showing all actions performed in this review</p>
+              <h3 className="text-base sm:text-lg md:text-2xl font-bold text-slate-900 mb-1 sm:mb-2">Timeline</h3>
+              <p className="text-xs sm:text-sm text-slate-600">Activity log showing all actions performed in this review</p>
             </div>
-            <button className="mt-4 md:mt-0 bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-sm">
+            <button className="mt-1 md:mt-0 bg-slate-700 hover:bg-slate-800 text-white px-3 sm:px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold transition-colors shadow-sm self-start md:self-auto">
               Download Audit Log
             </button>
           </div>
         </div>
 
         {/* Timeline Content */}
-        <div className="p-8">
+        <div className="p-3 sm:p-4 md:p-6">
           <div className="relative">
             {/* Vertical Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-slate-200"></div>
 
             {/* Timeline Events */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {timelineEvents.map((event, index) => (
-                <div key={index} className="relative flex items-start space-x-6">
+                <div key={index} className="relative flex items-start space-x-3 sm:space-x-6">
                   {/* Timeline Dot */}
                   <div className="relative z-10 flex-shrink-0">
-                    <div className="w-16 h-16 bg-white border-4 border-slate-200 rounded-full flex items-center justify-center shadow-sm">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white border-2 sm:border-4 border-slate-200 rounded-full flex items-center justify-center shadow-sm">
                       {getStatusIcon(event.status)}
                     </div>
                   </div>
 
                   {/* Timeline Card */}
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${event.statusColor}`}>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center flex-wrap gap-2 mb-2 sm:mb-3">
+                      <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium ${event.statusColor}`}>
                         {event.status}
                       </span>
                       {event.id && (
-                        <span className="text-sm font-mono text-slate-500">{event.id}</span>
+                        <span className="text-xs sm:text-sm font-mono text-slate-500">{event.id}</span>
                       )}
                     </div>
 
-                    <div className="mb-3">
-                      <h4 className="text-lg font-semibold text-slate-900 mb-2">
+                    <div className="mb-2 sm:mb-3">
+                      <h4 className="text-base sm:text-lg font-semibold text-slate-900 mb-1 sm:mb-2 clamp-2-mobile">
                         {event.title}
                       </h4>
-                      <p className="text-slate-600 leading-relaxed">
+                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed clamp-2-mobile">
                         {event.description}
                       </p>
                     </div>
 
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-2 sm:space-x-3">
                       <Image 
                         src={event.user.avatar} 
                         alt={event.user.name}
-                        width={32}
-                        height={32}
-                        className="w-8 h-8 rounded-full"
+                        width={28}
+                        height={28}
+                        className="w-7 h-7 sm:w-8 sm:h-8 rounded-full"
                         unoptimized
                       />
-                      <div className="text-sm">
-                        <div className="font-medium text-slate-900">{event.user.name}</div>
+                      <div className="text-xs sm:text-sm">
+                        <div className="font-medium text-slate-900 clamp-1-mobile">{event.user.name}</div>
                         <div className="text-slate-500">{event.user.timestamp}</div>
                       </div>
                     </div>
@@ -431,16 +456,16 @@ export default function ThreePillars() {
           </div>
 
           {/* Comments Section */}
-          <div className="mt-12 pt-8 border-t border-slate-200">
-            <h4 className="text-lg font-semibold text-slate-900 mb-4">Comments</h4>
+          <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-slate-200">
+            <h4 className="text-base sm:text-lg font-semibold text-slate-900 mb-3 sm:mb-4">Comments</h4>
             <div className="relative">
               <textarea 
-                className="w-full h-32 p-4 border border-slate-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                className="w-full h-28 sm:h-32 p-3 sm:p-4 border border-slate-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-transparent text-sm sm:text-base"
                 placeholder="Share your analysis, recommendation or questions about this compliance issue.."
               />
-              <div className="absolute bottom-4 right-4">
-                <button className="bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center space-x-2">
-                  <Send className="w-4 h-4 text-white" />
+              <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4">
+                <button className="bg-slate-700 hover:bg-slate-800 text-white px-3 sm:px-4 py-2 rounded-lg font-semibold transition-colors flex items-center space-x-2 text-sm sm:text-base">
+                  <Send className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                   <span>Add Comment</span>
                 </button>
               </div>
