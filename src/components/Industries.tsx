@@ -95,7 +95,7 @@ export default function Industries() {
             </div>
             <h3 className="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2 text-center leading-tight">Consumer Promotions</h3>
             <p className="text-xs sm:text-sm md:text-base text-slate-600 mb-3 sm:mb-4 flex-grow leading-relaxed">Help ensure ads and offers are clear, fair and not misleading. Surface significant terms and avoid risky wording.</p>
-            <ul className="text-xs sm:text-sm text-slate-600 space-y-1 sm:space-y-2">
+            <ul className="text-sm sm:text-sm text-slate-600 space-y-1.5 sm:space-y-2 leading-relaxed">
               <li>• Promotions: significant terms visibility</li>
               <li>• Age-gating and audience suitability</li>
               <li>• Claims: no undue pressure or guarantees</li>

@@ -73,14 +73,14 @@ export default function Benefits() {
           {benefits.map((benefit, index) => (
             <Reveal key={index} delay={index * 0.1}>
             <div className="card card-hover text-center p-fluid-lg transition-all duration-300 hover-lift h-full flex flex-col">
-              <div className={`rounded-xl flex items-center justify-center mx-auto mb-6 border hover-glow animate-float ${
+              <div className={`rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6 border hover-glow animate-float ${
                 index === 0 ? 'bg-gradient-to-br from-green-100 to-green-200 border-green-200' :
                 index === 1 ? 'bg-gradient-to-br from-cyan-100 to-cyan-200 border-cyan-200' :
                 'bg-gradient-to-br from-indigo-100 to-indigo-200 border-indigo-200'
-              }`} style={{ width: 'clamp(3rem, 6vw, 4rem)', height: 'clamp(3rem, 6vw, 4rem)' }}>
-                <benefit.icon className={`${index === 0 ? 'text-green-600' : index === 1 ? 'text-cyan-600' : 'text-indigo-600'}`} style={{ width: 'clamp(1.5rem, 3vw, 2rem)', height: 'clamp(1.5rem, 3vw, 2rem)' }} />
+              }`} style={{ width: 'clamp(3rem, 10vw, 3.5rem)', height: 'clamp(3rem, 10vw, 3.5rem)' }}>
+                <benefit.icon className={`${index === 0 ? 'text-green-600' : index === 1 ? 'text-cyan-600' : 'text-indigo-600'}`} style={{ width: 'clamp(1.25rem, 6vw, 1.75rem)', height: 'clamp(1.25rem, 6vw, 1.75rem)' }} />
               </div>
-              <h3 className="text-fluid-2xl font-semibold text-slate-900 mb-4 leading-tight">
+              <h3 className="text-fluid-2xl font-semibold text-slate-900 mb-2 sm:mb-4 leading-tight">
                 {benefit.title}
               </h3>
               <p className="text-fluid-lg text-slate-600 leading-relaxed flex-grow">
