@@ -60,8 +60,10 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center animate-zoom-in">
               <Link
                 href="/demo"
-                className="btn-primary text-fluid-lg p-fluid-md shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 rounded-xl mx-auto"
-                style={{ width: 'fit-content' }}
+                className="inline-flex items-center justify-center text-center text-white px-6 py-3 rounded-lg font-semibold shadow-sm text-base sm:text-lg mx-auto"
+                style={{ backgroundColor: '#0f2440', width: 'fit-content' }}
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.backgroundColor = '#06bcc1')}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.backgroundColor = '#0f2440')}
               >
                 Request Demo
               </Link>
