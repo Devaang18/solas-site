@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   description: "Flag potential regulatory breaches in content before publication. Move fast without risking fines or brand damage. Built for compliance and marketing teams in regulated industries.",
   keywords: ["compliance", "regulatory", "marketing", "content review", "audit trail", "regulated industries"],
   authors: [{ name: "Solas" }],
+  icons: {
+    icon: "/solas-logo.png",
+    shortcut: "/solas-logo.png",
+    apple: "/solas-logo.png",
+  },
   viewport: {
     width: "device-width",
     initialScale: 1,
