@@ -33,7 +33,7 @@ export async function GET() {
     headers.delete('X-Source-URL');
     
     return new NextResponse(res.body as unknown as ReadableStream, { headers, status: 200 });
-  } catch (error) {
+  } catch {
     // Don't expose error details that might contain URLs
     return NextResponse.json({ error: 'Fetch failed' }, { status: 500 });
   }

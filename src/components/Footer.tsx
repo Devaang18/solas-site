@@ -8,22 +8,6 @@ interface FooterProps {
 }
 
 export default function Footer({ onNavigateToSection, onOpenPrivacy, onOpenTerms }: FooterProps) {
-  // Map section names to their indices
-  const sectionMap = {
-    'benefits': 1,      // Why Solas
-    'how-it-works': 2,  // How It Works
-    'oracle': 3,        // Compliance Oracle
-    'three-pillars': 4, // Four Pillars
-    'industries': 5,    // Industries
-    'faq': 6            // FAQ
-  };
-
-  const handleNavigation = (sectionName: keyof typeof sectionMap) => {
-    const sectionIndex = sectionMap[sectionName];
-    if (sectionIndex !== undefined && onNavigateToSection) {
-      onNavigateToSection(sectionIndex);
-    }
-  };
   return (
     <div className="w-full flex flex-col text-white relative" style={{ backgroundColor: 'var(--solas-primary)' }}>
       {/* CTA Section */}

@@ -1,3 +1,4 @@
+import Link from 'next/link';
  
 
 export default function TermsOfService() {
@@ -5,12 +6,12 @@ export default function TermsOfService() {
     <main className="w-full min-h-screen section-alt-1 matrix-bg">
       <div className="container-fluid-2xl mx-auto p-fluid-lg">
         <div className="flex items-center justify-between mb-6">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center justify-center text-white px-6 py-3 rounded-lg font-semibold shadow-sm bg-[var(--solas-primary)] hover:bg-[var(--solas-secondary)] transition-colors"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div className="p-fluid-lg">
