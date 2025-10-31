@@ -290,8 +290,8 @@ export default function ThreePillars() {
         id: '#101',
         status: 'Fixed with Upload',
         statusColor: 'bg-green-100 text-green-700',
-        title: 'Restrict scene with better background control',
-        description: 'Add overlay graphics to cover problematic signage',
+        title: 'Logo used with no stated permission.',
+        description: 'Check copyright or remove',
         user: {
           name: 'Mike Rodriguez',
           avatar: 'https://ui-avatars.com/api/?name=Mike+Rodriguez&background=6366f1&color=fff&size=32',
@@ -323,11 +323,11 @@ export default function ThreePillars() {
         }
       },
       {
-        id: '#104',
+        id: '#105',
         status: 'Fixed with Upload',
         statusColor: 'bg-green-100 text-green-700',
-        title: 'Restrict scene with better background control',
-        description: 'Add overlay graphics to cover problematic signage',
+        title: 'Unsubstantiated Claim Detected',
+        description: 'Ensure the claim is substantiated or remove',
         user: {
           name: 'Alex Thompson',
           avatar: 'https://ui-avatars.com/api/?name=Alex+Thompson&background=6366f1&color=fff&size=32',
@@ -338,8 +338,8 @@ export default function ThreePillars() {
         id: '',
         status: 'Comment',
         statusColor: 'bg-gray-100 text-gray-700',
-        title: 'Restrict scene with better background control',
-        description: 'Add overlay graphics to cover problematic signage',
+        title: 'Need compliance to make a call on this.',
+        description: 'This might be too risky?',
         user: {
           name: 'David Kim',
           avatar: 'https://ui-avatars.com/api/?name=David+Kim&background=6b7280&color=fff&size=32',

@@ -61,7 +61,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
           <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900">Request a Demo</h1>
           <button
             onClick={onClose}
-            className="p-1 sm:p-2 hover:bg-slate-100 rounded-lg transition-colors"
+            className="inline-flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-lg hover:bg-slate-100 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />

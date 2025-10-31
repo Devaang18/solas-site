@@ -58,15 +58,15 @@ export default function Hero() {
           </Reveal>
           <Reveal delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-6 justify-center animate-zoom-in">
-              <Link
-                href="/demo"
+              <button
+                onClick={() => document.dispatchEvent(new CustomEvent('open-demo-modal'))}
                 className="inline-flex items-center justify-center text-center text-white px-6 py-3 rounded-lg font-semibold shadow-sm text-base sm:text-lg mx-auto"
                 style={{ backgroundColor: '#0f2440', width: 'fit-content' }}
                 onMouseEnter={(e) => ((e.target as HTMLElement).style.backgroundColor = '#06bcc1')}
                 onMouseLeave={(e) => ((e.target as HTMLElement).style.backgroundColor = '#0f2440')}
               >
                 Request Demo
-              </Link>
+              </button>
             </div>
           </Reveal>
         </div>

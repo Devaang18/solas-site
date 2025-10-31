@@ -21,7 +21,8 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
     'how-it-works': 2,  // How It Works
     'oracle': 3,        // Compliance Oracle
     'three-pillars': 4, // Four Pillars
-    'industries': 5     // Industries
+    'industries': 5,    // Industries
+    'faq': 6            // FAQ
   };
 
   const handleNavigation = (sectionName: keyof typeof sectionMap) => {
@@ -77,6 +78,9 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
             </button>
             <button onClick={() => handleNavigation('industries')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Industries
+            </button>
+            <button onClick={() => handleNavigation('faq')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
+              FAQ
             </button>
           </nav>
 
@@ -152,6 +156,12 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
                 className="block w-full text-left px-2 sm:px-3 py-2 text-sm sm:text-base text-black/70 hover:text-black transition-colors"
               >
                 Industries
+              </button>
+              <button
+                onClick={() => handleNavigation('faq')}
+                className="block w-full text-left px-2 sm:px-3 py-2 text-sm sm:text-base text-black/70 hover:text-black transition-colors"
+              >
+                FAQ
               </button>
               <div className="pt-3 sm:pt-4 space-y-2">
                 <button

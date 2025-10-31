@@ -3,16 +3,19 @@ import Image from 'next/image';
 
 interface FooterProps {
   onNavigateToSection?: (sectionIndex: number) => void;
+  onOpenPrivacy?: () => void;
+  onOpenTerms?: () => void;
 }
 
-export default function Footer({ onNavigateToSection }: FooterProps) {
+export default function Footer({ onNavigateToSection, onOpenPrivacy, onOpenTerms }: FooterProps) {
   // Map section names to their indices
   const sectionMap = {
     'benefits': 1,      // Why Solas
     'how-it-works': 2,  // How It Works
     'oracle': 3,        // Compliance Oracle
     'three-pillars': 4, // Four Pillars
-    'industries': 5     // Industries
+    'industries': 5,    // Industries
+    'faq': 6            // FAQ
   };
 
   const handleNavigation = (sectionName: keyof typeof sectionMap) => {
@@ -47,7 +50,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
               href="mailto:neil@solascompliance.com?subject=Talk to Sales - Interested in Solas Compliance&body=Hi Neil,%0D%0A%0D%0AI'm interested in learning more about Solas Compliance and would like to schedule a sales call.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThanks!"
               className="inline-flex items-center justify-center border border-white/80 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors text-center"
             >
-              Talk to Sales
+              Talk to the Team
             </a>
           </div>
         </div>
@@ -56,9 +59,9 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
       {/* Footer Content */}
       <div className="bg-slate-900">
         <div className="container-fluid-2xl mx-auto p-fluid-lg py-fluid-lg pt-fluid-24 relative w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             {/* Company Info */}
-            <div className="space-y-6">
+            <div className="space-y-6 md:col-span-6">
               <div className="flex items-start">
                 <div className="inline-flex items-center rounded-md shadow-sm border bg-white px-2 py-1">
                   <Image
@@ -90,7 +93,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
             </div>
 
           {/* Contact Information */}
-          <div className="space-y-6">
+          <div className="space-y-6 md:col-span-3">
             <h3 className="text-lg font-semibold text-white uppercase tracking-wider mb-6">Contact</h3>
             <div className="space-y-4">
               <a href="tel:+447482585085" className="text-slate-300 hover:text-white transition-colors flex items-center group">
@@ -117,6 +120,16 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
               </a>
             </div>
           </div>
+
+          {/* Legal */}
+          <div className="space-y-6 md:col-span-3">
+            <h3 className="text-lg font-semibold text-white uppercase tracking-wider mb-6">Legal</h3>
+            <div className="space-y-4">
+              <button onClick={onOpenPrivacy} className="text-left text-slate-300 hover:text-white transition-colors block">Privacy Policy</button>
+              <button onClick={onOpenTerms} className="text-left text-slate-300 hover:text-white transition-colors block">Terms of Service</button>
+            </div>
+          </div>
+          </div>
         </div>
 
         <div className="mt-8 pt-8 border-t" style={{ borderColor: 'var(--solas-primary-dark)' }}>
@@ -129,7 +142,6 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
             </p>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

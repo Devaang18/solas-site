@@ -167,7 +167,7 @@ export default function Oracle() {
                 {/* Summary Cards */}
                 <div className="grid grid-cols-3 gap-2 sm:gap-4">
                   <div className="bg-red-50 border border-red-200 rounded-lg p-3 sm:p-4 text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-1">3</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-1">2</div>
                     <div className="text-base sm:text-lg font-semibold text-red-600 mb-1">High</div>
                     <div className="text-[11px] sm:text-xs text-red-500">Critical Issues</div>
                   </div>
@@ -177,7 +177,7 @@ export default function Oracle() {
                     <div className="text-[11px] sm:text-xs text-yellow-500">Moderate Issues</div>
                   </div>
                   <div className="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">0</div>
+                    <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">1</div>
                     <div className="text-base sm:text-lg font-semibold text-green-600 mb-1">Low</div>
                     <div className="text-[11px] sm:text-xs text-green-500">Minor Suggestions</div>
                   </div>
