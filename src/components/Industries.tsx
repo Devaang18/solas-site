@@ -44,7 +44,7 @@ export default function Industries() {
         </div>
 
         <div className="relative mb-8 sm:mb-10 md:mb-12">
-          <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl relative overflow-hidden" style={{ backgroundColor: '#0f2440' }}>
+          <div className="rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-2xl relative overflow-hidden" style={{ backgroundColor: '#0f2440' }}>
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-transparent to-teal-400/20"></div>
               <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full -translate-y-16 sm:-translate-y-24 md:-translate-y-32 translate-x-16 sm:translate-x-24 md:translate-x-32"></div>
@@ -52,11 +52,6 @@ export default function Industries() {
             </div>
             
             <div className="relative z-10">
-              <div className="flex items-center justify-center mb-4 sm:mb-6">
-                <div className="p-2 sm:p-3 rounded-xl sm:rounded-2xl shadow-lg" style={{ backgroundColor: '#06bcc1' }}>
-                  <Shield className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
-                </div>
-              </div>
               
               <div className="text-center mb-4 sm:mb-6">
                 <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 tracking-tight leading-tight">

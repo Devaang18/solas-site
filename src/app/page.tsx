@@ -28,8 +28,8 @@ export default function Home() {
     { id: 'hero', component: Hero, bg: 'section-alt-1', title: 'Home' },
     { id: 'benefits', component: Benefits, bg: 'section-alt-2', title: 'Why Solas' },
     { id: 'how-it-works', component: HowItWorks, bg: 'section-alt-1', title: 'How It Works' },
-    { id: 'oracle', component: Oracle, bg: 'section-alt-2', title: 'Oracle' },
-    { id: 'three-pillars', component: ThreePillars, bg: 'section-alt-1', title: 'Four Pillars' },
+    { id: 'three-pillars', component: ThreePillars, bg: 'section-alt-2', title: 'Four Pillars' },
+    { id: 'oracle', component: Oracle, bg: 'section-alt-1', title: 'Oracle' },
     { id: 'industries', component: Industries, bg: 'section-alt-2', title: 'Industries' },
     { id: 'faq', component: FAQ, bg: 'section-alt-1', title: 'FAQ' }
   ], []);

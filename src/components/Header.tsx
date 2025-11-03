@@ -19,8 +19,8 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
   const sectionMap = {
     'benefits': 1,      // Why Solas
     'how-it-works': 2,  // How It Works
-    'oracle': 3,        // Compliance Oracle
-    'three-pillars': 4, // Four Pillars
+    'three-pillars': 3, // Four Pillars
+    'oracle': 4,        // Compliance Oracle
     'industries': 5,    // Industries
     'faq': 6            // FAQ
   };
@@ -70,11 +70,11 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
             <button onClick={() => handleNavigation('how-it-works')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               How It Works
             </button>
-            <button onClick={() => handleNavigation('oracle')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
-              Oracle
-            </button>
             <button onClick={() => handleNavigation('three-pillars')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Four Pillars
+            </button>
+            <button onClick={() => handleNavigation('oracle')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
+              Oracle
             </button>
             <button onClick={() => handleNavigation('industries')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Industries
@@ -140,16 +140,16 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
                 How It Works
               </button>
               <button
-                onClick={() => handleNavigation('oracle')}
-                className="block w-full text-left px-2 sm:px-3 py-2 text-sm sm:text-base text-black/70 hover:text-black transition-colors"
-              >
-                Oracle
-              </button>
-              <button
                 onClick={() => handleNavigation('three-pillars')}
                 className="block w-full text-left px-2 sm:px-3 py-2 text-sm sm:text-base text-black/70 hover:text-black transition-colors"
               >
                 Four Pillars
+              </button>
+              <button
+                onClick={() => handleNavigation('oracle')}
+                className="block w-full text-left px-2 sm:px-3 py-2 text-sm sm:text-base text-black/70 hover:text-black transition-colors"
+              >
+                Oracle
               </button>
               <button
                 onClick={() => handleNavigation('industries')}
