@@ -48,13 +48,13 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="relative" style={{ height: 'clamp(1.5rem, 4vw, 2.5rem)', width: 'clamp(6rem, 15vw, 10rem)' }}>
+              <div className="relative" style={{ height: 'clamp(1.75rem, 4.5vw, 2.75rem)', width: 'clamp(7.5rem, 16vw, 11rem)' }}>
                 <Image
                   src="/solas-logo.png"
                   alt="Solas logo"
                   fill
                   priority
-                  sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
+                  sizes="(max-width: 640px) 110px, (max-width: 768px) 150px, 180px"
                   className="object-contain"
                   quality={90}
                 />
