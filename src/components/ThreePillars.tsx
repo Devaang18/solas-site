@@ -72,7 +72,7 @@ export default function ThreePillars() {
   const renderSmartIngestion = () => (
     <div className="space-y-8">
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-slate-900 mb-4">Solas AI Brain</h3>
+        <h3 className="text-2xl font-bold text-slate-900 mb-4">Meet your Solas Oracle</h3>
         <p className="text-slate-600 max-w-2xl mx-auto">{pillars[0].description}</p>
       </div>
       
@@ -203,7 +203,7 @@ export default function ThreePillars() {
     <div className="space-y-8">
       {/* Pipeline */}
       <div>
-        <h3 className="text-xl font-semibold text-slate-900 mb-6 text-center">Marketing Pipeline</h3>
+        <h3 className="text-xl font-semibold text-slate-900 mb-6 text-center">Marketing Compliance Process</h3>
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
           {workflowSteps.map((step, index) => (
             <div key={index} className="flex flex-col items-center">
