@@ -123,7 +123,7 @@ export default function Oracle() {
         <div className="text-center mb-8 sm:mb-12 md:mb-16 section-title-offset">
           <Reveal>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 tracking-tight leading-tight">
-              See Solas in Action
+              Solas in Action
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-slate-600 max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed">
               Train Solas with your policies and guidelines. Your team gets instant, personalised compliance guidance for every piece of content.

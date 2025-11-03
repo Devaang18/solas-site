@@ -74,7 +74,7 @@ export default function Header({ onNavigateToSection, onOpenDemo }: HeaderProps)
               Four Pillars
             </button>
             <button onClick={() => handleNavigation('oracle')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
-              Oracle
+              Product
             </button>
             <button onClick={() => handleNavigation('industries')} className="text-base sm:text-lg text-slate-700 hover:text-blue-600 transition-colors duration-200 px-3 py-2 rounded-md hover:bg-blue-50 font-medium">
               Industries
