@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { AlertTriangle, CheckCircle } from 'lucide-react';
+import Image from 'next/image';
 import Reveal from '@/components/Reveal';
 
 export default function Oracle() {
@@ -59,7 +60,7 @@ export default function Oracle() {
       id: '#102',
       title: 'Copyright & Trademark Check',
       description: 'Potential trademark usage without proper licensing.',
-      policy: 'Brand Guidelines',
+      policy: 'IP and Copyright Guidelines',
       severity: 'High',
       status: 'active'
     },
@@ -67,7 +68,7 @@ export default function Oracle() {
       id: '#103',
       title: 'Legal & Regulatory Review',
       description: 'Promotional content requires disclaimer text.',
-      policy: 'Brand Guidelines',
+      policy: 'ASA Broadcasting Policy',
       severity: 'Medium',
       status: 'active'
     },
@@ -153,7 +154,7 @@ export default function Oracle() {
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Marketing Banner Campaign Compliance V1</h3>
                   <div className="flex flex-col sm:flex-row gap-2 sm:space-x-3">
                     <button className="inline-flex items-center justify-center bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors text-center">
-                      Edit Policies and re-run
+                      Edit Policies and Re-run
                     </button>
                     <button className="inline-flex items-center justify-center bg-slate-100 text-slate-700 px-3 sm:px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors text-center">
                       Timeline
@@ -190,38 +191,54 @@ export default function Oracle() {
                     <span className="text-sm text-slate-500">4 items</span>
                   </div>
                   
-                  <div className="space-y-3">
-                    {complianceIssues.map((issue, index) => (
-                      <div key={index} className="bg-white rounded-lg p-4 border border-slate-200 hover:shadow-md transition-all cursor-pointer"
-                           onClick={() => {}}>
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center space-x-2 mb-1">
-                              <span className="text-sm font-medium text-slate-900">{issue.title}</span>
-                              <span className="text-xs text-slate-500">{issue.id}</span>
+                  <div className="flex flex-col lg:flex-row gap-6">
+                    {/* Risk Summary Content */}
+                    <div className="flex-1 space-y-3">
+                      {complianceIssues.map((issue, index) => (
+                        <div key={index} className="bg-white rounded-lg p-4 border border-slate-200 hover:shadow-md transition-all cursor-pointer"
+                             onClick={() => {}}>
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <div className="flex items-center space-x-2 mb-1">
+                                <span className="text-sm font-medium text-slate-900">{issue.title}</span>
+                                <span className="text-xs text-slate-500">{issue.id}</span>
+                              </div>
+                              <p className="text-sm text-slate-600 mb-2">{issue.description}</p>
+                              <div className="flex items-center space-x-4 text-xs text-slate-500">
+                                <span>Policy Triggered: {issue.policy}</span>
+                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                  issue.severity === 'High' ? 'bg-red-100 text-red-700' :
+                                  issue.severity === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
+                                  'bg-green-100 text-green-700'
+                                }`}>
+                                  {issue.severity}
+                                </span>
+                              </div>
                             </div>
-                            <p className="text-sm text-slate-600 mb-2">{issue.description}</p>
-                            <div className="flex items-center space-x-4 text-xs text-slate-500">
-                              <span>Policy Triggered: {issue.policy}</span>
-                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                issue.severity === 'High' ? 'bg-red-100 text-red-700' :
-                                issue.severity === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
-                                'bg-green-100 text-green-700'
-                              }`}>
-                                {issue.severity}
-                              </span>
+                            <div className="ml-4">
+                              {issue.status === 'active' ? (
+                                <AlertTriangle className="w-5 h-5 text-red-500" />
+                              ) : (
+                                <CheckCircle className="w-5 h-5 text-green-500" />
+                              )}
                             </div>
-                          </div>
-                          <div className="ml-4">
-                            {issue.status === 'active' ? (
-                              <AlertTriangle className="w-5 h-5 text-red-500" />
-                            ) : (
-                              <CheckCircle className="w-5 h-5 text-green-500" />
-                            )}
                           </div>
                         </div>
+                      ))}
+                    </div>
+                    
+                    {/* Image on the right */}
+                    <div className="lg:w-80 xl:w-96 flex-shrink-0">
+                      <div className="relative w-full h-full min-h-[400px] rounded-lg overflow-hidden border border-slate-200 bg-white">
+                        <Image
+                          src="/example-image.png"
+                          alt="Example illustration"
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 1024px) 100vw, 384px"
+                        />
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </div>

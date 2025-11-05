@@ -108,12 +108,13 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   <label className="block text-xs sm:text-sm font-medium text-slate-700 mb-1 sm:mb-2" htmlFor="industry">Industry</label>
                   <select name="industry" id="industry" className="w-full rounded-lg border border-slate-300 px-2 sm:px-3 py-2 bg-white text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-[var(--solas-primary)]">
                     <option value="">Select…</option>
-                    <option>Marketing & Advertising</option>
-                    <option>Consumer Promotions</option>
                     <option>Financial Services</option>
-                    <option>Healthcare</option>
                     <option>Gaming & Entertainment</option>
-                    <option>Other</option>
+                    <option>Healthcare</option>
+                    <option>Insurance</option>
+                    <option>Energy</option>
+                    <option>Food & Beverage</option>
+                    <option>Others</option>
                   </select>
                 </div>
                 <div>

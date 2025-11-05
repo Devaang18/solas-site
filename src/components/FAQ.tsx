@@ -26,16 +26,16 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: 'What makes Solas different from generic AI tools? i.e. ChatGPT',
-      answer: 'Solas isn\'t a chatbot, it\'s a virtual compliance expert team. Unlike generic AI tools, it\'s powered by your own company policies. When you upload them, Solas turns each rule into structured, searchable logic.\n\nWhen you submit a document or ad, Solas identifies the relevant rules, checks compliance step by step, and explains any issues with clear references.\n\nThe result is a secure, transparent compliance report built for accuracy and trust, not guesswork.'
+      question: 'What makes Solas different from generic AI tools (e.g. ChatGPT)?',
+      answer: 'Solas isn\'t a chatbot, it\'s a virtual compliance expert team. Unlike generic AI tools, it\'s powered by your own company policies. When you upload them, Solas turns each rule into structured, searchable logic.\n\nWhen you submit a document or ad, Solas identifies the relevant rules, checks compliance step by step, and explains any issues with clear references.\n\nThe result is a secure, hallucination free, transparent compliance report built for accuracy and trust, not guesswork.'
     },
     {
       question: 'Who is Solas built for?',
-      answer: 'Solas is built for any company that wants to keep their brand marketing in check. Usually companies in highly regulated industries are who we speak to. i.e. igaming, financial services, healthcare, cosmetics, etc.'
+      answer: 'Solas is built for companies that want to protect their brand. Usually these are companies from highly regulated industries e.g. Gaming, Financial Services, Healthcare, Insurance etc:'
     },
     {
       question: 'Can Solas adapt to our internal compliance policies?',
-      answer: 'Yes. Solas is built to reflect your company\'s specific policies, risk thresholds, and industry standards, including disclosure rules, substantiation requirements, and proof documentation. Both marketing and compliance teams can add feedback directly within Solas, allowing the system to continuously refine and align with your internal expectations over time.'
+      answer: 'Yes. Solas is built to reflect your company\'s specific policies, risk appetite, and industry standards, including disclosure rules, substantiation requirements, and proof documentation. Both marketing and compliance teams can add feedback directly within Solas, allowing the system to continuously refine and align with your internal expectations over time.'
     }
   ];
 

@@ -60,7 +60,7 @@ export default function Industries() {
               </div>
               
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-                {['Financial Services', 'Gambling', 'Healthcare', 'Insurance', 'Energy', 'Food & Beverage'].map((industry, index) => (
+                {['Financial Services', 'Gaming & Entertainment', 'Healthcare', 'Insurance', 'Energy', 'Food & Beverage'].map((industry, index) => (
                   <div 
                     key={industry}
                     className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-2 sm:px-3 md:px-4 py-1 sm:py-2 text-xs sm:text-sm md:text-base font-medium text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
@@ -90,10 +90,19 @@ export default function Industries() {
             </div>
             <h3 className="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2 text-center leading-tight">Consumer Promotions</h3>
             <p className="text-xs sm:text-sm md:text-base text-slate-600 mb-3 sm:mb-4 flex-grow leading-relaxed">Help ensure ads and offers are clear, fair and not misleading. Surface significant terms and avoid risky wording.</p>
-            <ul className="text-sm sm:text-sm text-slate-600 space-y-1.5 sm:space-y-2 leading-relaxed">
-              <li>• Promotions: significant terms visibility</li>
-              <li>• Age-gating and audience suitability</li>
-              <li>• Claims: no undue pressure or guarantees</li>
+            <ul className="text-sm sm:text-sm text-slate-700 space-y-2 sm:space-y-2.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                <span>Promotions: significant terms visibility</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                <span>Age-gating and audience suitability</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                <span>Claims: no undue pressure or guarantees</span>
+              </li>
             </ul>
           </div>
 
@@ -103,10 +112,19 @@ export default function Industries() {
             </div>
             <h3 className="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2 text-center leading-tight">Performance Marketing</h3>
             <p className="text-xs sm:text-sm md:text-base text-slate-600 mb-3 sm:mb-4 flex-grow leading-relaxed">Standardise checks across landing pages, ads, and emails to keep speed and protect conversion.</p>
-            <ul className="text-xs sm:text-sm text-slate-600 space-y-1 sm:space-y-2">
-              <li>• Claims and incentives review</li>
-              <li>• Cross-channel consistency</li>
-              <li>• Clear, fair and non-misleading</li>
+            <ul className="text-xs sm:text-sm text-slate-700 space-y-2 sm:space-y-2.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <span>Claims and incentives review</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <span>Cross-channel consistency</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <span>Clear, fair and non-misleading</span>
+              </li>
             </ul>
           </div>
 
@@ -115,11 +133,20 @@ export default function Industries() {
               <Building className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
             </div>
             <h3 className="text-base sm:text-lg md:text-xl font-semibold text-slate-900 mb-2 text-center leading-tight">Regulated Industries</h3>
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 mb-3 sm:mb-4 flex-grow leading-relaxed">From finance to health, supporting teams that move fast while meeting sector rules and internal policies.</p>
-            <ul className="text-xs sm:text-sm text-slate-600 space-y-1 sm:space-y-2">
-              <li>• Internal policy mapping</li>
-              <li>• Audit-ready logs</li>
-              <li>• Approvals and handoffs</li>
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 mb-3 sm:mb-4 flex-grow leading-relaxed">From Finance to Health, supporting teams that move fast while meeting sector rules and internal policies.</p>
+            <ul className="text-xs sm:text-sm text-slate-700 space-y-2 sm:space-y-2.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                <span>Internal policy mapping</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                <span>Audit-ready logs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                <span>Approvals and handoffs</span>
+              </li>
             </ul>
           </div>
         </div>
