@@ -47,14 +47,14 @@ export default function Footer({ onNavigateToSection, onOpenPrivacy, onOpenTerms
             {/* Company Info */}
             <div className="space-y-6 md:col-span-6">
               <div className="flex items-start">
-                <Image
+                  <Image
                   src="/solas-logo-white.png"
-                  alt="Solas logo"
-                  width={120}
-                  height={32}
-                  className="block h-8 w-auto"
-                  priority
-                />
+                    alt="Solas logo"
+                    width={120}
+                    height={32}
+                    className="block h-8 w-auto"
+                    priority
+                  />
               </div>
               <div>
                 <p className="text-slate-300 leading-relaxed text-base">

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Solas - Real-time Compliance Assistant for Regulated Industries",
+  title: "Solas - Real-time Marketing Compliance Assistant for Regulated Industries",
   description: "Flag potential regulatory breaches in content before publication. Move fast without risking fines or brand damage. Built for compliance and marketing teams in regulated industries.",
   keywords: ["compliance", "regulatory", "marketing", "content review", "audit trail", "regulated industries"],
   authors: [{ name: "Solas" }],
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     userScalable: false,
   },
   openGraph: {
-    title: "Solas - Real-time Compliance Assistant",
+    title: "Solas - Real-time Marketing Compliance Assistant",
     description: "Flag potential regulatory breaches in content before publication. Move fast without risking fines or brand damage.",
     type: "website",
     locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Solas - Real-time Compliance Assistant",
+    title: "Solas - Real-time Marketing Compliance Assistant",
     description: "Flag potential regulatory breaches in content before publication. Move fast without risking fines or brand damage.",
   },
 };

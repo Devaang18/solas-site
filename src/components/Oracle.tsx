@@ -194,37 +194,37 @@ export default function Oracle() {
                   <div className="flex flex-col lg:flex-row gap-6">
                     {/* Risk Summary Content */}
                     <div className="flex-1 space-y-3">
-                      {complianceIssues.map((issue, index) => (
-                        <div key={index} className="bg-white rounded-lg p-4 border border-slate-200 hover:shadow-md transition-all cursor-pointer"
-                             onClick={() => {}}>
-                          <div className="flex items-start justify-between">
-                            <div className="flex-1">
-                              <div className="flex items-center space-x-2 mb-1">
-                                <span className="text-sm font-medium text-slate-900">{issue.title}</span>
-                                <span className="text-xs text-slate-500">{issue.id}</span>
-                              </div>
-                              <p className="text-sm text-slate-600 mb-2">{issue.description}</p>
-                              <div className="flex items-center space-x-4 text-xs text-slate-500">
-                                <span>Policy Triggered: {issue.policy}</span>
-                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                  issue.severity === 'High' ? 'bg-red-100 text-red-700' :
-                                  issue.severity === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
-                                  'bg-green-100 text-green-700'
-                                }`}>
-                                  {issue.severity}
-                                </span>
-                              </div>
+                    {complianceIssues.map((issue, index) => (
+                      <div key={index} className="bg-white rounded-lg p-4 border border-slate-200 hover:shadow-md transition-all cursor-pointer"
+                           onClick={() => {}}>
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-1">
+                              <span className="text-sm font-medium text-slate-900">{issue.title}</span>
+                              <span className="text-xs text-slate-500">{issue.id}</span>
                             </div>
-                            <div className="ml-4">
-                              {issue.status === 'active' ? (
-                                <AlertTriangle className="w-5 h-5 text-red-500" />
-                              ) : (
-                                <CheckCircle className="w-5 h-5 text-green-500" />
-                              )}
+                            <p className="text-sm text-slate-600 mb-2">{issue.description}</p>
+                            <div className="flex items-center space-x-4 text-xs text-slate-500">
+                              <span>Policy Triggered: {issue.policy}</span>
+                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                issue.severity === 'High' ? 'bg-red-100 text-red-700' :
+                                issue.severity === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
+                                'bg-green-100 text-green-700'
+                              }`}>
+                                {issue.severity}
+                              </span>
                             </div>
                           </div>
+                          <div className="ml-4">
+                            {issue.status === 'active' ? (
+                              <AlertTriangle className="w-5 h-5 text-red-500" />
+                            ) : (
+                              <CheckCircle className="w-5 h-5 text-green-500" />
+                            )}
+                          </div>
                         </div>
-                      ))}
+                      </div>
+                    ))}
                     </div>
                     
                     {/* Image on the right */}
