@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   keywords: ["compliance", "regulatory", "marketing", "content review", "audit trail", "regulated industries"],
   authors: [{ name: "Solas" }],
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   viewport: {
     width: "device-width",
