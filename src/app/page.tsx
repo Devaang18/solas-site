@@ -93,7 +93,12 @@ export default function Home() {
         </div>
 
         {/* Footer rendered separately to avoid duplication */}
-        <Footer onNavigateToSection={goToPage} onOpenPrivacy={() => setShowPrivacyModal(true)} onOpenTerms={() => setShowTermsModal(true)} />
+        <Footer
+          onNavigateToSection={goToPage}
+          onOpenPrivacy={() => setShowPrivacyModal(true)}
+          onOpenTerms={() => setShowTermsModal(true)}
+          onOpenDemo={() => setShowDemoModal(true)}
+        />
       
       <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
       <PrivacyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />

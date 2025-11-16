@@ -1,13 +1,14 @@
-import Link from 'next/link';
 import Image from 'next/image';
 
 interface FooterProps {
   onNavigateToSection?: (sectionIndex: number) => void;
   onOpenPrivacy?: () => void;
   onOpenTerms?: () => void;
+  ctaSubtitle?: string;
+  onOpenDemo?: () => void;
 }
 
-export default function Footer({ onNavigateToSection, onOpenPrivacy, onOpenTerms }: FooterProps) {
+export default function Footer({ onNavigateToSection, onOpenPrivacy, onOpenTerms, ctaSubtitle, onOpenDemo }: FooterProps) {
   return (
     <div className="w-full flex flex-col text-white relative" style={{ backgroundColor: 'var(--solas-primary)' }}>
       {/* CTA Section */}
@@ -19,17 +20,17 @@ export default function Footer({ onNavigateToSection, onOpenPrivacy, onOpenTerms
             Ready to Protect Your Brand?
           </h2>
           <p className="text-fluid-2xl text-slate-300 mb-12 container-fluid-lg mx-auto leading-relaxed">
-            Join compliance teams at leading companies who trust Solas to keep their 
-            marketing content compliant and their brands protected.
+            {ctaSubtitle ?? 'Join compliance teams at leading companies who trust Solas to keep their marketing content compliant and their brands protected.'}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-fluid-12">
-            <Link
-              href="/demo"
+            <button
+              type="button"
+              onClick={onOpenDemo}
               className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-100 transition-colors shadow-md text-center"
             >
               Request Demo
-            </Link>
+            </button>
             <a
               href="mailto:neil@solascompliance.com?subject=Talk to Sales - Interested in Solas Compliance&body=Hi Neil,%0D%0A%0D%0AI'm interested in learning more about Solas Compliance and would like to schedule a sales call.%0D%0A%0D%0APlease let me know your availability.%0D%0A%0D%0AThanks!"
               className="inline-flex items-center justify-center border border-white/80 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-white hover:text-slate-900 transition-colors text-center"

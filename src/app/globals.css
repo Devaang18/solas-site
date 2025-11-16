@@ -166,6 +166,153 @@
     z-index: 1;
     pointer-events: none;
   }
+
+  /* Gaming theme overrides: remove light band and use dark blending */
+  .gaming-theme .section-alt-1 {
+    background: linear-gradient(135deg, #0b1220 0%, #0c1930 40%, #0a0f1a 100%) !important;
+  }
+  .gaming-theme .section-alt-2 {
+    background: linear-gradient(135deg, #0b1220 0%, #0c1930 40%, #0a0f1a 100%) !important;
+  }
+  .gaming-theme .section-alt-1::after,
+  .gaming-theme .section-alt-2::after {
+    height: 120px;
+    background: linear-gradient(0deg, rgba(12, 25, 48, 0.55) 0%, rgba(12, 25, 48, 0.28) 60%, transparent 100%) !important;
+  }
+  .gaming-theme .section-alt-1::before,
+  .gaming-theme .section-alt-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(180deg, rgba(12, 25, 48, 0.55) 0%, rgba(12, 25, 48, 0.28) 60%, transparent 100%) !important;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Gaming page animated backgrounds */
+  .gaming-bg {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* Pulsing casino-style ambient glows */
+  .gaming-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(500px 300px at 20% 15%, rgba(6, 188, 193, 0.18), transparent 60%),
+      radial-gradient(600px 320px at 80% 20%, rgba(245, 158, 11, 0.15), transparent 65%),
+      radial-gradient(420px 260px at 30% 85%, rgba(99, 102, 241, 0.16), transparent 60%),
+      radial-gradient(420px 260px at 70% 80%, rgba(6, 188, 193, 0.12), transparent 60%);
+    animation: casino-glow 9s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
+  }
+  /* Subtle animated diagonal streaks (like light sweeps) */
+  .gaming-bg::after {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+    filter: blur(0.5px);
+    opacity: 0.35; /* slightly stronger so it’s visible across all sections */
+    animation: casino-sweep 18s linear infinite;
+    z-index: 1; /* ensure lines sit above section overlay backgrounds */
+    pointer-events: none;
+  }
+  @keyframes casino-glow {
+    0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
+    50%  { transform: translate3d(0, -1%, 0) scale(1.02); opacity: 1; }
+    100% { transform: translate3d(0, 1%, 0) scale(1.01); opacity: 0.95; }
+  }
+  @keyframes casino-sweep {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+    100% { transform: translate3d(15%, 0, 0) rotate(0deg); }
+  }
+  /* Section overlay refinement for gaming page */
+  /* Per-section overlay to add subtle animated glows in gaming sections */
+  .gaming-section-overlay {
+    background-image:
+      radial-gradient(400px 240px at 10% 10%, rgba(6, 188, 193, 0.06), transparent 60%),
+      radial-gradient(420px 240px at 90% 15%, rgba(245, 158, 11, 0.06), transparent 60%);
+    animation: casino-glow 12s ease-in-out infinite alternate;
+    z-index: 0; /* keep the overlay below the animated sweep lines */
+    position: absolute;
+    inset: 0;
+  }
+  /* Explicit line layer to guarantee visibility on sections */
+  .gaming-lines {
+    position: absolute;
+    inset: -20%;
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 2px,
+      transparent 2px,
+      transparent 10px
+    );
+    filter: blur(0.5px);
+    opacity: 0.35;
+    animation: casino-sweep 18s linear infinite;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Waves (replace floating dots) */
+  .gaming-waves {
+    position: relative;
+    overflow: hidden;
+  }
+  .gaming-waves .wave-svg {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+  }
+  .gaming-waves .wave-svg path {
+    fill: rgba(255, 255, 255, 0.06);
+  }
+  .gaming-waves .wave-layer-1 {
+    bottom: 0;
+    animation: waveMove 16s linear infinite;
+  }
+  .gaming-waves .wave-layer-2 {
+    bottom: 10px;
+    opacity: 0.7;
+    animation: waveMove 22s linear infinite reverse;
+  }
+  /* Positional variants for waves */
+  .gaming-waves.wave-top .wave-svg {
+    top: 0;
+    transform: scaleY(-1);
+  }
+  .gaming-waves.wave-mid {
+    top: 30%;
+    height: 56px;
+    opacity: 0.35;
+  }
+  .gaming-waves.wave-mid .wave-svg path { fill: rgba(255,255,255,0.05); }
+  .gaming-waves.wave-bottom { bottom: 0; }
+  /* Slight randomization via delays (applied on second layer) */
+  .gaming-waves.slow .wave-layer-1 { animation-duration: 20s; }
+  .gaming-waves.slow .wave-layer-2 { animation-duration: 28s; }
+  .gaming-waves.fast .wave-layer-1 { animation-duration: 12s; }
+  .gaming-waves.fast .wave-layer-2 { animation-duration: 18s; }
+  .gaming-waves.delay .wave-layer-2 { animation-delay: -4s; }
+  @keyframes waveMove {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
   
   /* Floating particles animation */
   .floating-particles {
