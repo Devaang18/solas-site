@@ -1,4 +1,4 @@
-import { Target, TrendingUp, Building, Shield, CheckCircle } from 'lucide-react';
+import { Target, TrendingUp, Building, CheckCircle } from 'lucide-react';
 
 export default function Industries() {
   const particlePositions = [

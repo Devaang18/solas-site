@@ -9,6 +9,13 @@ import TermsModal from '@/components/TermsModal';
 import Reveal from '@/components/Reveal';
 import { ShieldCheck, AlertTriangle, Globe2, Eye, FileText, Target, Scale, Radar, Search, Activity } from 'lucide-react';
 
+type GamingSection = {
+  id: string;
+  title: string;
+  content: React.ReactNode;
+  subtitle?: string;
+};
+
 function SectionContainer({ children, title, subtitle }: { children: React.ReactNode; title: string; subtitle?: string }) {
   return (
     <div className="w-full section-alt-1 relative overflow-hidden gaming-bg" style={{ minHeight: '100vh' }}>
@@ -42,7 +49,7 @@ export default function GamingPage() {
   const [showTermsModal, setShowTermsModal] = useState(false);
 
   // Keep the same section IDs so the existing Header navigation works unchanged
-  const sections = useMemo(() => [
+  const sections = useMemo<GamingSection[]>(() => [
     { id: 'hero', title: 'Gaming Marketing Compliance', content: null },
     { id: 'benefits', title: 'Why Gaming needs Solas', subtitle: 'Gaming advertising is tightly regulated and fast-moving. Solas brings structure, speed, and auditability in one place.', content: (
       <>
@@ -267,7 +274,7 @@ export default function GamingPage() {
               </div>
             </div>
           ) : (
-            <SectionContainer title={section.title} subtitle={(section as any).subtitle}>
+            <SectionContainer title={section.title} subtitle={section.subtitle}>
               {section.content}
             </SectionContainer>
           )}
