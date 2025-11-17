@@ -114,7 +114,7 @@ export default function GamingPage() {
               <Search className="w-8 h-8 text-emerald-600" />
             </div>
             <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Caveat Detection
+              Breach Detection
             </h3>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
               Scans digital assets (ads, banners, emails, video, landing pages, social media) before launch to identify missing or incorrect disclaimers, ensuring campaigns meet local legal requirements every time.
@@ -224,7 +224,6 @@ export default function GamingPage() {
         hiddenSections={['industries','three-pillars','how-it-works']}
         theme="dark"
         logoSrc="/solas-logo-white.png"
-        logoTagline="for Gaming"
       />
 
       {sections.map((section, index) => (
