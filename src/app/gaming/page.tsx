@@ -17,6 +17,8 @@ type GamingSection = {
 };
 
 function SectionContainer({ children, title, subtitle }: { children: React.ReactNode; title: string; subtitle?: string }) {
+  const isKeyUseCases = title === 'Key Use Cases';
+  
   return (
     <div className="w-full section-alt-1 relative overflow-hidden gaming-bg" style={{ minHeight: '100vh' }}>
       {/* Dark background overlay specific to gaming page */}
@@ -24,16 +26,18 @@ function SectionContainer({ children, title, subtitle }: { children: React.React
       {/* Ensure moving line animation layer exists on every section */}
       <div className="gaming-lines" />
       <div className="max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pt-16 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 relative z-10">
-        <div className="text-center mb-6 sm:mb-8 md:mb-10 section-title-offset">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight leading-tight">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="text-slate-300 text-base sm:text-lg max-w-4xl md:max-w-5xl mx-auto">
-              {subtitle}
-            </p>
-          )}
-        </div>
+        {!isKeyUseCases && (
+          <div className="text-center mb-6 sm:mb-8 md:mb-10 section-title-offset">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight leading-tight">
+              {title}
+            </h2>
+            {subtitle && (
+              <p className="text-slate-300 text-base sm:text-lg max-w-4xl md:max-w-5xl mx-auto">
+                {subtitle}
+              </p>
+            )}
+          </div>
+        )}
         <div className="prose max-w-none text-slate-200">
           {children}
         </div>
@@ -66,7 +70,7 @@ export default function GamingPage() {
               Required Disclaimers
             </h4>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Mandatory inclusion of responsible gambling and risk disclaimers (e.g., &quot;gambleaware,&quot; &quot;gamble responsibly,&quot; regional taglines) in all campaign assets.
+            Mandatory responsible gambling disclaimers across all creative assets.
             </p>
           </div>
           <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
@@ -77,7 +81,7 @@ export default function GamingPage() {
               Ethical Targeting
             </h4>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Restrictions on targeting vulnerable audiences and minors. Ads must avoid portraying gambling as a solution to financial pressure or promising guaranteed winnings.
+            Restrictions on targeting minors and vulnerable audiences, and rules against implying gambling solves financial issues or guarantees winnings.
             </p>
           </div>
           <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
@@ -88,7 +92,7 @@ export default function GamingPage() {
               Track Regulations
             </h4>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Fast-changing regulatory guidelines with region-specific requirements (UK, EU, US, Australia, Brazil) on ad disclosure, content, and placement.
+            Constantly evolving, region-specific guidelines (UK, EU, US, Australia, Brazil) governing content, disclosures, and placement.
             </p>
           </div>
           <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
@@ -99,98 +103,144 @@ export default function GamingPage() {
               Reduce Brand Risk
             </h4>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Growing brand risk and regulatory fines tied to even minor breaches or missing disclosures on digital, video, social, and influencer campaigns.
+            Rising enforcement and brand risk tied to even small compliance breaches.
             </p>
           </div>
         </div>
       </>
     )},
     
-    { id: 'faq', title: 'Key Use Cases', subtitle: 'Solas Compliance makes marketing and advertising in the gaming industry safer, faster, and more scalable by automating the detection of regulatory requirements and compliance caveats across jurisdictions, helping operators stay ahead of ever-changing rules while minimising brand risk and costly fines.', content: (
+    { id: 'faq', title: 'Key Use Cases', subtitle: undefined, content: (
       <>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-4">
-          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-100 to-emerald-200 border border-emerald-200 flex items-center justify-center mx-auto mb-6 hover-glow animate-float">
-              <Search className="w-8 h-8 text-emerald-600" />
+        {/* 2-column grid layout with asymmetric card distribution */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+          {/* Left Column - 3 cards */}
+          <div className="space-y-6 md:space-y-8">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:bg-slate-50 transition-all duration-300 flex flex-col shadow-lg">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg bg-emerald-100 border border-emerald-200 flex items-center justify-center flex-shrink-0">
+                  <Search className="w-7 h-7 md:w-8 md:h-8 text-emerald-600" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-slate-900 tracking-wide">
+                Automated Regulatory Breach Detection
+                </h3>
+              </div>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              Scans ads, emails, video, landing pages, and social assets to flag missing or incorrect disclaimers before campaigns go live.
+              </p>
             </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Breach Detection
-            </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Scans digital assets (ads, banners, emails, video, landing pages, social media) before launch to identify missing or incorrect disclaimers, ensuring campaigns meet local legal requirements every time.
-            </p>
+
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:bg-slate-50 transition-all duration-300 flex flex-col shadow-lg">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg bg-indigo-100 border border-indigo-200 flex items-center justify-center flex-shrink-0">
+                  <Radar className="w-7 h-7 md:w-8 md:h-8 text-indigo-600" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-slate-900 tracking-wide">
+                Real-Time Compliance Monitoring
+                </h3>
+              </div>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              Provides continuous oversight for fast-moving campaigns, surfacing risks instantly so issues are fixed before they escalate.
+              </p>
+            </div>
+            
+            {/* Subheading underneath Real-Time Compliance Monitoring block */}
+            <div className="mt-6 md:mt-8">
+              <p className="text-lg sm:text-xl md:text-1xl font-normal text-white leading-relaxed text-left" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}>
+              Solas Compliance helps gaming operators navigate complex regulations effortlessly by automating compliance checks across jurisdictions, reducing risk, avoiding fines, and keeping marketing campaigns safe and scalable.
+              </p>
+            </div>
           </div>
-          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-100 to-sky-200 border border-sky-200 flex items-center justify-center mx-auto mb-6 hover-glow animate-float">
-              <Scale className="w-8 h-8 text-sky-600" />
+
+          {/* Right Column - Title and 2 cards with offset positioning */}
+          <div className="space-y-6 md:space-y-8">
+            {/* KEY USE CASES title positioned above Rules Engine block */}
+            <div className="flex justify-center md:justify-start md:pt-0">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-tight">
+                Key Use Cases
+              </h2>
             </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Rules Engine
-            </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Maps and automates region-specific advertising restrictions, so teams can tailor messages for UK, US, EU, LATAM, and Asia markets without manual rule-tracking.
-            </p>
-          </div>
-          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-indigo-100 to-indigo-200 border border-indigo-200 flex items-center justify-center mx-auto mb-6 hover-glow animate-float">
-              <Radar className="w-8 h-8 text-indigo-600" />
+            
+            <div className="space-y-6 md:space-y-8">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:bg-slate-50 transition-all duration-300 flex flex-col shadow-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg bg-sky-100 border border-sky-200 flex items-center justify-center flex-shrink-0">
+                    <Scale className="w-7 h-7 md:w-8 md:h-8 text-sky-600" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 tracking-wide">
+                  Jurisdictional Rules Engine
+                  </h3>
+                </div>
+                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                Applies market-specific advertising rules so teams can confidently tailor campaigns for the UK, US, EU, LATAM, and Asia without manual tracking.
+                </p>
+              </div>
+
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:bg-slate-50 transition-all duration-300 flex flex-col shadow-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg bg-amber-100 border border-amber-200 flex items-center justify-center flex-shrink-0">
+                    <Activity className="w-7 h-7 md:w-8 md:h-8 text-amber-600" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 tracking-wide">
+                  Audit-Ready Compliance Reporting
+                  </h3>
+                </div>
+                <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                Generates reusable evidence packs documenting all responsible marketing steps, saving teams time during regulatory reviews.
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Live Monitoring
-            </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Provides always-on oversight for fast-moving campaigns, flagging risks instantly so brands fix issues before regulatory problems arise or ads go live.
-            </p>
-          </div>
-          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-100 to-amber-200 border border-amber-200 flex items-center justify-center mx-auto mb-6 hover-glow animate-float">
-              <Activity className="w-8 h-8 text-amber-600" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Audit Evidence
-            </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Creates reusable compliance reports documenting responsible advertising steps and regulatory adherence, saving critical team time and effort.
-            </p>
           </div>
         </div>
       </>
     )},
-    { id: 'oracle', title: 'The Solas Advantage', subtitle: 'Solas gives operators speed, market access, and regulatory confidence-reducing bottlenecks, avoiding fines, and making responsible messaging effortless.', content: (
+    { id: 'oracle', title: 'The Solas Advantage', subtitle: 'Solas gives operators speed, market access, and regulatory confidence, reducing bottlenecks, avoiding fines, and making responsible messaging effortless.', content: (
       <>
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 mt-4">
-          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 border border-teal-200 flex items-center justify-center mx-auto mb-6 hover-glow animate-float">
-              <ShieldCheck className="w-8 h-8 text-teal-600" />
+        <div className="flex flex-col gap-4 mt-4 max-w-lg mx-auto">
+          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl px-4 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift flex flex-col">
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 border border-teal-200 flex items-center justify-center flex-shrink-0 hover-glow animate-float">
+                <ShieldCheck className="w-8 h-8 text-teal-600" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 whitespace-nowrap mb-3">
+                  Built for Gaming
+                </h4>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                A dedicated solution for gaming advertising and marketing compliance.
+                </p>
+              </div>
             </div>
-            <h4 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Purpose-Built for Gaming
-            </h4>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              A dedicated solution for gaming advertising and marketing compliance.
-            </p>
           </div>
-          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-100 to-sky-200 border border-sky-200 flex items-center justify-center mx-auto mb-6 hover-glow animate-float">
-              <Globe2 className="w-8 h-8 text-sky-600" />
+          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl px-4 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift flex flex-col">
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-100 to-sky-200 border border-sky-200 flex items-center justify-center flex-shrink-0 hover-glow animate-float">
+                <Globe2 className="w-8 h-8 text-sky-600" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 whitespace-nowrap mb-3">
+                Global Coverage with Local Precision
+                </h4>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                AI and rule-based logic that show exactly how to adapt messaging for each regulator.
+                </p>
+              </div>
             </div>
-            <h4 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Global Standards, Local Precision
-            </h4>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              AI and rule-based logic that show exactly how to adapt messaging for each regulator.
-            </p>
           </div>
-          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl p-fluid-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift h-full flex flex-col text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-100 to-amber-200 border border-amber-200 flex items-center justify-center mx-auto mb-6 hover-glow animate-float">
-              <AlertTriangle className="w-8 h-8 text-amber-600" />
+          <div className="bg-white text-slate-900 border border-slate-200 rounded-2xl px-4 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift flex flex-col">
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-100 to-amber-200 border border-amber-200 flex items-center justify-center flex-shrink-0 hover-glow animate-float">
+                <AlertTriangle className="w-8 h-8 text-amber-600" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 whitespace-nowrap mb-3">
+                Speed and Scale
+                </h4>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Replaces manual reviews with intelligent automation so compliance and marketing teams can focus on growth.
+                </p>
+              </div>
             </div>
-            <h4 className="text-lg sm:text-xl font-semibold text-slate-900 mb-3 whitespace-nowrap">
-              Operational Scale and Speed
-            </h4>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-grow">
-              Replace manual reviews with intelligent automation so teams can focus on growth.
-            </p>
           </div>
         </div>
       </>
@@ -250,7 +300,7 @@ export default function GamingPage() {
                   </Reveal>
                   <Reveal delay={0.2}>
                     <p className="text-fluid-2xl text-slate-300 mb-12 container-fluid-lg mx-auto animate-slide-up leading-relaxed">
-                      Solas Compliance makes marketing and advertising in the gaming industry safer, faster, and more scalable by automating the detection of regulatory requirements and compliance caveats across jurisdictions, helping operators stay ahead of ever-changing rules while minimising brand risk and costly fines.
+                    Solas Compliance makes gaming marketing safer, faster, and more scalable by automating the detection of regulatory requirements across global jurisdictions, helping operators stay ahead of shifting rules while reducing brand risk and costly fines.
                     </p>
                   </Reveal>
                   <Reveal delay={0.4}>
