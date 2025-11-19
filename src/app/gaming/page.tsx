@@ -148,11 +148,11 @@ function AgenticProcessSection() {
             const isActive = activeStep >= index;
             const isCurrent = activeStep === index;
             const colorClasses = {
-              cyan: { bg: 'from-cyan-400 to-blue-500', border: 'border-cyan-400/50', glow: 'rgba(6,182,212,0.3)' },
-              purple: { bg: 'from-purple-400 to-indigo-500', border: 'border-purple-400/50', glow: 'rgba(168,85,247,0.3)' },
-              emerald: { bg: 'from-emerald-400 to-teal-500', border: 'border-emerald-400/50', glow: 'rgba(16,185,129,0.3)' },
-              amber: { bg: 'from-amber-400 to-orange-500', border: 'border-amber-400/50', glow: 'rgba(251,191,36,0.3)' },
-              green: { bg: 'from-green-400 to-emerald-500', border: 'border-green-400/50', glow: 'rgba(34,197,94,0.3)' }
+              cyan: { bg: 'from-cyan-100 to-cyan-200', border: 'border-cyan-200', icon: 'text-cyan-600', glow: 'rgba(6,182,212,0.3)' },
+              purple: { bg: 'from-purple-100 to-purple-200', border: 'border-purple-200', icon: 'text-purple-600', glow: 'rgba(168,85,247,0.3)' },
+              emerald: { bg: 'from-emerald-100 to-emerald-200', border: 'border-emerald-200', icon: 'text-emerald-600', glow: 'rgba(16,185,129,0.3)' },
+              amber: { bg: 'from-amber-100 to-amber-200', border: 'border-amber-200', icon: 'text-amber-600', glow: 'rgba(251,191,36,0.3)' },
+              green: { bg: 'from-green-100 to-green-200', border: 'border-green-200', icon: 'text-green-600', glow: 'rgba(34,197,94,0.3)' }
             };
             const colors = colorClasses[step.color as keyof typeof colorClasses];
 
@@ -262,8 +262,8 @@ function AgenticProcessSection() {
 
                   {/* Icon Container */}
                   <div className="relative mb-4 flex justify-center">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${colors.bg} flex items-center justify-center shadow-lg relative`}>
-                      <Icon className="w-8 h-8 text-white" />
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${colors.bg} border ${colors.border} flex items-center justify-center mx-auto hover-glow animate-float relative`}>
+                      <Icon className={`w-8 h-8 ${colors.icon}`} />
                       
                       {/* Micro-animations */}
                       {isCurrent && !prefersReducedMotion && (
