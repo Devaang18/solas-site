@@ -626,7 +626,7 @@ export default function GamingPage() {
                   </Reveal>
                   <Reveal delay={0.2}>
                     <p className="text-fluid-2xl text-slate-300 mb-12 container-fluid-lg mx-auto animate-slide-up leading-relaxed">
-                    Solas Compliance makes gaming marketing safer, faster, and more scalable by using specialized agentic systems that understand your guidelines and policies and automatically detect regulatory requirements across global jurisdictions. This helps operators stay ahead of shifting rules while reducing brand risk and costly fines.
+                    Solas Compliance makes gaming marketing safer, faster, and more scalable by using specialised agentic systems that understand your guidelines and policies and automatically detect regulatory requirements across global jurisdictions. This helps operators stay ahead of shifting rules while reducing brand risk and costly fines.
                     </p>
                   </Reveal>
                   <Reveal delay={0.4}>
