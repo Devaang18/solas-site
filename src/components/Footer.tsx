@@ -8,7 +8,7 @@ interface FooterProps {
   onOpenDemo?: () => void;
 }
 
-export default function Footer({ onNavigateToSection: _onNavigateToSection, onOpenPrivacy, onOpenTerms, ctaSubtitle, onOpenDemo }: FooterProps) {
+export default function Footer({ onNavigateToSection, onOpenPrivacy, onOpenTerms, ctaSubtitle, onOpenDemo }: FooterProps) {
   return (
     <div className="w-full flex flex-col text-white relative" style={{ backgroundColor: 'var(--solas-primary)' }}>
       {/* CTA Section */}

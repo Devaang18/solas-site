@@ -7,7 +7,7 @@ import DemoModal from '@/components/DemoModal';
 import PrivacyModal from '@/components/PrivacyModal';
 import TermsModal from '@/components/TermsModal';
 import Reveal from '@/components/Reveal';
-import { ShieldCheck, AlertTriangle, Globe2, Eye, FileText, Target, Scale, Radar, Search, Activity, Brain, Zap, Network, CheckCircle2, Sparkles, Upload, CheckCircle, MapPin, RotateCw } from 'lucide-react';
+import { ShieldCheck, AlertTriangle, Globe2, FileText, Target, Scale, Radar, Search, Activity, Brain, Network, CheckCircle2, Sparkles, Upload, MapPin, RotateCw } from 'lucide-react';
 
 type GamingSection = {
   id: string;

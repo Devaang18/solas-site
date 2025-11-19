@@ -21,7 +21,7 @@ export default function TermsOfService() {
         <p>Welcome to Solas Compliance Ltd (“Solas”, “we”, “our”, or “us”). By accessing or using our website, platform, and related services (the “Services”), you agree to comply with and be bound by these Terms of Service (“Terms”). Please read them carefully before using Solas.</p>
 
         <h3>1. Use of Services</h3>
-        <p>You may use Solas only for lawful, business-related purposes. You are responsible for ensuring that all information and materials you upload comply with applicable laws and your organisation's internal policies.</p>
+        <p>You may use Solas only for lawful, business-related purposes. You are responsible for ensuring that all information and materials you upload comply with applicable laws and your organisation&apos;s internal policies.</p>
 
         <h3>2. Accounts and Security</h3>
         <p>To use certain features, you must create an account and provide accurate registration details. You are responsible for safeguarding your account credentials and any actions taken under your account.</p>
