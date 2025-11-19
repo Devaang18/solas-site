@@ -91,7 +91,7 @@ function AgenticProcessSection() {
     },
     { 
       icon: Brain, 
-      title: 'Specialist Agents', 
+      title: 'Specialised Agents', 
       description: 'Each inspects a compliance angle',
       color: 'purple',
       microAnimation: 'brain'
