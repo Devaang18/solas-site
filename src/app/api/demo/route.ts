@@ -50,7 +50,7 @@ Marketing Consent: ${body.marketing ? 'Yes' : 'No'}
     try {
       const emailResult = await transporter.sendMail({
         from: `"Solas Site Bot" <${process.env.SMTP_USER}>`,
-        to: 'devaang@solascompliance.com',
+        to: process.env.DEMO_REQUEST_EMAIL,
         replyTo: body.email,
         subject: `New Demo Request - ${body.firstName} ${body.lastName} from ${body.company}`,
         text: emailContent,
