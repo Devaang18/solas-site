@@ -1,36 +1,34 @@
 import { MetadataRoute } from 'next'
 
+const BASE_URL = 'https://solascompliance.com'
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date()
+
   return [
     {
-      url: 'https://solas.com',
-      lastModified: new Date(),
+      url: `${BASE_URL}/`,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://solas.com/#benefits',
-      lastModified: new Date(),
+      url: `${BASE_URL}/gaming`,
+      lastModified,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
-      url: 'https://solas.com/#oracle',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      url: `${BASE_URL}/privacy`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.5,
     },
     {
-      url: 'https://solas.com/#pillars',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://solas.com/#industries',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      url: `${BASE_URL}/terms`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.5,
     },
   ]
 }
